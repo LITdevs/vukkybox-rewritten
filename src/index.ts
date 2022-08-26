@@ -30,7 +30,7 @@ passport.deserializeUser(function(obj, done) {
 
 const app : Express = express();
 
-import {loginHandler} from './routes/auth';
+import loginHandler from './util/loginHandler';
 
 passport.use(new litauth.Strategy({
 	clientID: process.env.CLIENT_ID,
@@ -53,6 +53,7 @@ app.use(passport.session());
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 
+// Import routers
 import home from './routes/home';
 import apiv1 from './routes/api-v1';
 import auth from './routes/auth';
