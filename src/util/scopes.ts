@@ -1,0 +1,1 @@
+export default ["identify", "email", "vukkybox", "vukkybox.edit"]
