@@ -9,6 +9,7 @@ function routerFunc(passport : PassportStatic) {
 	router.get('/oauth', passport.authenticate('litauth', { scope: scopes }), () => {});
 
 	router.get('/callback', passport.authenticate('litauth', { failureRedirect: '/' }), (req: Request, res: Response) => {
+		if (!req.session.vukkybox) req.session.vukkybox = {};
 		req.session.vukkybox.validated = false;
 		if (req.cookies['redirectTo']) {
 			let dest = req.cookies['redirectTo'];

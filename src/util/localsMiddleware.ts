@@ -1,3 +1,5 @@
+import db from '../databaseManager';
+import errorNotifier from "./errorNotifier";
 /**
  * Middleware to ensure add user to `res.locals` for use in templates.
  * If user is not authenticated, `res.locals.user` will be `null`.
@@ -9,5 +11,20 @@
  */
 export default (req, res, next) => {
 	res.locals.user = req.user ? req.user : null;
-	next();
+	if (res.locals.user) {
+		let Users = db.getUsers();
+		Users.findOne({ _id: res.locals.user._id }, (err, user) => {
+			if (err) {
+				console.error(err);
+				errorNotifier(err, "Error in localsMiddleware, you should fix this ASAP");
+				return next(err);
+			}
+			res.locals.user = user;
+			req.session.user = user;
+			req.user = user;
+			next();
+		})
+	} else {
+		return next();
+	}
 }

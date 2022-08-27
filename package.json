@@ -8,7 +8,7 @@
 		"start": "node dist/index.js",
 		"cssdev": "npx postcss css/*.css -d public/css/",
 		"cssprod": "cross-env NODE_ENV=production npx postcss css/*.css -d public/css/",
-		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
+		"dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\""
 	},
 	"keywords": [],
 	"author": "Skelly, Assets by Vukky",

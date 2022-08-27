@@ -10,4 +10,5 @@ router.get('/info', checkAuth, (req : Request, res : Response) => {
 	res.render('info', {title: "Vukkybox"});
 });
 
+
 export default router;
