@@ -66,12 +66,21 @@ app.use('/', express.static('public'));
 app.use('/api/v1/', apiv1);
 app.use('/auth', auth(passport));
 
+import { verifyConnection } from './util/mailer';
+
 // When the Database Manager is ready, start listening for http traffic and count the number of users in the database.
 db.events.on('ready', () => {
-	db.getUsers().countDocuments().then(count => {
-		console.log(`Database manager ready. ${count} users in database.`);
-		app.listen(process.env.PORT || 5000, () => {
-			console.log(`Server running on port ${process.env.PORT || 5000}`);
-		});
+	verifyConnection().then((success) => {
+		if (!success) {
+			console.log("Failed to verify connection to mail server.");
+			return process.exit(2);
+		} else {
+			db.getUsers().countDocuments().then(count => {
+				console.log(`Database manager ready. ${count} users in database.`);
+				app.listen(process.env.PORT || 5000, () => {
+					console.log(`Server running on port ${process.env.PORT || 5000}`);
+				});
+			})
+		}
 	})
 });

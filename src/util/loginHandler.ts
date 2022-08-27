@@ -1,12 +1,21 @@
 import db from "../databaseManager";
+import errorNotifier from "./errorNotifier";
 
+/**
+ * Login handler for passport.
+ * @param accessToken
+ * @param refreshToken
+ * @param profile
+ * @param done
+ */
 export default function loginHandler (accessToken : string, refreshToken : string, profile : any, done : Function) {
 	let User = db.getUsers();
 	// Check if the user is already in the database.
 	User.findOne({ litauthId: profile._id }, (err, user) => {
 		if (err) {
 			console.error(err);
-			return done("Database error")
+			errorNotifier(err, "Error finding user in database.");
+			return done("Database error");
 		}
 		if (user) {
 			// User found, update data and return user
@@ -16,7 +25,8 @@ export default function loginHandler (accessToken : string, refreshToken : strin
 			user.save((err : Error, user : any) => {
 				if (err) {
 					console.error(err);
-					return done("Database error")
+					errorNotifier(err, "Error saving user to database.");
+					return done("Database error");
 				}
 				return done(null, user);
 			});
@@ -31,6 +41,7 @@ export default function loginHandler (accessToken : string, refreshToken : strin
 			usr.save((err : Error) => {
 				if (err) {
 					console.error(err);
+					errorNotifier(err, "Error creating user in database.");
 					return done("Failed to write user to database.");
 				}
 				done(null, usr);

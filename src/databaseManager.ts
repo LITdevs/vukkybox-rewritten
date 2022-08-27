@@ -1,10 +1,12 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import errorNotifier from "./util/errorNotifier";
 import EventEmitter from "events";
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI).catch(e => {
 	console.error(e);
+	errorNotifier(e, "Error connecting to database!");
 	console.log("\n\n\nUnrecoverable error connecting to database. Exiting...");
 	process.exit(1);
 });
@@ -19,7 +21,7 @@ db.once('open', () => {
 		username: String,
 		email: String,
 		playerData: Object
-	})
+	});
 	Users = mongoose.model('User', userSchema);
 	// The database manager is ready, emit an event.
 	dbEvents.emit('ready');
