@@ -3,6 +3,7 @@ import SMTPTransport from "nodemailer/lib/smtp-transport";
 dotenv.config();
 
 const LOGIN_ROUTE = "/auth/oauth";
+
 const MAILER_CONFIG : SMTPTransport.Options = {
 	host: process.env.MAILER_HOST,
 	port: Number(process.env.MAILER_PORT),

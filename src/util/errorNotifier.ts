@@ -12,5 +12,7 @@ export default function (error : Error, message? : string) {
 		to: 'contact@litdevs.org',
 		subject: 'Vukkybox Error',
 		text: `${message ? message + '\n\n' : ''}${error.stack}`
+	}).catch(e => {
+		console.error(e);
 	});
 }

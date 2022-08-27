@@ -3,13 +3,13 @@ import errorNotifier from "./errorNotifier";
 
 /**
  * Login handler for passport.
- * @param accessToken
- * @param refreshToken
- * @param profile
- * @param done
+ * @param {string} accessToken
+ * @param {string} refreshToken
+ * @param {any} profile
+ * @param {Function} done
  */
 export default function loginHandler (accessToken : string, refreshToken : string, profile : any, done : Function) {
-	let User = db.getUsers();
+	let User = db.getUsers(); // Get User from the database manager.
 	// Check if the user is already in the database.
 	User.findOne({ litauthId: profile._id }, (err, user) => {
 		if (err) {
@@ -38,8 +38,10 @@ export default function loginHandler (accessToken : string, refreshToken : strin
 				email: profile.email,
 				playerData: {}
 			});
+			// Save user
 			usr.save((err : Error) => {
 				if (err) {
+					// In case of an error, notify the developer and return an error message.
 					console.error(err);
 					errorNotifier(err, "Error creating user in database.");
 					return done("Failed to write user to database.");

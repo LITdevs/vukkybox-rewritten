@@ -68,7 +68,7 @@ app.use('/auth', auth(passport));
 
 import { verifyConnection } from './util/mailer';
 
-// When the Database Manager is ready, start listening for http traffic and count the number of users in the database.
+// When the Database Manager is ready, verify SMTP connection and start listening for http traffic and count the number of users in the database.
 db.events.on('ready', () => {
 	verifyConnection().then((success) => {
 		if (!success) {
