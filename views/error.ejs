@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<%- include("common/nav.ejs", { user }); %>
+<% if (typeof error === "undefined") { %>
+    <p>Uh oh... The server ran into an error while processing your request.</p>
+    <p>The developers have been notified, please try again later :(</p>
+    <% } else { %>
+    <p><%=error%></p>
+<% } %>
+<%- include("common/footer.ejs", { user }); %>
+</body>
+</html>

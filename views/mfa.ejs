@@ -12,10 +12,10 @@
     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     <label>
         Input One Time Password from your Authenticator:
-        <input type="text" class="mfa-box" autocomplete="off" name="token" pattern="[0-9]{6}" placeholder="123 456" oninput="validateInput(this)" required/>
+        <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
     </label>
     <p class="text-red-500" id="error"></p>
-    <input type="submit" value="Submit"/>
+    <input type="submit" value="Submit" disabled/>
 </form>
 <%- include("common/footer.ejs", { user }); %>
 <script>
@@ -30,8 +30,17 @@
 				_csrf: document.querySelector("input[name=_csrf]").value,
                 token: document.querySelector("input[name=token]").value
             })
-        }).then(res => res.json()).then(res => {
-			if (res.valid) {
+        }).then(res => {
+            if (res.status === 500) {
+				document.getElementById("error").innerHTML = "Internal Server Error, please try again later";
+	            return { exit: true }
+            }
+	        if (res.headers.get("Content-Type").split(";")[0] === "application/json") return res.json()
+	        document.getElementById("error").innerHTML = "Unknown error, this shouldn't happen. Is the server down?";
+            return { exit: true }
+		}).then(res => {
+			if (res?.exit) return;
+			if (res?.valid) {
 				window.location.href = "/2fa/success";
             } else {
 				document.querySelector("input[name=token]").value = "";
@@ -45,8 +54,11 @@
 	    let numbersOnly = /[^0-9]+/g;
 	    input.value = input.value.replaceAll(numbersOnly, "");
         if (input.value.length === 6) {
+			document.querySelector("input[type=submit]").disabled = false;
 	        input.style.border = "";
 	        document.getElementById("error").innerHTML = "";
+        } else {
+	        document.querySelector("input[type=submit]").disabled = true;
         }
     }
 </script>
