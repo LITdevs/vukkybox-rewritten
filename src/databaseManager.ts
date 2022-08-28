@@ -20,6 +20,8 @@ db.once('open', () => {
 		litauthId: mongoose.Types.ObjectId,
 		username: String,
 		email: String,
+		mfa: Boolean,
+		mfasecret: String,
 		playerData: Object
 	});
 	Users = mongoose.model('User', userSchema);

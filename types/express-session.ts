@@ -10,6 +10,7 @@ declare module "express-session" {
 			 * The validated property is used to determine if the user has validated 2-Factor Authentication, if it is enabled.
 			 */
 			validated?: boolean; // Has the user validated 2FA?
+			tempsecret?: string; // The temporary secret for 2FA during the mfa enabling flow.
 		};
 	}
 }

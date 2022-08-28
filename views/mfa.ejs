@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<%- include("common/nav.ejs", { user }); %>
+<p>Please validate your 2-Factor Authentication</p>
+<form id="validationForm">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <label>
+        Input One Time Password from your Authenticator:
+        <input type="text" class="mfa-box" autocomplete="off" name="token" pattern="[0-9]{6}" placeholder="123 456" oninput="validateInput(this)" required/>
+    </label>
+    <p class="text-red-500" id="error"></p>
+    <input type="submit" value="Submit"/>
+</form>
+<%- include("common/footer.ejs", { user }); %>
+<script>
+    document.getElementById("validationForm").addEventListener("submit", e => {
+        e.preventDefault();
+        fetch("/2fa/verify", {
+			method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+				_csrf: document.querySelector("input[name=_csrf]").value,
+                token: document.querySelector("input[name=token]").value
+            })
+        }).then(res => res.json()).then(res => {
+			if (res.valid) {
+				window.location.href = "/2fa/success";
+            } else {
+				document.querySelector("input[name=token]").value = "";
+				document.querySelector("input[name=token]").style.border = "1px solid red";
+				document.getElementById("error").innerHTML = "Code incorrect, please try again";
+            }
+        })
+    })
+
+    function validateInput(input) {
+	    let numbersOnly = /[^0-9]+/g;
+	    input.value = input.value.replaceAll(numbersOnly, "");
+        if (input.value.length === 6) {
+	        input.style.border = "";
+	        document.getElementById("error").innerHTML = "";
+        }
+    }
+</script>
+</body>
+</html>

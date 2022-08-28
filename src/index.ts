@@ -9,9 +9,10 @@ import EventEmitter from "events";
 import scopes from './util/scopes';
 import cookieParser from 'cookie-parser';
 import locals from './util/localsMiddleware';
+import csurf from 'csurf';
 dotenv.config();
 
-// Create a event emitter to tell the other modules what's going on.
+// Create an event emitter to tell the other modules what's going on.
 const serverEvents : EventEmitter = new EventEmitter();
 export default serverEvents;
 
@@ -51,19 +52,23 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
+app.use(express.json());
 app.set('view engine', 'ejs');
 
 // Import routers
 import home from './routes/home';
+import mfa from './routes/mfa';
 import apiv1 from './routes/api-v1';
 import auth from './routes/auth';
 
 app.use(locals);
 
 // Map routes to their routers, expose static assets in public folder
+app.use('/api/v1/', apiv1);
+app.use(csurf({ cookie: true }));
 app.use('/', home);
 app.use('/', express.static('public'));
-app.use('/api/v1/', apiv1);
+app.use('/2fa/', mfa);
 app.use('/auth', auth(passport));
 
 import { verifyConnection } from './util/mailer';
