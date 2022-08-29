@@ -10,5 +10,8 @@ router.get('/info', checkAuth, (req : Request, res : Response) => {
 	res.render('info', {title: "Vukkybox"});
 });
 
+router.get('/langtest', (req : Request, res : Response) => {
+	res.render('langtest', {title: "Vukkybox"});
+})
 
 export default router;

@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-<%- include("common/nav.ejs", { user }); %>
-<p>Please validate your 2-Factor Authentication</p>
-<form id="validationForm">
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <label>
-        Input One Time Password from your Authenticator:
-        <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
-    </label>
-    <p class="text-red-500" id="error"></p>
-    <input type="submit" value="Submit" disabled/>
-</form>
-<%- include("common/footer.ejs", { user }); %>
-<script>
-    document.getElementById("validationForm").addEventListener("submit", e => {
-        e.preventDefault();
-        fetch("/2fa/verify", {
-			method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-				_csrf: document.querySelector("input[name=_csrf]").value,
-                token: document.querySelector("input[name=token]").value
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <p><%=lang.mfa.please %></p>
+        <form id="validationForm">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label>
+                <%=lang.mfa.inputCode %>
+                <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
+            </label>
+            <p class="text-red-500" id="error"></p>
+            <input type="submit" value="<%=lang.submit %>" disabled/>
+        </form>
+        <%- include("common/footer.ejs", { user }); %>
+        <script>
+            document.getElementById("validationForm").addEventListener("submit", e => {
+                e.preventDefault();
+                fetch("/2fa/verify", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _csrf: document.querySelector("input[name=_csrf]").value,
+                        token: document.querySelector("input[name=token]").value
+                    })
+                }).then(res => {
+                    if (res.status === 500) {
+                        document.getElementById("error").innerHTML = "<%=lang.e500 %>";
+                        return { exit: true }
+                    }
+                    if (res.headers.get("Content-Type").split(";")[0] === "application/json") return res.json()
+                    document.getElementById("error").innerHTML = "<%=lang.mfa.serverdown %>";
+                    return { exit: true }
+                }).then(res => {
+                    if (res?.exit) return;
+                    if (res?.valid) {
+                        window.location.href = "/2fa/success";
+                    } else {
+                        document.querySelector("input[name=token]").value = "";
+                        document.querySelector("input[name=token]").style.border = "1px solid red";
+                        document.getElementById("error").innerHTML = "<%=lang.mfa.invalidCode %>";
+                    }
+                })
             })
-        }).then(res => {
-            if (res.status === 500) {
-				document.getElementById("error").innerHTML = "Internal Server Error, please try again later";
-	            return { exit: true }
-            }
-	        if (res.headers.get("Content-Type").split(";")[0] === "application/json") return res.json()
-	        document.getElementById("error").innerHTML = "Unknown error, this shouldn't happen. Is the server down?";
-            return { exit: true }
-		}).then(res => {
-			if (res?.exit) return;
-			if (res?.valid) {
-				window.location.href = "/2fa/success";
-            } else {
-				document.querySelector("input[name=token]").value = "";
-				document.querySelector("input[name=token]").style.border = "1px solid red";
-				document.getElementById("error").innerHTML = "Code incorrect, please try again";
-            }
-        })
-    })
 
-    function validateInput(input) {
-	    let numbersOnly = /[^0-9]+/g;
-	    input.value = input.value.replaceAll(numbersOnly, "");
-        if (input.value.length === 6) {
-			document.querySelector("input[type=submit]").disabled = false;
-	        input.style.border = "";
-	        document.getElementById("error").innerHTML = "";
-        } else {
-	        document.querySelector("input[type=submit]").disabled = true;
-        }
-    }
-</script>
-</body>
+            function validateInput(input) {
+                let numbersOnly = /[^0-9]+/g;
+                input.value = input.value.replaceAll(numbersOnly, "");
+                if (input.value.length === 6) {
+                    document.querySelector("input[type=submit]").disabled = false;
+                    input.style.border = "";
+                    document.getElementById("error").innerHTML = "";
+                } else {
+                    document.querySelector("input[type=submit]").disabled = true;
+                }
+            }
+        </script>
+    </body>
 </html>

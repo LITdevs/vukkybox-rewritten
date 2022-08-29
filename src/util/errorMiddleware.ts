@@ -20,5 +20,6 @@ export default (err, req, res, next) => {
 		headers: req?.headers,
 		user: req?.user
 	}));
+	console.error(err);
 	return res.status(500).render('error', {title: "Vukkyboxn't", user: req.user ? req.user : null});
 }

@@ -1,0 +1,25 @@
+{
+	"lang": "en",
+	"lang_full": "English",
+	"testString": "This is a string in the localization file!",
+	"testString2": "This is a string in the localization file THE SEQUEL!",
+	"submit": "Submit",
+	"e500": "Internal Server Error, please try again later",
+	"nav": {
+		"navTempText": "Navbar."
+	},
+	"footer": {
+		"footerTempText": "Footer."
+	},
+	"error": {
+		"topText": "Uh oh... The server ran into an error while processing your request.",
+		"bottomText": "The developers have been notified, please try again later :(",
+		"comment": "Haha funny, top text bottom text its like a meme format"
+	},
+	"mfa": {
+		"inputCode": "Input One Time Password from your Authenticator:",
+		"please": "Please validate your 2-Factor Authentication",
+		"serverdown": "Unknown error, this shouldn't happen. Is the server down?",
+		"invalidCode": "Code incorrect, please try again"
+	}
+}

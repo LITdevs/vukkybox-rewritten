@@ -9,6 +9,7 @@ import EventEmitter from "events";
 import scopes from './util/scopes';
 import cookieParser from 'cookie-parser';
 import locals from './util/localsMiddleware';
+import langMiddleware from './util/languageMiddleware';
 import errorMiddleware from './util/errorMiddleware';
 import csurf from 'csurf';
 dotenv.config();
@@ -64,6 +65,7 @@ import auth from './routes/auth';
 
 app.use(csurf({ cookie: true }));
 app.use(locals);
+app.use(langMiddleware);
 app.use(errorMiddleware);
 
 // Map routes to their routers, expose static assets in public folder

@@ -7,12 +7,10 @@
 </head>
 <body>
 <%- include("common/nav.ejs", { user }); %>
-<% if (typeof error === "undefined") { %>
-    <p><%=lang.error.topText %></p>
-    <p><%=lang.error.bottomText %></p>
-    <% } else { %>
-    <p><%=error%></p>
-<% } %>
+
+<%=lang.testString %>
+<%=lang.testString2 %>
+
 <%- include("common/footer.ejs", { user }); %>
 </body>
 </html>
