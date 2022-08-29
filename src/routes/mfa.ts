@@ -1,6 +1,7 @@
 import express, {Request, Response, Router} from 'express';
 import checkAuth from "../util/checkAuth";
 import { authenticator } from 'otplib';
+import QRCode from 'qrcode';
 const router: Router = express.Router();
 
 /**
@@ -40,7 +41,10 @@ router.post('/enable', checkAuth, (req: Request, res: Response) => {
 	if (res.locals.user.mfa) return res.status(400).send({error: "2-Factor Authentication is already enabled"});
 	let secret = authenticator.generateSecret();
 	req.session.vukkybox.tempsecret = secret;
-	res.send({secret, url: `otpauth://totp/vukkybox?secret=${secret}&issuer=${res.locals.user.email}`});
+	let url = authenticator.keyuri(res.locals.user.email, "Vukkybox", secret);
+	QRCode.toDataURL(url).then((data) => {
+		res.send({secret, qr: data});
+	});
 });
 
 /**
@@ -56,10 +60,21 @@ router.post('/disable', checkAuth, (req: Request, res: Response) => {
 	res.locals.user.mfasecret = undefined;
 	req.session.vukkybox.tempsecret = undefined;
 	res.locals.user.save();
+	res.send({success: true});
 });
 
 router.get('/validate', checkAuth, (req: Request, res: Response) => {
 	res.render('mfa', {title: 'Vukkybox', csrfToken: req.csrfToken()});
+});
+
+router.get('/disable', checkAuth, (req: Request, res: Response) => {
+	if (!res.locals.user.mfa) return res.status(400).render("error", {title: "Vukkyboxn't", error: res.locals.lang.mfa.alreadyDisabled});
+	res.render('mfadisable', {title: 'Vukkybox', csrfToken: req.csrfToken()});
+});
+
+router.get('/enable', checkAuth, (req: Request, res: Response) => {
+	if (res.locals.user.mfa) return res.status(400).render("error", {title: "Vukkyboxn't", error: res.locals.lang.mfa.alreadyEnabled});
+	res.render('mfaenable', {title: 'Vukkybox', csrfToken: req.csrfToken()});
 });
 
 // Once 2FA is validated, the user is redirected here. Redirect them to the page they were trying to access before they validated 2FA.

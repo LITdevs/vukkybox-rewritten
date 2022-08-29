@@ -1,4 +1,6 @@
 import errorNotifier from "./errorNotifier";
+import fs from "fs";
+const enlang = JSON.parse(fs.readFileSync("lang/en.json").toString());
 /**
  * Middleware to handle errors.
  *
@@ -10,7 +12,7 @@ import errorNotifier from "./errorNotifier";
 */
 export default (err, req, res, next) => {
 	if (!err) return next();
-	if (err.name === "ForbiddenError" && err.message === "invalid csrf token") return res.status(403).render('error', {title: "Vukkyboxn't", user: req.user ? req.user : null, error: "Invalid CSRF token in request"});
+	if (err.name === "ForbiddenError" && err.message === "invalid csrf token") return res.status(403).render('error', {title: "Vukkyboxn't", user: req.user ? req.user : null, error: "Invalid CSRF token in request", lang: enlang});
 	errorNotifier(err, JSON.stringify({
 		url: req.originalUrl,
 		method: req.method,

@@ -23,6 +23,7 @@
 		"@types/node": "^18.7.13",
 		"@types/nodemailer": "^6.4.5",
 		"@types/passport": "^1.0.10",
+		"@types/qrcode": "^1.5.0",
 		"autoprefixer": "^10.4.8",
 		"concurrently": "^7.3.0",
 		"cross-env": "^7.0.3",
@@ -45,6 +46,7 @@
 		"nodemailer": "^6.7.8",
 		"otplib": "^12.0.1",
 		"passport": "^0.6.0",
-		"passport-litauth": "^1.1.0"
+		"passport-litauth": "^1.1.0",
+		"qrcode": "^1.5.1"
 	}
 }
