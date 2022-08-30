@@ -3,6 +3,7 @@ import LANG_LIST from '../../lang/codes';
 
 let lang = {};
 
+// Load all the language files into the lang object.
 fs.readdirSync(`lang`).forEach(file => {
 	if (file.endsWith(".json")) {
 		lang[file.split('.')[0]] = JSON.parse(fs.readFileSync(`lang/${file}`).toString());
@@ -23,8 +24,12 @@ fs.readdirSync(`lang`).forEach(file => {
 export default function (req, res, next) {
 	let preferredLanguage = req.acceptsLanguages()[0].split("-")[0];
 	if (!LANG_LIST.includes(preferredLanguage)) preferredLanguage = "en";
+
+	// Copy the english language to a new object.
 	let enlang = {};
 	Object.assign(enlang, lang["en"]);
+
+	// Fill in missing keys with english values.
 	res.locals.lang = Object.assign(enlang, lang[preferredLanguage]);
 	return next();
 }

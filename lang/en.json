@@ -28,5 +28,8 @@
 		"youdidit": "You did it! 2-Factor Authentication is now enabled!",
 		"youdidntit": "2-Factor Authentication is now disabled.",
 		"disableButton": "Disable 2-Factor Authentication"
-	}
+	},
+	"numkies": "That's strange. I can only find Numkies in this world...",
+	"couldntbeaccessed": "This page could not be accessed.",
+	"gofindothers": "Quick! Go find the others!"
 }

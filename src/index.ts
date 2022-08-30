@@ -75,6 +75,9 @@ app.use('/', express.static('public'));
 app.use('/2fa/', mfa);
 app.use('/auth', auth(passport));
 
+// 404
+app.get('*', (req, res) => { res.status(404).render('404', {title: "Vukkybox - 404"}); })
+
 import { verifyConnection } from './util/mailer';
 
 // When the Database Manager is ready, verify SMTP connection and start listening for http traffic and count the number of users in the database.
