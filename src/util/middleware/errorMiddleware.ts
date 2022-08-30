@@ -1,4 +1,4 @@
-import errorNotifier from "./errorNotifier";
+import errorNotifier from "../errorNotifier";
 import fs from "fs";
 const enlang = JSON.parse(fs.readFileSync("lang/en.json").toString());
 /**

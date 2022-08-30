@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import {MAILER_CONFIG} from "./constants";
+import {MAILER_CONFIG} from "./constants/constants";
 
 let transporter = nodemailer.createTransport({pool: true, ...MAILER_CONFIG});
 

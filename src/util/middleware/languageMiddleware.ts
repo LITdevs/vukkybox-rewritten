@@ -1,5 +1,5 @@
 import fs from 'fs';
-import LANG_LIST from '../../lang/codes';
+import LANG_LIST from '../../../lang/codes';
 
 let lang = {};
 

@@ -1,5 +1,5 @@
 import express, { Request, Response, Router} from 'express';
-import checkAuth from "../util/checkAuth";
+import checkAuth from "../util/auth/checkAuth";
 import csurf from "csurf";
 
 const router: Router = express.Router();

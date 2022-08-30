@@ -1,5 +1,5 @@
 import express, { Request, Response, Router} from 'express';
-import apiAuth from "../util/apiAuth";
+import apiAuth from "../util/auth/apiAuth";
 
 const router: Router = express.Router();
 

@@ -1,5 +1,5 @@
-import db from "../databaseManager";
-import errorNotifier from "./errorNotifier";
+import db from "../../databaseManager";
+import errorNotifier from "../errorNotifier";
 
 /**
  * Login handler for passport.

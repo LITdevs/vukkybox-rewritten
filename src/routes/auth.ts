@@ -1,6 +1,6 @@
 import express, {Request, Response, Router} from 'express';
 import {PassportStatic} from "passport";
-import scopes from '../util/scopes';
+import scopes from '../util/constants/scopes';
 import errorNotifier from "../util/errorNotifier";
 import csurf from "csurf";
 

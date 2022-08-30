@@ -6,11 +6,11 @@ import dotenv from 'dotenv';
 import litauth from 'passport-litauth';
 import db from './databaseManager';
 import EventEmitter from "events";
-import scopes from './util/scopes';
+import scopes from './util/constants/scopes';
 import cookieParser from 'cookie-parser';
-import locals from './util/localsMiddleware';
-import langMiddleware from './util/languageMiddleware';
-import errorMiddleware from './util/errorMiddleware';
+import locals from './util/middleware/localsMiddleware';
+import langMiddleware from './util/middleware/languageMiddleware';
+import errorMiddleware from './util/middleware/errorMiddleware';
 dotenv.config();
 
 // Create an event emitter to tell the other modules what's going on.
@@ -32,7 +32,7 @@ passport.deserializeUser(function(obj, done) {
 
 const app : Express = express();
 
-import loginHandler from './util/loginHandler';
+import loginHandler from './util/auth/loginHandler';
 
 passport.use(new litauth.Strategy({
 	clientID: process.env.CLIENT_ID,

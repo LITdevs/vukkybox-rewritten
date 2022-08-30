@@ -1,4 +1,4 @@
-import {LOGIN_ROUTE, MFA_ROUTE, MFA_POST_ROUTE} from './constants';
+import {LOGIN_ROUTE, MFA_ROUTE, MFA_POST_ROUTE} from '../constants/constants';
 /**
  * Middleware to ensure user is authenticated, otherwise redirect to login page and set the redirectTo cookie.
  * If user has 2FA enabled, make sure they have validated their 2FA code before allowing them to access the page.

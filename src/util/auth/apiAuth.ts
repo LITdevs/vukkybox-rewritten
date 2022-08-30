@@ -1,5 +1,5 @@
-import db from '../databaseManager';
-import errorNotifier from "./errorNotifier";
+import db from '../../databaseManager';
+import errorNotifier from "../errorNotifier";
 /**
  * Middleware to authenticate API calls.
  * Either via API key or Session.

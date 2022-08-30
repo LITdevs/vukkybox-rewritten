@@ -1,5 +1,5 @@
 import express, {Request, Response, Router} from 'express';
-import checkAuth from "../util/checkAuth";
+import checkAuth from "../util/auth/checkAuth";
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
 import csurf from "csurf";

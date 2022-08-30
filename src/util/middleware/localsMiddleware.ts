@@ -1,5 +1,5 @@
-import db from '../databaseManager';
-import errorNotifier from "./errorNotifier";
+import db from '../../databaseManager';
+import errorNotifier from "../errorNotifier";
 /**
  * Middleware to ensure add user to `res.locals` for use in templates.
  * If user is not authenticated, `res.locals.user` will be `null`.
