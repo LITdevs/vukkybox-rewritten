@@ -46,14 +46,19 @@ app.use(session({
 	resave: true,
 	saveUninitialized: false,
 	store: sessionStore,
+	proxy: true,
 	cookie: {
-		maxAge: 100 * 60 * 60 * 24 * 30
+		maxAge: 100 * 60 * 60 * 24 * 30,
+		sameSite: true,
+		httpOnly: true,
+		secure: process.env.CALLBACK_URL.startsWith("https")
 	}
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cookieParser());
+app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.json());
+app.set('trust proxy', true);
 app.set('view engine', 'ejs');
 
 // Import routers
