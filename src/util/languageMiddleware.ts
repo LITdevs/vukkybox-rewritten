@@ -10,10 +10,15 @@ fs.readdirSync(`lang`).forEach(file => {
 })
 
 /**
+ * Middleware to add language to `res.locals` for use in templates.
+ * Uses accept-language header to determine language.
+ * If none is specified or language is not supported, english is used
+ * Missing keys are filled with english values.
  *
- * @param req
- * @param res
- * @param next
+ * @param {Express.Request} req Express request
+ * @param {Express.Response} res Express response
+ * @param {Function} next Next middleware
+ * @return {void}
  */
 export default function (req, res, next) {
 	let preferredLanguage = req.acceptsLanguages()[0].split("-")[0];

@@ -22,6 +22,7 @@ db.once('open', () => {
 		email: String,
 		mfa: Boolean,
 		mfasecret: String,
+		apiKey: String,
 		playerData: Object
 	});
 	Users = mongoose.model('User', userSchema);

@@ -23,5 +23,5 @@ export default (err, req, res, next) => {
 		user: req?.user
 	}));
 	console.error(err);
-	return res.status(500).render('error', {title: "Vukkyboxn't", user: req.user ? req.user : null});
+	return res.status(500).render('error', {title: "Vukkyboxn't", user: req.user ? req.user : null, lang: enlang});
 }

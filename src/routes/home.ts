@@ -1,13 +1,11 @@
 import express, { Request, Response, Router } from 'express';
-import checkAuth from '../util/checkAuth';
+import csurf from "csurf";
 const router : Router = express.Router();
+
+router.use(csurf({ cookie: true }));
 
 router.get('/', (req : Request, res : Response) => {
 	res.render('index', {title: "Vukkybox"});
-});
-
-router.get('/info', checkAuth, (req : Request, res : Response) => {
-	res.render('info', {title: "Vukkybox"});
 });
 
 router.get('/langtest', (req : Request, res : Response) => {

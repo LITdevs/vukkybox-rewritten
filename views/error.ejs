@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<%- include("common/nav.ejs", { user }); %>
+<%- include("common/nav.ejs", { user, lang }); %>
 <% if (typeof error === "undefined") { %>
     <p><%=lang.error.topText %></p>
     <p><%=lang.error.bottomText %></p>
     <% } else { %>
     <p><%=error%></p>
 <% } %>
-<%- include("common/footer.ejs", { user }); %>
+<%- include("common/footer.ejs", { user, lang }); %>
 </body>
 </html>

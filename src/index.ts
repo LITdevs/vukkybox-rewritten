@@ -11,7 +11,6 @@ import cookieParser from 'cookie-parser';
 import locals from './util/localsMiddleware';
 import langMiddleware from './util/languageMiddleware';
 import errorMiddleware from './util/errorMiddleware';
-import csurf from 'csurf';
 dotenv.config();
 
 // Create an event emitter to tell the other modules what's going on.
@@ -61,15 +60,16 @@ app.set('view engine', 'ejs');
 import home from './routes/home';
 import mfa from './routes/mfa';
 import apiv1 from './routes/api-v1';
+import apiinternal from './routes/api-internal';
 import auth from './routes/auth';
 
-app.use(csurf({ cookie: true }));
 app.use(locals);
 app.use(langMiddleware);
 app.use(errorMiddleware);
 
 // Map routes to their routers, expose static assets in public folder
 app.use('/api/v1/', apiv1);
+app.use('/api/internal/', apiinternal);
 app.use('/', home);
 app.use('/', express.static('public'));
 app.use('/2fa/', mfa);

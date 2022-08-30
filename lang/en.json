@@ -14,8 +14,7 @@
 	},
 	"error": {
 		"topText": "Uh oh... The server ran into an error while processing your request.",
-		"bottomText": "The developers have been notified, please try again later :(",
-		"comment": "Haha funny, top text bottom text its like a meme format"
+		"bottomText": "The developers have been notified, please try again later :("
 	},
 	"mfa": {
 		"inputCode": "Input One Time Password from your Authenticator:",

@@ -10,7 +10,7 @@ import errorNotifier from "./errorNotifier";
  * @return {void}
  */
 export default (req, res, next) => {
-	res.locals.csrfToken = req.csrfToken();
+	if (req.csrfToken) res.locals.csrfToken = req.csrfToken();
 	res.locals.user = req.user ? req.user : null;
 	if (res.locals.user) {
 		let Users = db.getUsers();
