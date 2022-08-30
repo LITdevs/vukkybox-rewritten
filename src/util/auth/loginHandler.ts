@@ -36,7 +36,7 @@ export default function loginHandler (accessToken : string, refreshToken : strin
 				litauthId: profile._id,
 				username: profile.username,
 				email: profile.email,
-				playerData: {}
+				createdAt: Date.now()
 			});
 			// Save user
 			usr.save((err : Error) => {

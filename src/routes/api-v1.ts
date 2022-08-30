@@ -4,17 +4,20 @@ import apiAuth from "../util/auth/apiAuth";
 const router: Router = express.Router();
 
 router.get('/', apiAuth, (req: Request, res: Response) => {
-	res.json({message: "Hello World, this is the internal API"});
+	res.json({message: "Hello World, this is the public API"});
 });
 
-//TODO: mfasecret and email are not correctly filtered out
 router.get('/user', apiAuth, (req : Request, res : Response) => {
-	res.json({...req.user, mfasecret: null, email: null });
+	if (req.user.mfa) req.user.mfasecret = undefined;
+	if (req.user.apiKey) req.user.apiKey = undefined;
+	req.user.email = undefined;
+	res.json({user: req.user});
 });
 
-//TODO: mfasecret and email are not correctly filtered out
 router.get('/user/email', apiAuth, (req : Request, res : Response) => {
-	res.json({...req.user, mfasecret: null});
+	if (req.user.mfa) req.user.mfasecret = undefined;
+	if (req.user.apiKey) req.user.apiKey = undefined;
+	res.json({user: req.user});
 })
 
 export default router;

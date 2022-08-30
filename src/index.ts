@@ -23,10 +23,10 @@ const sessionStore = new MongoDBStore({
 	expires: 100 * 60 * 60 * 24 * 30
 })
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user : Express.User, done) {
 	done(null, user);
 });
-passport.deserializeUser(function(obj, done) {
+passport.deserializeUser(function(obj : Express.User, done) {
 	done(null, obj);
 });
 

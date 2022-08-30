@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import errorNotifier from "./util/errorNotifier";
 import EventEmitter from "events";
+import {IUser, UserSchema} from "./util/constants/userModel";
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI).catch(e => {
@@ -16,15 +17,7 @@ const dbEvents = new EventEmitter();
 
 let Users
 db.once('open', () => {
-	let userSchema= new mongoose.Schema({
-		litauthId: mongoose.Types.ObjectId,
-		username: String,
-		email: String,
-		mfa: Boolean,
-		mfasecret: String,
-		apiKey: String,
-		playerData: Object
-	});
+	let userSchema = new mongoose.Schema<IUser>(UserSchema);
 	Users = mongoose.model('User', userSchema);
 	// The database manager is ready, emit an event.
 	dbEvents.emit('ready');
