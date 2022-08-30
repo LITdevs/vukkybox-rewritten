@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
+        <span id="vukkydata"></span>
+        <%- include("common/footer.ejs", { user }); %>
+        <script>
+            fetch("/api/internal/open/<%=boxId%>")
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("vukkydata").textContent = JSON.stringify(data);
+                });
+        </script>
+    </body>
+</html>

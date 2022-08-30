@@ -11,11 +11,14 @@ import cookieParser from 'cookie-parser';
 import locals from './util/middleware/localsMiddleware';
 import langMiddleware from './util/middleware/languageMiddleware';
 import errorMiddleware from './util/middleware/errorMiddleware';
+import boxInitializer from './util/vukkybox/boxInitializer';
+import vukkyList from '../public/data/vukkies.json';
 dotenv.config();
 
 // Create an event emitter to tell the other modules what's going on.
 const serverEvents : EventEmitter = new EventEmitter();
 export default serverEvents;
+export { vukkyList };
 
 const sessionStore = new MongoDBStore({
 	uri: process.env.MONGODB_URI,
@@ -61,6 +64,9 @@ app.use(express.json());
 app.set('trust proxy', true);
 app.set('view engine', 'ejs');
 
+app.locals.vukkies = vukkyList;
+app.locals.boxes = boxInitializer();
+
 // Import routers
 import home from './routes/home';
 import mfa from './routes/mfa';
@@ -94,6 +100,7 @@ db.events.on('ready', () => {
 		} else {
 			db.getUsers().countDocuments().then(count => {
 				console.log(`Database manager ready. ${count} users in database.`);
+				console.log(`${app.locals.boxes.length} boxes loaded.`);
 				app.listen(process.env.PORT || 5000, () => {
 					console.log(`Server running on port ${process.env.PORT || 5000}`);
 				});

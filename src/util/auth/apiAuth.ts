@@ -36,7 +36,6 @@ export default function (req, res, next) {
 				return res.status(500).json({error: "Internal Server Error", message: "Something went wrong"});
 			}
 			if (!user) return res.status(403).json({error: "Unauthorized", message: "Invalid API key"});
-			console.log(user);
 			req.user = user;
 			res.locals.user = user;
 			next();

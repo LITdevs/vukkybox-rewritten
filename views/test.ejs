@@ -7,7 +7,9 @@
 </head>
 <body>
 <%- include("common/nav.ejs", { user }); %>
-<%=JSON.stringify(user)%>
+<% boxes.forEach(box => {
+	box // This is here so the linter shuts up%><%-include("common/box.ejs", { box }); %><br><br><%
+}) %>
 <%- include("common/footer.ejs", { user }); %>
 </body>
 </html>
