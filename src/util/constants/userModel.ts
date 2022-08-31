@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import {playerDataModel, IplayerDataModel} from "./playerDataModel";
+import {statisticsModel, IstatisticsModel} from "./statisticsModel";
 
 interface IUser {
 	litauthId: mongoose.Types.ObjectId,
@@ -9,7 +10,7 @@ interface IUser {
 	mfasecret?: String,
 	apiKey?: String,
 	playerData?: IplayerDataModel,
-	statistics?: Object,
+	statistics?: IstatisticsModel,
 	createdAt: Date
 }
 
@@ -21,7 +22,7 @@ const UserSchema = {
 	mfasecret: String,
 	apiKey: String,
 	playerData: playerDataModel,
-	statistics: Object,
+	statistics: statisticsModel,
 	createdAt: Date
 }
 

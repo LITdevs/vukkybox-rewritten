@@ -9,13 +9,18 @@
         <%- include("common/nav.ejs", { user }); %>
         <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
         <span id="vukkydata"></span>
+        <br>
+        <button onclick="openBox()">Open</button>
         <%- include("common/footer.ejs", { user }); %>
         <script>
-            fetch("/api/internal/open/<%=boxId%>")
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById("vukkydata").textContent = JSON.stringify(data);
-                });
+            function openBox() {
+	            fetch("/api/internal/open/<%=boxId%>")
+		            .then(res => res.json())
+		            .then(data => {
+			            document.getElementById("vukkydata").textContent = JSON.stringify(data);
+		            });
+            }
+			openBox();
         </script>
     </body>
 </html>
