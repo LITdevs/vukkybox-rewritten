@@ -44,6 +44,7 @@ passport.use(new litauth.Strategy({
 	scope: scopes
 }, loginHandler))
 
+// TODO: Cookie options
 app.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: true,

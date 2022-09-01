@@ -8,17 +8,14 @@ import {LOGIN_ROUTE, MFA_ROUTE, MFA_POST_ROUTE} from '../constants/constants';
  * @return {void}
  */
 export default function (req, res, next) {
-	console.log(req.user)
 	if (req.isAuthenticated()) {
 		// Do not redirect user if they are trying to access the validation page, to prevent infinite redirect loop.
 		if (req.user.mfa && !req.session.vukkybox.validated && req.originalUrl !== MFA_ROUTE && req.originalUrl !== MFA_POST_ROUTE) {
 			res.cookie('redirectTo', req.url);
-			console.log("mfa needed...");
 			return res.redirect(MFA_ROUTE);
 		}
 		return next();
 	}
-	console.log("not authenticated...");
 	res.cookie('redirectTo', req.url);
 	res.redirect(LOGIN_ROUTE);
 }
