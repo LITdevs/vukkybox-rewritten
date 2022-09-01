@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .vukkyCard {
-    @apply border-2 rounded-lg w-48 m-2 content-center text-center;
+    @apply border-2 rounded-lg w-56 m-1.5 content-center text-center break-words;
 }

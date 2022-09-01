@@ -2,6 +2,7 @@ import express, {Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
 import { ADMINS } from "../util/constants/constants";
 import csurf from "csurf";
+import errorNotifier from "../util/errorNotifier";
 
 const router: Router = express.Router();
 
@@ -9,7 +10,10 @@ const router: Router = express.Router();
 router.use(csurf({ cookie: true }));
 router.use(checkAuth);
 router.use((req, res, next) => {
-	if(!ADMINS.includes(String(req.user.litauthId))) return res.status(403).render('error', {title: "Vukkyboxn't", error: "403 FORBIDDEN\n You are not an administrator."});
+	if(!ADMINS.includes(String(req.user.litauthId))) {
+		errorNotifier(new Error(`User ${req.user.litauthId} (${req.user.username}) tried to access the admin panel.`), JSON.stringify({user: req.user, url: req.originalUrl, method: req.method, query: req?.query, headers: req?.headers}));
+		return res.status(403).render('error', {title: "Vukkyboxn't", error: "403 Forbidden<br> You are not an administrator. This incident will be reported."});
+	}
 	res.locals.csrfToken = req.csrfToken();
 	next();
 })

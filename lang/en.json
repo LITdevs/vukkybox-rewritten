@@ -38,8 +38,9 @@
 		"rare": "Rare",
 		"mythical": "Mythical",
 		"godly": "Godly",
-		"bukky": "bukky",
+		"bukky": "Legendary",
 		"unique": "Unique",
 		"pukky": "Pukky"
-	}
+	},
+	"collectionOf": "View the collection of {0}"
 }

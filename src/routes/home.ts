@@ -22,14 +22,21 @@ router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 	res.render('open', {title: "Vukkybox", boxId: req.params.id});
 });
 
-router.get('/collection', checkAuth, (req : Request, res : Response) => {
+router.get('/collection', (req : Request, res : Response) => {
 	if (!req?.query?.user) {
-		res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
+		checkAuth(req, res, () => {
+			res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
+		})
 	} else {
 		let User = db.getUsers();
 		User.findOne({_id: req.query.user}, (err, user) => {
-			if (err || !user) return res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
-			res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, user});
+			if (err || !user) {
+				checkAuth(req, res, () => {
+					return res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
+				})
+			} else {
+				res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, user});
+			}
 
 		})
 	}
