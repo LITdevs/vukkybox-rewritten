@@ -5,6 +5,7 @@ dotenv.config();
 const LOGIN_ROUTE = "/auth/oauth";
 const MFA_ROUTE = "/2fa/validate";
 const MFA_POST_ROUTE = "/2fa/verify";
+const ADMINS = ["62b3515989cdb45c9e06e010"];
 
 const MAILER_CONFIG : SMTPTransport.Options = {
 	host: process.env.MAILER_HOST,
@@ -24,5 +25,6 @@ export {
 	LOGIN_ROUTE,
 	MFA_ROUTE,
 	MFA_POST_ROUTE,
+	ADMINS,
 	MAILER_CONFIG
 }

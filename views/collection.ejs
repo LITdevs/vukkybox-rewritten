@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<%- include("common/nav.ejs", { user }); %>
+
+<label for="sortingMethod">
+Sorting method:
+</label>
+<select id="sortingMethod">
+    <option value="rarity">Sort by Rarity (descending)</option>
+    <option value="rarity_r">Sort by Rarity (ascending)</option>
+    <option value="id">Sort by ID number (descending)</option>
+    <option value="id_r">Sort by ID number (ascending)</option>
+    <option value="creator">Sort by creator (descending)</option>
+    <option value="creator_r">Sort by creator (ascending)</option>
+</select>
+
+<div class="flex flex-wrap">
+<%
+    let sortMethod
+    if (typeof sortingMethod === "undefined") sortMethod = "rarity"
+    else sortMethod = sortingMethod;
+    let finalVukkies = [];
+    // Iterate through each Vukky in the users' collection, the keys are the Vukky IDs
+    if (!user.playerData.collection) user.playerData.collection = {};
+    Object.keys(user.playerData.collection).forEach(function(key) {
+        let rarityLevels = Object.keys(vukkies.rarity);
+		let vukky
+        let rarity
+        let duplicates = user.playerData.collection[key];
+		// Get the rarity of the Vukky
+		rarityLevels.some(rarityLevel => {
+			if (Object.keys(vukkies.rarity[rarityLevel]).includes(key)) {
+                vukky = vukkies.rarity[rarityLevel][key];
+                rarity = rarityLevel;
+                return true;
+            } else {
+				return false;
+            }
+        })
+
+        vukky = {
+		    name: vukky.name,
+            id: parseInt(key),
+            rarity: rarity,
+            description: vukky.description,
+            creator: vukky.creator,
+            imageURL: vukky.url,
+            duplicateCount: duplicates
+        }
+		// Add to array for sorting
+		finalVukkies.push(vukky);
+    });
+
+    if (sortMethod === "rarity") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+            return vukkies.levels[a.rarity].level - vukkies.levels[b.rarity].level;
+        }).reverse();
+    }
+
+    if (sortMethod === "rarity_r") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+            return vukkies.levels[a.rarity].level - vukkies.levels[b.rarity].level;
+        })
+    }
+
+    if (sortMethod === "id") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+            return a.id - b.id;
+        }).reverse()
+    }
+
+    if (sortMethod === "id_r") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+            return a.id - b.id;
+        })
+    }
+
+    if (sortMethod === "creator") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+            if (a.creator > b.creator) return 1;
+			if (a.creator < b.creator) return -1;
+			return 0;
+        })
+    }
+
+    if (sortMethod === "creator_r") {
+        // Sort the array by rarity
+        finalVukkies.sort((a, b) => {
+			if (!a.creator) return 1;
+			if (!b.creator) return -1;
+            if (a.creator.toLowerCase() > b.creator.toLowerCase()) return 1;
+            if (a.creator.toLowerCase() < b.creator.toLowerCase()) return -1;
+            return 0;
+        }).reverse()
+    }
+
+	let lastRarity
+	finalVukkies.forEach(vukky => {
+        if (vukky.rarity !== lastRarity && ["rarity", "rarity_r"].includes(sortMethod)) {
+            lastRarity = vukky.rarity;
+            %>
+            <h1 class="w-full text-center text-3xl font-bold"><%= lang.vukkies[vukky.rarity] %></h1><br>
+            <%
+        } %>
+        <%- include("common/vukky.ejs", { vukky }); %><%
+    })
+ %>
+</div>
+
+<%- include("common/footer.ejs", { user }); %>
+<script>
+    // create proxy for url params
+    const urlParams = new URLSearchParams(window.location.search);
+    // get sorting method from url params
+    const sortingMethod = urlParams.get('sortingMethod');
+    // if sorting method is not null, set the sorting method to the value of the url param
+    if (sortingMethod !== null) {
+        document.getElementById("sortingMethod").value = sortingMethod;
+    }
+    // add event listener to sorting method dropdown
+	document.getElementById("sortingMethod").addEventListener("change", function() {
+        window.location.href = "/collection?sortingMethod=" + this.value + (urlParams.get("user") !== null ? "&user=" + urlParams.get("user") : "");
+    })
+</script>
+</body>
+</html>

@@ -52,14 +52,14 @@ app.use(session({
 	proxy: true,
 	cookie: {
 		maxAge: 100 * 60 * 60 * 24 * 30,
-		sameSite: true,
-		httpOnly: true,
+		sameSite: false,
+		httpOnly: false,
 		secure: process.env.CALLBACK_URL.startsWith("https")
 	}
 }))
+app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.json());
 app.set('trust proxy', true);
 app.set('view engine', 'ejs');
@@ -72,6 +72,7 @@ import home from './routes/home';
 import mfa from './routes/mfa';
 import apiv1 from './routes/api-v1';
 import apiinternal from './routes/api-internal';
+import admin from './routes/admin';
 import auth from './routes/auth';
 
 app.use(locals);
@@ -85,6 +86,7 @@ app.use('/', home);
 app.use('/', express.static('public'));
 app.use('/2fa/', mfa);
 app.use('/auth', auth(passport));
+app.use('/admin', admin);
 
 // 404
 app.get('*', (req, res) => { res.status(404).render('404', {title: "Vukkybox - 404"}); })

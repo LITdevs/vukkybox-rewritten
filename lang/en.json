@@ -31,5 +31,15 @@
 	},
 	"numkies": "That's strange. I can only find Numkies in this world...",
 	"couldntbeaccessed": "This page could not be accessed.",
-	"gofindothers": "Quick! Go find the others!"
+	"gofindothers": "Quick! Go find the others!",
+	"vukkies": {
+		"common": "Common",
+		"uncommon": "Uncommon",
+		"rare": "Rare",
+		"mythical": "Mythical",
+		"godly": "Godly",
+		"bukky": "bukky",
+		"unique": "Unique",
+		"pukky": "Pukky"
+	}
 }

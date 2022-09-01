@@ -16,27 +16,27 @@
 			"color": "#af7dff"
 		},
 		"mythical": {
-			"level": 4,
+			"level": 5,
 			"name": "Mythical",
 			"color": "#d642ff"
 		},
 		"godly": {
-			"level": 5,
+			"level": 6,
 			"name": "Godly",
 			"color": "#000dff"
 		},
 		"bukky": {
-			"level": 6,
+			"level": 7,
 			"name": "bukky",
 			"color": "#00A8F3"
 		},
 		"unique": {
-			"level": 7,
+			"level": 8,
 			"name": "Unique",
 			"color": "#ffbb00"
 		},
 		"pukky": {
-			"level": 8,
+			"level": 4,
 			"name": "Pukky",
 			"color": "#00bbff"
 		}

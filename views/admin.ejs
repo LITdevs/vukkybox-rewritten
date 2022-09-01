@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <button class="border border-black m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button>
+        <%- include("common/footer.ejs", { user }); %>
+        <script>
+            function allVukkies() {
+				if (!confirm("Are you sure?\nOld vukkies cannot be restored!")) return
+                if (!confirm("Are you REALLY sure?")) return
+                if (!confirm("Are you REALLY REALLY sure?")) return
+                if (!confirm("Are you REALLY REALLY REALLY sure?\nThis cannot be undone!!")) return
+                alert("Ok then... Close page now to abort mission... last chance");
+                fetch("/admin/giveall", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _csrf: "<%= csrfToken %>"
+                    })
+                }).then(res => res.json()).then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        alert("Success!");
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

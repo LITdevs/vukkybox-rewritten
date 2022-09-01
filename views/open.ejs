@@ -8,16 +8,27 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
-        <span id="vukkydata"></span>
+        <div class="hidden" id="vukkyData">
+            <%- include("common/vukky.ejs"); %>
+        </div>
         <br>
         <button onclick="openBox()">Open</button>
         <%- include("common/footer.ejs", { user }); %>
         <script>
             function openBox() {
+	            document.getElementById("vukkyData").classList.add("hidden");
 	            fetch("/api/internal/open/<%=boxId%>")
 		            .then(res => res.json())
 		            .then(data => {
-			            document.getElementById("vukkydata").textContent = JSON.stringify(data);
+						if (data.error) {
+							return alert(data.error);
+                        }
+			            document.getElementById("vukkyName").innerHTML = data.name;
+						document.getElementById("vukkyImage").src = data.imageURL;
+			            document.getElementById("vukkyRarity").innerHTML = data.rarity;
+			            document.getElementById("vukkyCreator").innerHTML = `Created by ${data.creator ? data.creator : "Unknown"}`;
+			            document.getElementById("vukkyDescription").innerHTML = data.description;
+			            document.getElementById("vukkyData").classList.remove("hidden");
 		            });
             }
 			openBox();
