@@ -10,8 +10,8 @@ router.get('/', (req : Request, res : Response) => {
 	res.render('index', {title: "Vukkybox"});
 });
 
-router.get('/test', (req : Request, res : Response) => {
-	res.render('test', {title: "Vukkybox"});
+router.get('/store', (req : Request, res : Response) => {
+	res.render('store', {title: "Vukkybox"});
 });
 
 router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
