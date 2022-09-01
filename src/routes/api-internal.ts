@@ -2,6 +2,8 @@ import express, { Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
 import csurf from "csurf";
 import openBox from "../util/vukkybox/openBox";
+import event from "../index";
+import uniqueGetEvent from "../classes/events/uniqueGetEvent";
 
 const router: Router = express.Router();
 
@@ -47,6 +49,7 @@ router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 		res.locals.user.markModified('statistics');
 		res.locals.user.playerData.balance = res.locals.user.playerData.balance.toFixed(2);
 		res.locals.user.save();
+		if (vukky.rarity === "unique") event.emit("uniqueGetEvent", new uniqueGetEvent(vukky, res.locals.user));
 		res.json(vukky)
 	})
 })

@@ -13,12 +13,18 @@ import langMiddleware from './util/middleware/languageMiddleware';
 import errorMiddleware from './util/middleware/errorMiddleware';
 import boxInitializer from './util/vukkybox/boxInitializer';
 import vukkyList from '../public/data/vukkies.json';
+import fs from 'fs';
+
 dotenv.config();
 
 // Create an event emitter to tell the other modules what's going on.
 const serverEvents : EventEmitter = new EventEmitter();
 export default serverEvents;
 export { vukkyList };
+
+fs.readdirSync('src/hooks').forEach(file => {
+	require(`./hooks/${file.split(".")[0]}`).init();
+})
 
 const sessionStore = new MongoDBStore({
 	uri: process.env.MONGODB_URI,
