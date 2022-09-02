@@ -2,9 +2,10 @@ import express, { Request, Response, Router } from 'express';
 import csurf from "csurf";
 import db from '../databaseManager';
 import checkAuth from "../util/auth/checkAuth";
+import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 const router : Router = express.Router();
 
-router.use(csurf({ cookie: true }));
+router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 
 router.get('/', (req : Request, res : Response) => {
 	res.render('index', {title: "Vukkybox"});

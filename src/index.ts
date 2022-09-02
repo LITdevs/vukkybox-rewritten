@@ -50,7 +50,7 @@ passport.use(new litauth.Strategy({
 	scope: scopes
 }, loginHandler))
 
-// TODO: Cookie options
+// TODO: Think about cookie options...
 app.use(session({
 	secret: process.env.SESSION_SECRET,
 	resave: true,
@@ -59,8 +59,6 @@ app.use(session({
 	proxy: true,
 	cookie: {
 		maxAge: 100 * 60 * 60 * 24 * 30,
-		sameSite: false,
-		httpOnly: false,
 		secure: process.env.CALLBACK_URL.startsWith("https")
 	}
 }))

@@ -7,10 +7,10 @@
 	"next": "Next",
 	"e500": "Internal Server Error, please try again later",
 	"nav": {
-		"navTempText": "Navbar."
+		"navTempText": "This is the navbar visible on every page."
 	},
 	"footer": {
-		"footerTempText": "Footer."
+		"footerTempText": "This is the footer visible on every page."
 	},
 	"error": {
 		"topText": "Uh oh... The server ran into an error while processing your request.",

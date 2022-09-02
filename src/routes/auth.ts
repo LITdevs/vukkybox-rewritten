@@ -3,11 +3,12 @@ import {PassportStatic} from "passport";
 import scopes from '../util/constants/scopes';
 import errorNotifier from "../util/errorNotifier";
 import csurf from "csurf";
+import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 
 function routerFunc(passport : PassportStatic) {
 	const router: Router = express.Router();
 
-	router.use(csurf({ cookie: true }));
+	router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 
 	router.get('/oauth', passport.authenticate('litauth', { scope: scopes }), () => {});
 

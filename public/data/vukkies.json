@@ -1154,7 +1154,7 @@
 				"creator": "IngvildO"
 			},
 			"341": {
-				"name": "<script src='/resources/reskin/vukkynow.js'></script>Vukky Now!",
+				"name": "<!--<script src='/resources/reskin/vukkynow.js'></script>-->Vukky Now!",
 				"url": "https://vukkybox.com/resources/vukkynow.webp",
 				"description": "Seems like it's a button of some kind.",
 				"creator": "Vukky"
@@ -1222,7 +1222,7 @@
 			"369": {
 				"name": "Vukky \"leaving\"",
 				"url": "https://vukkybox.com/resources/vukkybyebye.webp",
-				"description": "Uh, okay then... See you later, Vukky!",
+				"description": "Perfectly balanced, as all Vukkies should be.",
 				"creator": "mitch"
 			},
 			"375": {
@@ -1736,14 +1736,14 @@
 				"creator": "VocalFan"
 			},
 			"312": {
-				"name": "<script src='/resources/reskin/webtv.js'></script><span style=\"text-transform: lowercase; font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;\">Web<span style=\"color:gold;\">TV</span></span> Vukky",
+				"name": "<!--<script src='/resources/reskin/webtv.js'></script>--><span style=\"text-transform: lowercase; font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;\">Web<span style=\"color:gold;\">TV</span></span> Vukky",
 				"url": "https://vukkybox.com/resources/webtvvukky.webp",
 				"description": "<i>banger music plays</i>",
 				"creator": "Vukky",
 				"audio": "https://vukkybox.com/resources/unboxwebtv.ogg"
 			},
 			"318": {
-				"name": "<script src='/resources/reskin/corrupted.js'></script>Corrupted Vukky (Animated)",
+				"name": "<!--<script src='/resources/reskin/corrupted.js'></script>-->Corrupted Vukky (Animated)",
 				"url": "https://vukkybox.com/resources/corruptedvukky.webp",
 				"description": "There is no escape from what is about to come.",
 				"creator": "Vukky",

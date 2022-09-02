@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 .vukkyCard {
-    @apply border-2 rounded-lg w-56 m-1.5 content-center text-center break-words;
+    @apply border-2 rounded-lg w-56 m-1.5 content-center text-center break-words shadow-lg;
+}
+
+.h-dyn {
+    height: calc(1.5em + 7vw);
+}
+
+.fs-dyn {
+    font-size: calc(0.25em + 1.5vw);
 }

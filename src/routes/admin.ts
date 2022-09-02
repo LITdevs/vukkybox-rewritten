@@ -1,13 +1,12 @@
 import express, {Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
-import { ADMINS } from "../util/constants/constants";
+import { ADMINS, CSRF_COOKIE_OPTIONS } from "../util/constants/constants";
 import csurf from "csurf";
 import errorNotifier from "../util/errorNotifier";
 
 const router: Router = express.Router();
 
-// TODO: Change the csrf cookie on all routers to be pulled from constants.ts, httpOnly, samesite etc...
-router.use(csurf({ cookie: true }));
+router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 router.use(checkAuth);
 router.use((req, res, next) => {
 	if(!ADMINS.includes(String(req.user.litauthId))) {
@@ -28,7 +27,7 @@ router.post('/giveall', (req: Request, res: Response) => {
 	allRarities.forEach(rarity => {
 		allVukkyIds = allVukkyIds.concat(Object.keys(req.app.locals.vukkies.rarity[rarity]));
 	})
-	let allVukkies = {}
+	let allVukkies = {};
 	allVukkyIds.forEach(vukkyId => {
 		allVukkies[vukkyId] = 999;
 	})

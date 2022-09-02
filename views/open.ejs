@@ -15,6 +15,29 @@
         <button onclick="openBox()">Open</button>
         <%- include("common/footer.ejs", { user }); %>
         <script>
+            const rarityLang = {
+	            "common": "<%=lang.vukkies.common%>",
+	            "uncommon": "<%=lang.vukkies.uncommon%>",
+	            "rare": "<%=lang.vukkies.common%>",
+	            "mythical": "<%=lang.vukkies.mythical%>",
+	            "godly": "<%=lang.vukkies.godly%>",
+	            "bukky": "<%=lang.vukkies.bukky%>",
+	            "unique": "<%=lang.vukkies.unique%>",
+	            "pukky": "<%=lang.vukkies.pukky%>",
+            }
+
+			const rarityColor = {
+				"common": "<%=vukkies.levels.common.color%>",
+				"uncommon": "<%=vukkies.levels.uncommon.color%>",
+				"rare": "<%=vukkies.levels.rare.color%>",
+				"mythical": "<%=vukkies.levels.mythical.color%>",
+				"godly": "<%=vukkies.levels.godly.color%>",
+				"bukky": "<%=vukkies.levels.bukky.color%>",
+				"unique": "<%=vukkies.levels.unique.color%>",
+				"pukky": "<%=vukkies.levels.pukky.color%>",
+
+            }
+
             function openBox() {
 	            document.getElementById("vukkyData").classList.add("hidden");
 	            fetch("/api/internal/open/<%=boxId%>")
@@ -25,9 +48,10 @@
                         }
 			            document.getElementById("vukkyName").innerHTML = data.name;
 						document.getElementById("vukkyImage").src = data.imageURL;
-			            document.getElementById("vukkyRarity").innerHTML = data.rarity;
+			            document.getElementById("vukkyRarity").innerHTML = rarityLang[data.rarity];
 			            document.getElementById("vukkyCreator").innerHTML = `Created by ${data.creator ? data.creator : "Unknown"}`;
 			            document.getElementById("vukkyDescription").innerHTML = data.description;
+						document.getElementById("vukkyCard").style.borderColor = rarityColor[data.rarity];
 			            document.getElementById("vukkyData").classList.remove("hidden");
 		            });
             }

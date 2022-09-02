@@ -1,4 +1,4 @@
-<div class="vukkyCard" <%-typeof vukky !== "undefined" ? `style="border-color: ${vukkies.levels[vukky.rarity].color}"` : "" %>>
+<div class="vukkyCard" id="vukkyCard" <%-typeof vukky !== "undefined" ? `style="border-color: ${vukkies.levels[vukky.rarity].color}"` : "" %>>
     <h1 id="vukkyName" class="font-bold"><%-typeof vukky !== "undefined" ? `${vukky.name} #${vukky.id}${vukky.duplicateCount > 1 ? ` (${vukky.duplicateCount})` : ""}` : ""%></h1>
     <img id="vukkyImage" class="mx-auto w-52" src="<%=typeof vukky !== "undefined" ? vukky.imageURL : ""%>" alt="">
     <span id="vukkyRarity" <%-typeof vukky !== "undefined" ? `style="color: ${vukkies.levels[vukky.rarity].color}"` : "" %> class="font-semibold"><%=typeof vukky !== "undefined" ? lang.vukkies[vukky.rarity] : ""%></span><br>

@@ -3,9 +3,10 @@ import checkAuth from "../util/auth/checkAuth";
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
 import csurf from "csurf";
+import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 const router: Router = express.Router();
 
-router.use(csurf({ cookie: true }));
+router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 
 /**
  * Verify the user's 2FA code against the stored secret.
@@ -16,9 +17,9 @@ router.post('/verify', checkAuth, (req: Request, res: Response) => {
 	if (!req.body.token) return res.status(400).send({error: "No token provided"});
 	let tokenValid
 	if (res.locals.user.mfa) {
+		// User has MFA enabled
 		if (!res.locals.user?.mfasecret) return res.status(400).send({error: "2-Factor Authentication is not enabled"});
 		tokenValid = authenticator.check(req.body.token, res.locals.user.mfasecret);
-		// User has MFA enabled
 	} else {
 		// User is in the process of enabling MFA
 		if (!req.session?.vukkybox?.tempsecret) return res.status(400).send({error: "2-Factor Authentication is not enabled"});
