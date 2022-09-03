@@ -22,6 +22,10 @@ Sorting method:
     <option value="creator_r">Sort by creator (ascending)</option>
 </select>
 
+<a class="text-blue-500 cursor-pointer" onclick="share()">
+    Share collection
+</a>
+
 <div class="flex flex-wrap">
 <%
     let sortMethod
@@ -134,6 +138,16 @@ Sorting method:
 	document.getElementById("sortingMethod").addEventListener("change", function() {
         window.location.href = "/collection?sortingMethod=" + this.value + (urlParams.get("user") !== null ? "&user=" + urlParams.get("user") : "");
     })
+
+    function share() {
+	    var copyText = `${new URL(window.location).origin}/collection?user=<%=user._id%>`;
+	    navigator.clipboard.writeText(copyText).then(function() {
+            alert("Share link copied to clipboard!\nSend it to your friends to flex your Vukkies on them!");
+        }, function(err) {
+            alert("Failed to copy to clipboard!");
+			console.error(err);
+        });
+    }
 </script>
 </body>
 </html>

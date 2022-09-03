@@ -100,16 +100,20 @@ import { verifyConnection } from './util/mailer';
 
 // When the Database Manager is ready, verify SMTP connection and start listening for http traffic and count the number of users in the database.
 db.events.on('ready', () => {
+	//SMTP verification
 	verifyConnection().then((success) => {
 		if (!success) {
 			console.log("Failed to verify connection to mail server.");
 			return process.exit(2);
 		} else {
+			// Count users
 			db.getUsers().countDocuments().then(count => {
 				console.log(`Database manager ready. ${count} users in database.`);
 				console.log(`${app.locals.boxes.length} boxes loaded.`);
+				// Start listening to http traffic
 				app.listen(process.env.PORT || 5000, () => {
 					console.log(`Server running on port ${process.env.PORT || 5000}`);
+					serverEvents.emit('ready');
 				});
 			})
 		}

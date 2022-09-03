@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<%- include("common/nav.ejs", { user }); %>
+<table class="bg-gray-600 rounded-lg mx-auto">
+    <tr>
+        <td class="p-2">
+            <img alt="<%=user.username%>'s profile picture" src="https://auth.litdevs.org/api/avatar/bg/<%=user.litauthId%>" class="rounded-full w-32 h-32">
+        </td>
+        <td class="p-2 text-white">
+            <p><%=user.username%></p>
+        </td>
+    </tr>
+</table>
+
+<%- include("common/footer.ejs", { user }); %>
+</body>
+</html>

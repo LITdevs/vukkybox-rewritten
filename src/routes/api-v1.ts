@@ -20,4 +20,14 @@ router.get('/user/email', apiAuth, (req : Request, res : Response) => {
 	res.json({user: req.user});
 })
 
+router.get('/leaderboard', (req : Request, res : Response) => {
+	const legalSortTypes = ["totalVukkies", "common", "uncommon", "rare", "mythical", "godly", "bukky", "pukky", "unique", "balance", "boxesOpened", "codesRedeemed"];
+	let sortType : string = req.query?.sort?.toString() || "totalVukkies";
+	if (!legalSortTypes.includes(sortType)) sortType = "totalVukkies";
+	const legalDirections = ["asc", "desc"];
+	let sortDirection : string = req.query?.direction?.toString() || "desc";
+	if (!legalDirections.includes(sortDirection)) sortDirection = "desc";
+	res.json({sortType, sortDirection})
+})
+
 export default router;
