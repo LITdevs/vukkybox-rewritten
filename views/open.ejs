@@ -7,12 +7,14 @@
     </head>
     <body>
         <%- include("common/nav.ejs", { user }); %>
-        <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
-        <div class="hidden" id="vukkyData">
-            <%- include("common/vukky.ejs"); %>
+        <div class="content">
+            <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
+            <div class="hidden" id="vukkyData">
+                <%- include("common/vukky.ejs"); %>
+            </div>
+            <br>
+            <button onclick="openBox()">Open</button>
         </div>
-        <br>
-        <button onclick="openBox()">Open</button>
         <%- include("common/footer.ejs", { user }); %>
         <script>
             const rarityLang = {
@@ -35,7 +37,6 @@
 				"bukky": "<%=vukkies.levels.bukky.color%>",
 				"unique": "<%=vukkies.levels.unique.color%>",
 				"pukky": "<%=vukkies.levels.pukky.color%>",
-
             }
 
             function openBox() {

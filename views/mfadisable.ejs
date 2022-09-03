@@ -7,11 +7,13 @@
     </head>
     <body>
         <%- include("common/nav.ejs", { user }); %>
-        <div id="page1">
-            <button onclick="disablemfa()"><%=lang.mfa.disableButton%></button>
-        </div>
-        <div id="page2" class="hidden">
-            <p><%=lang.mfa.youdidntit%></p>
+        <div class="content">
+            <div id="page1">
+                <button onclick="disablemfa()"><%=lang.mfa.disableButton%></button>
+            </div>
+            <div id="page2" class="hidden">
+                <p><%=lang.mfa.youdidntit%></p>
+            </div>
         </div>
         <%- include("common/footer.ejs", { user }); %>
         <script>

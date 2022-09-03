@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+            <table class="bg-gray-600 rounded-lg mx-auto my-5">
+                <tr>
+                    <td class="p-2 text-white">
+                        <form id="vukkyCreatorForm">
+                            <label>
+                                <input type="text" name="vukkyName" value="Vukky Name" class="text-black" oninput="vn.innerHTML = this.value" required>
+                            </label><br><br>
+                            <input type="file" name="vukkyImage" accept="image/*" required><br><br>
+                            <label>
+                                <select name="vukkyRarity" class="text-black" required>
+                                    <option value="common" selected><%=lang.vukkies.common%></option>
+                                    <option value="uncommon"><%=lang.vukkies.uncommon%></option>
+                                    <option value="rare"><%=lang.vukkies.rare%></option>
+                                    <option value="mythical"><%=lang.vukkies.mythical%></option>
+                                    <option value="godly"><%=lang.vukkies.godly%></option>
+                                    <option value="bukky"><%=lang.vukkies.bukky%></option>
+                                    <option value="unique"><%=lang.vukkies.unique%></option>
+                                    <option value="pukky"><%=lang.vukkies.pukky%></option>
+                                </select>
+                            </label><br><br>
+                            <label>
+                                <input type="text" name="vukkyCreator" value="Niko" class="text-black" oninput="vc.innerHTML = `Created by ${this.value}`">
+                            </label><br><br>
+                            <label>
+                                <textarea rows="4" name="vukkyDescription" class="text-black" oninput="vd.innerHTML = this.value.replaceAll('\n', '<br>')" required>This Vukky is waiting for someone to create it!</textarea>
+                            </label><br>
+                            <input type="submit" value="<%=lang.submit%>" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm ">
+                        </form>
+                    </td>
+                    <td class="p-2">
+                        <%-include("../common/vukky.ejs")%>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <%- include("../common/footer.ejs", { user }); %>
+        <script>
+            const rarityLang = {
+                "common": "<%=lang.vukkies.common%>",
+                "uncommon": "<%=lang.vukkies.uncommon%>",
+                "rare": "<%=lang.vukkies.common%>",
+                "mythical": "<%=lang.vukkies.mythical%>",
+                "godly": "<%=lang.vukkies.godly%>",
+                "bukky": "<%=lang.vukkies.bukky%>",
+                "unique": "<%=lang.vukkies.unique%>",
+                "pukky": "<%=lang.vukkies.pukky%>",
+            }
+
+            const rarityColor = {
+                "common": "<%=vukkies.levels.common.color%>",
+                "uncommon": "<%=vukkies.levels.uncommon.color%>",
+                "rare": "<%=vukkies.levels.rare.color%>",
+                "mythical": "<%=vukkies.levels.mythical.color%>",
+                "godly": "<%=vukkies.levels.godly.color%>",
+                "bukky": "<%=vukkies.levels.bukky.color%>",
+                "unique": "<%=vukkies.levels.unique.color%>",
+                "pukky": "<%=vukkies.levels.pukky.color%>",
+            }
+
+            document.getElementById("vukkyCard").style.borderColor = "<%=vukkies.levels.common.color%>"
+            document.getElementById("vukkyCard").classList.add("bg-white")
+
+            let vn = document.getElementById("vukkyName")
+            vn.innerHTML = document.querySelector("input[name=vukkyName]").value
+
+            let vr = document.getElementById("vukkyRarity")
+            vr.innerHTML = "Common"
+            document.querySelector("select[name=vukkyRarity]").addEventListener("change", function() {
+                vr.innerHTML = rarityLang[this.value]
+                document.getElementById("vukkyCard").style.borderColor = rarityColor[this.value]
+            })
+
+            let vi = document.getElementById("vukkyImage")
+            vi.src = "<%=vukkies.rarity.common["1"].url%>"
+
+            document.querySelector("input[name=vukkyImage]").addEventListener("change", function() {
+                let file = this.files[0]
+                let reader = new FileReader()
+                reader.onload = function() {
+                    vi.src = reader.result
+                }
+                reader.readAsDataURL(file)
+            })
+
+            let vc = document.getElementById("vukkyCreator")
+            vc.innerHTML = "Created by Niko"
+
+            let vd = document.getElementById("vukkyDescription")
+            vd.innerHTML = "This Vukky is waiting for someone to create it!"
+
+            document.getElementById("vukkyCreatorForm").addEventListener("submit", function(e) {
+                e.preventDefault()
+                let form = new FormData()
+                form.append("name", document.querySelector("input[name=vukkyName]").value)
+	            form.append("rarity", document.querySelector("select[name=vukkyRarity]").value)
+	            form.append("creator", document.querySelector("input[name=vukkyCreator]").value)
+	            form.append("description", document.querySelector("textarea[name=vukkyDescription]").value.replaceAll("\n", "<br>"))
+                form.append("image", document.querySelector("input[name=vukkyImage]").files[0])
+                fetch("/admin/createvukky?_csrf=<%= csrfToken %>", {
+                    method: "POST",
+                    body: form
+                }).then(res => res.json()).then(res => {
+                    if(res.error) {
+                        alert(res.error)
+                    } else {
+                        alert("Vukky created!")
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

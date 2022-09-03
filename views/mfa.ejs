@@ -7,16 +7,18 @@
     </head>
     <body>
         <%- include("common/nav.ejs", { user }); %>
-        <p><%=lang.mfa.please %></p>
-        <form id="validationForm">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <label>
-                <%=lang.mfa.inputCode %>
-                <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
-            </label>
-            <p class="text-red-500" id="error"></p>
-            <input type="submit" value="<%=lang.submit %>" disabled/>
-        </form>
+        <div class="content">
+            <p><%=lang.mfa.please %></p>
+            <form id="validationForm">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <label>
+                    <%=lang.mfa.inputCode %>
+                    <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
+                </label>
+                <p class="text-red-500" id="error"></p>
+                <input type="submit" value="<%=lang.submit %>" disabled/>
+            </form>
+        </div>
         <%- include("common/footer.ejs", { user }); %>
         <script>
             document.getElementById("validationForm").addEventListener("submit", e => {

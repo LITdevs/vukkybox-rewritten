@@ -7,7 +7,10 @@
 </head>
     <body>
         <%- include("common/nav.ejs", { user }); %>
-        <button class="border border-black m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button>
+        <div class="content">
+            <button class="border border-black m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button><br>
+            <a href="/admin/vukkydesigner"><button class="border border-black m-2">Add new Vukky</button></a>
+        </div>
         <%- include("common/footer.ejs", { user }); %>
         <script>
             function allVukkies() {

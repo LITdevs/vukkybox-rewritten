@@ -13,3 +13,16 @@
 .fs-dyn {
     font-size: calc(0.25em + 1.5vw);
 }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}

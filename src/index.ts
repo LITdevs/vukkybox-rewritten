@@ -12,8 +12,9 @@ import locals from './util/middleware/localsMiddleware';
 import langMiddleware from './util/middleware/languageMiddleware';
 import errorMiddleware from './util/middleware/errorMiddleware';
 import boxInitializer from './util/vukkybox/boxInitializer';
-import vukkyList from '../public/data/vukkies.json';
+import vukkyJSON from '../public/data/vukkies.json';
 import fs from 'fs';
+let vukkyList = vukkyJSON;
 
 dotenv.config();
 
@@ -21,6 +22,15 @@ dotenv.config();
 const serverEvents : EventEmitter = new EventEmitter();
 export default serverEvents;
 export { vukkyList };
+
+function setVukkyList(newList : any) {
+	vukkyList = newList;
+	//setTimeout(() => {
+		fs.writeFileSync("./public/data/vukkies.json", JSON.stringify(vukkyList, null, 4));
+	//}, 2000)
+}
+
+export { setVukkyList };
 
 fs.readdirSync('src/hooks').forEach(file => {
 	require(`./hooks/${file.split(".")[0]}`).init();
@@ -66,6 +76,7 @@ app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
 app.set('view engine', 'ejs');
 
@@ -79,6 +90,7 @@ import apiv1 from './routes/api-v1';
 import apiinternal from './routes/api-internal';
 import admin from './routes/admin';
 import auth from './routes/auth';
+import profile from './routes/profile';
 
 app.use(locals);
 app.use(langMiddleware);
@@ -92,6 +104,7 @@ app.use('/', express.static('public'));
 app.use('/2fa/', mfa);
 app.use('/auth', auth(passport));
 app.use('/admin', admin);
+app.use('/profile', profile);
 
 // 404
 app.get('*', (req, res) => { res.status(404).render('404', {title: "Vukkybox - 404"}); })

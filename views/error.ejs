@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-<%- include("common/nav.ejs", { user, lang }); %>
-<% if (typeof error === "undefined") { %>
-    <p><%=lang.error.topText %></p>
-    <p><%=lang.error.bottomText %></p>
-    <% } else { %>
-    <p><%-error%></p>
-<% } %>
-<%- include("common/footer.ejs", { user, lang }); %>
-</body>
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user, lang }); %>
+            <div class="content">
+            <% if (typeof error === "undefined") { %>
+                <p><%=lang.error.topText %></p>
+                <p><%=lang.error.bottomText %></p>
+                <% } else { %>
+                <p><%-error%></p>
+            <% } %>
+            </div>
+        <%- include("common/footer.ejs", { user, lang }); %>
+    </body>
 </html>

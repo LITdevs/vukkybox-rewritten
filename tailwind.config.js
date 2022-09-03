@@ -2,6 +2,7 @@ module.exports = {
 	content: [
 		"./views/*.ejs",
 		"./views/common/*.ejs",
+		"./views/admin/*.ejs",
 		"./public/*.js",
 		"./public/js/*.js"
 	],

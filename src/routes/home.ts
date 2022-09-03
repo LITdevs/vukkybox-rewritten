@@ -43,8 +43,4 @@ router.get('/collection', (req : Request, res : Response) => {
 	}
 });
 
-router.get('/profile', checkAuth, (req : Request, res : Response) => {
-	res.render('profile', {title: "Vukkybox"});
-});
-
 export default router;

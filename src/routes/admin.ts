@@ -3,6 +3,20 @@ import checkAuth from "../util/auth/checkAuth";
 import { ADMINS, CSRF_COOKIE_OPTIONS } from "../util/constants/constants";
 import csurf from "csurf";
 import errorNotifier from "../util/errorNotifier";
+import {setVukkyList, vukkyList} from "../index";
+import multer from "multer";
+import path from "path";
+
+let storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, `${__dirname}/../../../public/resources`)
+	},
+	filename: function (req, file, cb) {
+		cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
+	}
+})
+
+let upload = multer({storage})
 
 const router: Router = express.Router();
 
@@ -34,6 +48,32 @@ router.post('/giveall', (req: Request, res: Response) => {
 	res.locals.user.playerData.collection = allVukkies;
 	res.locals.user.save();
 	res.send("Successfully gave all vukkies to user");
+})
+
+router.get('/vukkydesigner', (req: Request, res: Response) => {
+	return res.render('admin/vukkydesigner', {title: "Vukkybox - Vukky Designer"});
+})
+
+router.post('/createvukky', upload.single('image'),(req: Request, res: Response) => {
+	if (!req.body.name || !req.body.description || !req.body.rarity) {
+		return res.status(400).json({error: "Missing parameters"});
+	}
+	if (!req.file) {
+		return res.status(400).json({error: "Missing file"});
+	}
+	let newVukkyList = vukkyList;
+	newVukkyList.currentId++;
+	let newId = vukkyList.currentId;
+	newVukkyList.rarity[req.body.rarity][newId] = {
+		name: req.body.name,
+		description: req.body.description,
+		url: `https://vukkybox.com/resources/${req.file.filename}`,
+		rarity: req.body.rarity
+	}
+	if (req.body.creator) newVukkyList.rarity[req.body.rarity][newId].creator = req.body.creator;
+	setVukkyList(newVukkyList);
+	console.log(`New Vukky added: ${req.body.name} (${newId})`);
+	res.json({success: true});
 })
 
 export default router;
