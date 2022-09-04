@@ -39,6 +39,12 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 			res.locals.user.save();
 			res.json({error: null, success: true});
 			break;
+		case "css":
+			if (!req.body.css) res.locals.user.profile.css = "";
+			if (req.body.css) res.locals.user.profile.css = req.body.css.replace(/<[^>]*>?/gm, '');
+			res.locals.user.save();
+			res.json({error: null, success: true});
+			break;
 		case "background":
 			if (!req.body.bgMode) return res.status(400).json({error: "Missing parameters"});
 			switch (req.body.bgMode) {

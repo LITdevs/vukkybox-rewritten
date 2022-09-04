@@ -4,6 +4,11 @@
         <title><%= title %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/style.css">
+        <%if (puser?.profile?.css && puser?.profile?.css?.length > 0) { %>
+            <style>
+                <%-puser.profile.css %>
+            </style>
+        <% } %>
     </head>
     <body>
         <div class="content" <% if (puser.profile.background.mode === "image") { %> style="background-image: url('<%=puser.profile.background.image%>')" <% } %>
@@ -63,7 +68,7 @@
                 </div>
                 <div class="hidden profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="css-editor">
                     <label for="css-editor-textarea" class="text-white"><%-lang.profile.turbonerd%></label>
-                    <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-black" rows="4" placeholder="CSS code goes here..."></textarea>
+                    <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-white rounded-lg p-1" rows="4" placeholder="CSS code goes here..."><% if(puser.profile.css && puser.profile.css.length > 0) { %><%=puser.profile.css%><% } %></textarea>
                     <input type="submit" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm" value="<%=lang.submit%>" onclick="submitCSS()">
                 </div>
             <% } %>

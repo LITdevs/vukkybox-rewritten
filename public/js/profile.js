@@ -153,3 +153,23 @@ function submitBg() {
 		}
 	})
 }
+
+function submitCSS() {
+	let css = document.getElementById("css-editor-textarea").value;
+	fetch('/api/v1/profile', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			"action": "css",
+			"css": css
+		})
+	}).then(res => res.json()).then(res => {
+		if (res.error) {
+			alert(res.error);
+		} else {
+			cssEditor();
+		}
+	})
+}
