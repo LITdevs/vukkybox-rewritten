@@ -26,17 +26,17 @@ router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 router.get('/collection', (req : Request, res : Response) => {
 	if (!req?.query?.user) {
 		checkAuth(req, res, () => {
-			res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
+			res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, puser: req.user});
 		})
 	} else {
 		let User = db.getUsers();
 		User.findOne({_id: req.query.user}, (err, user) => {
 			if (err || !user) {
 				checkAuth(req, res, () => {
-					return res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod});
+					return res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, puser: req.user});
 				})
 			} else {
-				res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, user});
+				res.render('collection', {title: "Vukkybox", sortingMethod: req?.query?.sortingMethod, puser: user});
 			}
 
 		})

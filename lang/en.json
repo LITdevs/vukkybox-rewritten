@@ -43,8 +43,22 @@
 		"pukky": "Pukky"
 	},
 	"collectionOf": "View the collection of {0}",
+	"collectionSort": {
+		"rarity": "Sort by Rarity (descending)",
+		"rarity_r": "Sort by Rarity (ascending)",
+		"id": "Sort by ID number (descending)",
+		"id_r": "Sort by ID number (ascending)",
+		"creator": "Sort by creator (descending)",
+		"creator_r": "Sort by creator (ascending)"
+	},
+	"shareCollection": "Share collection",
+	"viewCollection": "View collection",
+	"shareCopied": "Share link copied to clipboard!\nSend it to your friends to flex your Vukkies on them!",
+	"copyFail": "Failed to copy to clipboard!",
+	"profileOf": "{0}'s profile",
+	"viewProfileOf": "View {0}'s profile, badges and more!",
 	"flags": {
-		"noflags": "This user has no flags :(",
+		"noflags": "This user has no badges :(",
 		"admin": {
 			"name": "LIT Dev",
 			"description": "This user takes care of the Vukkies."

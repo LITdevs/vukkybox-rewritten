@@ -4,6 +4,9 @@
         <title><%= title %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/style.css">
+        <meta name="title" content="<%=lang.profileOf.replace("{0}", puser.username)%>">
+        <meta name="description" content="<%=lang.viewProfileOf.replace("{0}", puser.username)%>">
+        <meta property="og:image" content="https://auth.litdevs.org/api/avatar/bg/<%=puser.litauthId%>">
         <%if (puser?.profile?.css && puser?.profile?.css?.length > 0) { %>
             <style>
                 <%-puser.profile.css %>

@@ -4,7 +4,7 @@
         <title><%= title %></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <meta name="description" content="<%=lang.collectionOf.replace("{0}", user.username)%>">
+        <meta name="description" content="<%=lang.collectionOf.replace("{0}", puser.username)%>">
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
@@ -14,16 +14,16 @@
             Sorting method:
             </label>
             <select id="sortingMethod">
-                <option value="rarity">Sort by Rarity (descending)</option>
-                <option value="rarity_r">Sort by Rarity (ascending)</option>
-                <option value="id">Sort by ID number (descending)</option>
-                <option value="id_r">Sort by ID number (ascending)</option>
-                <option value="creator">Sort by creator (descending)</option>
-                <option value="creator_r">Sort by creator (ascending)</option>
+                <option value="rarity"><%=lang.collectionSort.rarity%></option>
+                <option value="rarity_r"><%=lang.collectionSort.rarity_r%></option>
+                <option value="id"><%=lang.collectionSort.id%></option>
+                <option value="id_r"><%=lang.collectionSort.id_r%></option>
+                <option value="creator"><%=lang.collectionSort.creator%></option>
+                <option value="creator_r"><%=lang.collectionSort.creator_r%></option>
             </select>
 
             <a class="text-blue-500 cursor-pointer" onclick="share()">
-                Share collection
+                <%=lang.shareColelction%>
             </a>
 
             <div class="flex flex-wrap">
@@ -33,12 +33,12 @@
                 else sortMethod = sortingMethod;
                 let finalVukkies = [];
                 // Iterate through each Vukky in the users' collection, the keys are the Vukky IDs
-                if (!user.playerData.collection) user.playerData.collection = {};
-                Object.keys(user.playerData.collection).forEach(function(key) {
+                if (!puser.playerData.collection) puser.playerData.collection = {};
+                Object.keys(puser.playerData.collection).forEach(function(key) {
                     let rarityLevels = Object.keys(vukkies.rarity);
                     let vukky
                     let rarity
-                    let duplicates = user.playerData.collection[key];
+                    let duplicates = puser.playerData.collection[key];
                     // Get the rarity of the Vukky
                     rarityLevels.some(rarityLevel => {
                         if (Object.keys(vukkies.rarity[rarityLevel]).includes(key)) {
@@ -141,11 +141,11 @@
             })
 
             function share() {
-                var copyText = `${new URL(window.location).origin}/collection?user=<%=user._id%>`;
+                var copyText = `${new URL(window.location).origin}/collection?user=<%=puser._id%>`;
                 navigator.clipboard.writeText(copyText).then(function() {
-                    alert("Share link copied to clipboard!\nSend it to your friends to flex your Vukkies on them!");
+                    alert("<%=lang.shareCopied%>");
                 }, function(err) {
-                    alert("Failed to copy to clipboard!");
+                    alert("<%=lang.copyFail %>");
                     console.error(err);
                 });
             }
