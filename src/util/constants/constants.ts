@@ -6,7 +6,6 @@ dotenv.config();
 const LOGIN_ROUTE = "/auth/oauth";
 const MFA_ROUTE = "/2fa/validate";
 const MFA_POST_ROUTE = "/2fa/verify";
-const ADMINS = ["62b3515989cdb45c9e06e010"];
 
 const CSRF_COOKIE_OPTIONS : CookieOptions = {
 	httpOnly: true,
@@ -32,7 +31,6 @@ export {
 	LOGIN_ROUTE,
 	MFA_ROUTE,
 	MFA_POST_ROUTE,
-	ADMINS,
 	CSRF_COOKIE_OPTIONS,
 	MAILER_CONFIG
 }
