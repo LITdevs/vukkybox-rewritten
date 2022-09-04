@@ -1,7 +1,12 @@
 <script src="https://kit.fontawesome.com/303d8b79a7.js" crossorigin="anonymous"></script>
 <div class="nav">
-    <p class="mx-2"><%=lang.nav.navTempText %></p>
-    <%if (user) { %>
+    <div>
+        <span class="mx-2"><%=lang.nav.navTempText %></span>
+        <% if (user) { %>
+        <span><%=user.playerData.balance%> Vukkybux</span>
+        <% } %>
+    </div>
+    <% if (user) { %>
         <span class="nav-user">
             <a href="/profile/<%=user.username %>">
                 <i class="fa-solid fa-user mr-1"></i>
