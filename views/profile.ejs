@@ -26,7 +26,7 @@
                     <a href="?editmode"><i class="fa-solid m-2 text-2xl fa-pen-to-square cursor-pointer hover:text-gray-700"></i></a>
                 <% } %>
             <% }%>
-            <div class="profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="profile-card">
+            <div class="profile-card" id="profile-card">
                 <%
                     let cardOrder = {
 						"0": include("common/profile/profilecard.ejs", { puser }),
@@ -40,7 +40,7 @@
                 %>
             </div>
             <%if (editMode) { %>
-                <div class="hidden profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="bg-editor">
+                <div class="hidden profile-card" id="bg-editor">
                     <label class="text-white">
                         <%=lang.profile.bgmode %>
                         <select class="text-black" onchange="changeBgMode(this.value)">
@@ -64,12 +64,12 @@
                             <input <% if(puser.profile.background.image) { %>value="<%=puser.profile.background.image%>"<% } %> type="url" class="text-black" placeholder="https://example.com/image.jpg" oninput="bgImage = this.value" id="bgImage">
                         </label>
                     </div>
-                    <input type="submit" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm" value="<%=lang.submit%>" onclick="submitBg()">
+                    <input type="submit" class="btn" value="<%=lang.submit%>" onclick="submitBg()">
                 </div>
-                <div class="hidden profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="css-editor">
+                <div class="hidden profile-card" id="css-editor">
                     <label for="css-editor-textarea" class="text-white"><%-lang.profile.turbonerd%></label>
                     <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-white rounded-lg p-1" rows="4" placeholder="CSS code goes here..."><% if(puser.profile.css && puser.profile.css.length > 0) { %><%=puser.profile.css%><% } %></textarea>
-                    <input type="submit" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm" value="<%=lang.submit%>" onclick="submitCSS()">
+                    <input type="submit" class="btn" value="<%=lang.submit%>" onclick="submitCSS()">
                 </div>
             <% } %>
         </div>
