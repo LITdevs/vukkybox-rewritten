@@ -41,7 +41,7 @@
             "color": "#00bbff"
         }
     },
-    "currentId": 388,
+    "currentId": 389,
     "rarity": {
         "common": {
             "1": {
@@ -1838,7 +1838,7 @@
             "236": {
                 "name": "Vukky Merging Machine",
                 "url": "https://vukkybox.com/resources/vukkymerging.webp",
-                "description": "Two things go in, one Vukky comes out.",
+                "description": "Not a toaster.<br>Two things go in, one Vukky comes out.",
                 "creator": "Skelly"
             },
             "388": {
@@ -1847,6 +1847,13 @@
                 "url": "https://vukkybox.com/resources/1662222956352.png",
                 "rarity": "unique",
                 "creator": "Nibel"
+            },
+            "389": {
+                "name": "nimpk",
+                "description": "nimpk nom nom pancaks go yum",
+                "url": "http://localhost:5000/resources/1662289971427.png",
+                "rarity": "unique",
+                "creator": "autohor"
             }
         },
         "pukky": {

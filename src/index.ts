@@ -12,6 +12,7 @@ import locals from './util/middleware/localsMiddleware';
 import langMiddleware from './util/middleware/languageMiddleware';
 import errorMiddleware from './util/middleware/errorMiddleware';
 import boxInitializer from './util/vukkybox/boxInitializer';
+import flagInitializer from './util/vukkybox/flagInitializer';
 import vukkyJSON from '../public/data/vukkies.json';
 import fs from 'fs';
 let vukkyList = vukkyJSON;
@@ -80,8 +81,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
 app.set('view engine', 'ejs');
 
+// Application wide locals, available in all views.
 app.locals.vukkies = vukkyList;
 app.locals.boxes = boxInitializer();
+app.locals.flags = flagInitializer();
 
 // Import routers
 import home from './routes/home';

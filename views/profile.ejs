@@ -6,19 +6,75 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <%- include("common/nav.ejs", { user }); %>
-        <div class="content">
-            <table class="bg-gray-600 rounded-lg mx-auto my-5">
-                <tr>
-                    <td class="p-2">
-                        <img alt="<%=puser.username%>'s profile picture" src="https://auth.litdevs.org/api/avatar/bg/<%=puser.litauthId%>" class="rounded-full w-32 h-32">
-                    </td>
-                    <td class="p-2 text-white">
-                        <p><%=puser.username%></p>
-                    </td>
-                </tr>
-            </table>
+        <div class="content" <% if (puser.profile.background.mode === "image") { %> style="background-image: url('<%=puser.profile.background.image%>')" <% } %>
+                <% if (puser.profile.background.mode === "color") { %> style="background-color: <%=puser.profile.background.color%>" <% } %>
+        >
+            <%- include("common/nav.ejs", { user }); %>
+            <!--Edit mode is enabled? <%=editMode%>-->
+            <% if (puser._id.equals(user?._id)) { %>
+                <% if (editMode) { %>
+                    <input type="hidden" id="_csrf" value="<%=csrfToken%>">
+                    <a onclick="updateProfile()"><i class="fa-solid m-2 text-2xl fa-check cursor-pointer hover:text-gray-700"></i></a>
+                    <i class="m-2 text-2xl fa-solid fa-window-maximize cursor-pointer" onclick="backgroundEditor()"></i>
+                    <i class="fa-solid fa-code m-2 text-2xl cursor-pointer" onclick="cssEditor()"></i>
+                <% } else { %>
+                    <a href="?editmode"><i class="fa-solid m-2 text-2xl fa-pen-to-square cursor-pointer hover:text-gray-700"></i></a>
+                <% } %>
+            <% }%>
+            <div class="profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="profile-card">
+                <%
+                    let cardOrder = {
+						"0": include("common/profile/profilecard.ejs", { puser }),
+                        "1": include("common/profile/trophycase.ejs", { puser })
+                    }
+					let order = Object.keys(cardOrder);
+					if (puser.profile.order.length > 0) order = puser.profile.order
+					order.forEach(card => {
+						%><%- cardOrder[card] %><%
+                    })
+                %>
+            </div>
+            <%if (editMode) { %>
+                <div class="hidden profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="bg-editor">
+                    <label class="text-white">
+                        <%=lang.profile.bgmode %>
+                        <select class="text-black" onchange="changeBgMode(this.value)">
+                            <option value="color" <%if(puser.profile.background.mode === "color") { %> selected <% } %> ><%=lang.profile.bgmode0%></option>
+                            <option value="random" <%if(puser.profile.background.mode === "random") { %> selected <% } %>><%=lang.profile.bgmode1%></option>
+                            <option value="image" <%if(puser.profile.background.mode === "image") { %> selected <% } %>><%=lang.profile.bgmode2%></option>
+                        </select>
+                    </label><br><br>
+                    <div id="bg-editor-color" <%if(puser.profile.background.mode !== "color") { %> class="hidden" <% } %>>
+                        <label class="text-white">
+                            Select background color:
+                            <input <% if(puser.profile.background.color) { %>value="<%=puser.profile.background.color%>"<% } %> type="color" oninput="document.querySelector('.content').style.backgroundColor = this.value;" id="bgColor">
+                        </label>
+                    </div>
+                    <div id="bg-editor-random" <%if(puser.profile.background.mode !== "random") { %> class="hidden" <% } %>>
+                        <p class="text-white">The profile page background will be randomly selected.</p>
+                    </div>
+                    <div id="bg-editor-image" <%if(puser.profile.background.mode !== "image") { %> class="hidden" <% } %>>
+                        <label class="text-white">
+                            Enter URL of image:
+                            <input <% if(puser.profile.background.image) { %>value="<%=puser.profile.background.image%>"<% } %> type="url" class="text-black" placeholder="https://example.com/image.jpg" oninput="bgImage = this.value" id="bgImage">
+                        </label>
+                    </div>
+                    <input type="submit" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm" value="<%=lang.submit%>" onclick="submitBg()">
+                </div>
+                <div class="hidden profile-card bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2" id="css-editor">
+                    <label for="css-editor-textarea" class="text-white"><%-lang.profile.turbonerd%></label>
+                    <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-black" rows="4" placeholder="CSS code goes here..."></textarea>
+                    <input type="submit" class="text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm" value="<%=lang.submit%>" onclick="submitCSS()">
+                </div>
+            <% } %>
         </div>
         <%- include("common/footer.ejs", { user }); %>
     </body>
+    <% if (editMode) { %>
+        <script>
+            let order = JSON.parse('<%-JSON.stringify(puser.profile.order)%>')
+            if (order.length === 0) order = ["0", "1", "2"]
+        </script>
+        <script src="/js/profile.js"></script>
+    <% } %>
 </html>

@@ -26,3 +26,8 @@ body {
 .content {
     flex: 1 0 auto;
 }
+
+.flag {
+    @apply hover:bg-gray-400 w-32 h-36 text-center rounded-lg p-2 transition-colors ease-in-out duration-100;
+}
+

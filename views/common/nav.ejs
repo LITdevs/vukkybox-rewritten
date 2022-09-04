@@ -2,7 +2,19 @@
 <div class="flex flex-row justify-between bg-gray-900 text-white w-full h-12 items-center">
     <p class="mx-2"><%=lang.nav.navTempText %></p>
     <%if (user) { %>
-        <a href="/profile/<%=user.username %>" class="mx-2 hover:bg-gray-800 rounded-lg p-2 cursor-pointer select-none"><i class="fa-solid fa-user mr-1"></i><%=user.username %></a>
+
+        <span class="mx-2 hover:bg-gray-800 rounded-lg p-2 cursor-pointer select-none">
+            <a href="/profile/<%=user.username %>">
+                <i class="fa-solid fa-user mr-1"></i>
+                <%=user.username %>
+
+                <% if (user.flags.some(flag => flag.flag === 0)) { %>
+                    <a href="/admin"><img src="/flags/litdev.svg" class="inline w-8 h-8" alt="Admin icon"></a>
+                <% } %>
+
+            </a>
+        </span>
+
     <% } else { %>
         <a href="/auth/oauth" class="mx-2 hover:bg-gray-800 rounded-lg p-2 cursor-pointer select-none"><i class="fa-solid fa-key mr-1"></i>Login</a>
     <% } %>

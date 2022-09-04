@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<div <% if (editMode) { %>draggable="true"<% } %> id="1">
+    <% if (editMode) { %>
+    <i class="fa-solid fa-grip text-gray-400"></i>
+    <% } %>
+    <div class="bg-gray-300 rounded-lg m-2 p-2">
+        <p class="font-bold">Badges</p>
+        <div class="flex flex-row flex-wrap">
+            <%if(puser.flags && puser.flags.length > 0) { %>
+                <%
+                    if (puser.flags) {
+                        puser.flags.forEach(flag => {
+							flag
+                            // flag is an object, { flag: number, date: Date, reason: string }
+                            %><%- include("flag.ejs", { flag }); %><%
+                        })
+                    }
+                %>
+            <% } else { %>
+                <p><%=lang.flags.noflags%></p>
+            <% } %>
+        </div>
+    </div>
+</div>

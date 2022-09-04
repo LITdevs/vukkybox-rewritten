@@ -1,0 +1,14 @@
+<% if (flags[flag.flag]) { %>
+    <div class="flag" id="f<%=flag.flag%>">
+        <img class="flag-image mx-auto m-2 max-h-16" src="<%=flags[flag.flag].imageURL %>" alt="<%=lang.flags[flags[flag.flag].langkey].name%> flag image">
+        <span class="flag-name font-semibold break-words text-ellipsis line-clamp-2 leading-tight"><%=lang.flags[flags[flag.flag].langkey].name%></span>
+        <!--<span class="flag-description"><%=lang.flags[flags[flag.flag].langkey].description%></span>-->
+    </div>
+    <script>
+        tippy('#f<%=flag.flag %>', {
+            content: '<%=lang.flags[flags[flag.flag].langkey].description%><br><span class="text-gray-400"><%=flag.date.toLocaleString("en-GB")%></span>',
+            placement: 'bottom',
+            allowHTML: true
+        });
+    </script>
+<% } %>

@@ -2,6 +2,7 @@ module.exports = {
 	content: [
 		"./views/*.ejs",
 		"./views/common/*.ejs",
+		"./views/common/profile/*.ejs",
 		"./views/admin/*.ejs",
 		"./public/*.js",
 		"./public/js/*.js"
@@ -13,5 +14,7 @@ module.exports = {
 	variants: {
 		extend: {}
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/line-clamp')
+	],
 }
