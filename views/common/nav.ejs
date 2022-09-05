@@ -3,7 +3,7 @@
     <div>
         <span class="mx-2"><%=lang.nav.navTempText %></span>
         <% if (user) { %>
-        <span><%=user.playerData.balance%> Vukkybux</span>
+        <span><a href="/balance"><%=user.playerData.balance%> Vukkybux</a></span>
         <% } %>
     </div>
     <% if (user) { %>

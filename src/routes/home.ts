@@ -1,8 +1,10 @@
-import express, { Request, Response, Router } from 'express';
+import express, {Request, Response, Router} from 'express';
 import csurf from "csurf";
 import db from '../databaseManager';
 import checkAuth from "../util/auth/checkAuth";
 import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
+import Vukky from "../classes/Vukky";
+
 const router : Router = express.Router();
 
 router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
@@ -42,5 +44,14 @@ router.get('/collection', (req : Request, res : Response) => {
 		})
 	}
 });
+
+router.get("/view/:id", (req : Request, res : Response) => {
+	let rarities = Object.keys(req.app.locals.vukkies.rarity);
+	let rarity = rarities.find((rarity) => Object.keys(req.app.locals.vukkies.rarity[rarity]).includes(req.params.id));
+	if (!rarity) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Vukky not found"});
+	let vukkyObj = req.app.locals.vukkies.rarity[rarity][req.params.id];
+	res.locals.vukky = new Vukky(parseInt(req.params.id), vukkyObj.url, vukkyObj.name, vukkyObj.description, rarity, vukkyObj.creator);
+	res.render('view', {title: "Vukkybox"});
+})
 
 export default router;

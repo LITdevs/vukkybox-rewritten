@@ -7,8 +7,24 @@
     </head>
     <body>
         <%-include("common/nav.ejs", { user }); %>
+        <%
+            let vukkyAmount = 0;
+			Object.keys(vukkies.rarity).forEach(rarity => {
+				vukkyAmount += Object.keys(vukkies.rarity[rarity]).length;
+            })
+        %>
         <div class="content">
-            <p class="text-red-600">sick!</p>
+            this is the vukkybocs game<br>
+            here we collect funny (mostly) blue characters<br>
+            there are <%=vukkyAmount%> of them!! theyre super cute (mostly)<br>
+            they come from lootboxes which you can get from the <a href="/store" class="text-blue-600">shop</a><br>
+            theres also <a href="/profile/Skelly" class="text-blue-600">cool profile pages</a><br>
+            you can also <a href="/404" class="text-blue-600">trade</a> with other people... I lied its not implemented yet<br>
+            <br>
+            <br>
+            <img src="<%=vukkies.rarity.common["2"].url%>" alt="A happy vukky" />
+            <img src="<%=vukkies.rarity.common["1"].url%>" alt="A vukky" />
+            <img src="<%=vukkies.rarity.common["5"].url%>" alt="A dead vukky" />
         </div>
         <%-include("common/footer.ejs", { user }); %>
     </body>
