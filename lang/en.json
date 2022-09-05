@@ -63,9 +63,17 @@
 			"name": "LIT Dev",
 			"description": "This user takes care of the Vukkies."
 		},
+		"garbage": {
+			"name": "Pile of garbage",
+			"description": "This person did something and got this stupid badge"
+		},
 		"migrator": {
 			"name": "Ancient gacha addict",
 			"description": "This user had a Vukkybox account on the old website."
+		},
+		"css": {
+			"name": "Verified CSS lover",
+			"description": "This user can use unrestricted CSS"
 		}
 	},
 	"profile": {

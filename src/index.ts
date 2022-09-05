@@ -26,9 +26,7 @@ export { vukkyList };
 
 function setVukkyList(newList : any) {
 	vukkyList = newList;
-	//setTimeout(() => {
-		fs.writeFileSync("./public/data/vukkies.json", JSON.stringify(vukkyList, null, 4));
-	//}, 2000)
+	fs.writeFileSync("./public/data/vukkies.json", JSON.stringify(vukkyList, null, 4));
 }
 
 export { setVukkyList };
@@ -128,6 +126,7 @@ db.events.on('ready', () => {
 				console.log(`${app.locals.boxes.length} boxes loaded.`);
 				// Start listening to http traffic
 				app.listen(process.env.PORT || 5000, () => {
+					if (process.env?.VB_ENV === "dev") console.log("DEV SERVER")
 					console.log(`Server running on port ${process.env.PORT || 5000}`);
 					serverEvents.emit('ready');
 				});

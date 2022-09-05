@@ -1,12 +1,16 @@
 import UserFlag from "../../classes/UserFlag";
 import adminFlag from "./flags/adminFlag";
-import testFlag from "./flags/migratorFlag";
+import migratorFlag from "./flags/migratorFlag";
+import garbageFlag from "./flags/garbageFlag";
+import cssFlag from "./flags/cssFlag";
 
 
 function flagInitializer() {
 	let flags : UserFlag[] = [];
 	flags.push(adminFlag());
-	flags.push(testFlag());
+	flags.push(migratorFlag());
+	flags.push(garbageFlag());
+	flags.push(cssFlag());
 
 	return flags;
 }
