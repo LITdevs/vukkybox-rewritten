@@ -16,7 +16,7 @@ interface IBox {
 	name : string;
 	description: string;
 	price : number;
-	uniques : number[];
+	uniques : string[];
 	odds : Odds;
 	imageURL : string;
 	noRefund? : boolean;
@@ -32,10 +32,10 @@ class Box implements IBox {
 	description : string;
 	odds: Odds;
 	price: number;
-	uniques: number[];
+	uniques: string[];
 	noRefund? : boolean;
 
-	constructor(name : string, description : string, price : number, uniques : number[], odds : Odds, imageURL : string, noRefund? : boolean) {
+	constructor(name : string, description : string, price : number, uniques : string[], odds : Odds, imageURL : string, noRefund? : boolean) {
 		this.id = boxId + 1;
 		this.name = name;
 		this.description = description;

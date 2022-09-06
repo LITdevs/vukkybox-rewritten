@@ -11,6 +11,6 @@ const odds : Odds = {
 	pukky: 0
 }
 
-const veggieBox = () => { return new Box("Veggie Box", "This box has no Rare Vukkies but way more Mythical<br>and Godly Vukkies!<br>Unique: Salad Vukky, Vukky Planet", 25, [68, 31], odds, "/resources/boxes/veggiebox.webp") }
+const veggieBox = () => { return new Box("Veggie Box", "This box has no Rare Vukkies but way more Mythical<br>and Godly Vukkies!<br>Unique: Salad Vukky, Vukky Planet", 25, ["68", "31"], odds, "/resources/boxes/veggiebox.webp") }
 
 export default veggieBox
