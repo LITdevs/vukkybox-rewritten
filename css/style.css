@@ -78,3 +78,7 @@ body {
 .flag-image {
     @apply mx-auto m-2 max-h-16
 }
+
+.fuckingstop {
+    @apply text-red-600 text-6xl
+}

@@ -42,7 +42,7 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 		case "css":
 			if (!req.body.css) res.locals.user.profile.css = "";
 			if (!req.user.flags.some(flag => flag.flag === 3)) {
-				if (req.body.css) res.locals.user.profile.css = req.body.css.replace(/<[^>]*>?/gm, '').replace(/content ?:/gm, 'hahanope');
+				if (req.body.css) res.locals.user.profile.css = req.body.css.replace(/<[^>]*>?/gm, '').replace(/content ?:/gm, 'apply for unrestricted css').replace(/url ?\(/gm, 'apply for unrestricted css');
 			} else {
 				if (req.body.css) res.locals.user.profile.css = req.body.css.replace(/<[^>]*>?/gm, '');
 			}
