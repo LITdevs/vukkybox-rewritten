@@ -77,7 +77,8 @@ function updateProfile() {
 		},
 		body: JSON.stringify({
 			"action": "update",
-			"order": order
+			"order": order,
+			"bio": `${document.getElementById("bio-input")?.value ? document.getElementById("bio-input")?.value : ""}`
 		})
 	}).then(res => res.json()).then(res => {
 		if (res.error) {

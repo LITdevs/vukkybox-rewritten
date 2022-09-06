@@ -33,6 +33,7 @@
                 <%
                     let cardOrder = {
 						"0": include("common/profile/profilecard.ejs", { puser }),
+                        "2": include("common/profile/bio.ejs", { puser }),
                         "1": include("common/profile/trophycase.ejs", { puser })
                     }
 					let order = Object.keys(cardOrder);

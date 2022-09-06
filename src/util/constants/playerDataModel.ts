@@ -1,6 +1,8 @@
 interface IplayerDataModel {
 	balance: number;
 	collection?: Object;
+	lastLogin: Date,
+	lastLoginD: Date
 }
 
 const playerDataModel = {

@@ -34,8 +34,9 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 	if (!req.body.action) return res.status(400).json({error: "No action specified"});
 	switch (req.body.action) {
 		case "update":
-			if (!req.body.order) return res.status(400).json({error: "Missing parameters"});
-			res.locals.user.profile.order = req.body.order;
+			if (!req.body.order && !req.body.bio) return res.status(400).json({error: "Missing parameters"});
+			res.locals.user.profile.order = req.body.order || res.locals.user.profile.order;
+			if (typeof req.body.bio !== "undefined") res.locals.user.profile.bio = req.body.bio.substring(0, 511)
 			res.locals.user.save();
 			res.json({error: null, success: true});
 			break;

@@ -34,6 +34,9 @@ router.use((req, res, next) => {
         if (abuseCount > 2) {
             warning = true;
         }
+        if (abuseCount === 5) {
+            errorNotifier(`User ${req.user._id} (${req.user.username}) tried to access the admin panel after final warning.`, "dummy head", "Vukkybox admin acces alert (Repeated)")
+        }
         if (abuseCount > 3) {
             return res.redirect('/auth/logout');
         }
@@ -99,6 +102,7 @@ router.post('/flag/css', (req: Request, res: Response) => {
     if (!req.body.targetId) return res.status(400).json({error: "Missing parameters"});
     let Users = db.getUsers();
     Users.findOne({_id: req.body.targetId.trim()}, (err, user) => {
+        //user.flags.push({flag: 2, date: new Date(), reason: "\"I dont want a garbage bag on my profile\""});
         user.flags.push({flag: 3, date: new Date(), reason: "Approved for full custom CSS by administrator"});
         user.save();
         res.json({error: null});

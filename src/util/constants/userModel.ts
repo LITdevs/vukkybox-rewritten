@@ -20,6 +20,7 @@ interface IUser {
 			image?: String
 		},
 		css: String,
+		bio: String,
 		order: Array<String>
 	},
 	flags: Array<{flag: number, date: Date, reason?: string}>
@@ -42,6 +43,7 @@ const UserSchema = {
 			image: String
 		},
 		css: String,
+		bio: String,
 		order: Array<String>
 	},
 	flags: Array<{flag: number, date: Date, reason: string}>

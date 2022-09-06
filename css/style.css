@@ -52,7 +52,7 @@ body {
 }
 
 .btn {
-    @apply text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm;
+    @apply text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm my-0.5;
 }
 
 .trophycase {

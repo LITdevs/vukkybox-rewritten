@@ -6,7 +6,7 @@
     </div>
     <script>
         tippy('#f<%=flag.flag %>', {
-            content: '<%=lang.flags[flags[flag.flag].langkey].description%><br><span class="text-gray-400"><%=flag.date.toLocaleString("en-GB")%></span>',
+            content: `<%=lang.flags[flags[flag.flag].langkey].description%><%-`${flag.reason ? "<br><span>" + flag.reason + "</span>" : ""}` %><br><span class="text-gray-400"><%=flag.date.toLocaleString("en-GB")%></span>`,
             placement: 'bottom',
             allowHTML: true
         });
