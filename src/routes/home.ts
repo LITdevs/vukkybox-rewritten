@@ -55,4 +55,8 @@ router.get("/view/:id", (req : Request, res : Response) => {
 	res.render('view', {title: "Vukkybox"});
 })
 
+router.get('/test', (req : Request, res : Response) => {
+	res.render('test', {title: "Vukkybox"});
+})
+
 export default router;

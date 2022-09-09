@@ -1,3 +1,4 @@
+<!--suppress ALL -->
 <script src="https://kit.fontawesome.com/303d8b79a7.js" crossorigin="anonymous"></script>
 <div class="nav">
     <div>
@@ -7,6 +8,32 @@
         <% } %>
     </div>
     <% if (user) { %>
+    <div>
+        <% if (typeof user.playerData.notifications !== "undefined" && user.playerData.notifications.length > 0) { %>
+            <span>
+                <span class="p-1 rounded-lg cursor-pointer hover:bg-gray-800 select-none" onclick="toggleNotificationDropdown()">
+                    <%-include("countToIcon.ejs", { count: user.playerData.notifications.length })%>
+                    <i class="fa-solid fa-bell"></i>
+                </span>
+                <div class="bg-gray-600 shadow-lg rounded-lg fixed top-12 right-0 mx-2 my-0.5 hidden" id="notificationDropdown">
+                    <div class="p-5">
+                        <%
+                            let i = 0
+                            let sortedNotifs = user.playerData.notifications.sort((a, b) => { return new Date(b.timestamp) - new Date(a.timestamp) })
+                            sortedNotifs.forEach(notif => {
+								i++;
+                                notif;
+								if (!(i > 5)) {
+								    %><%- include("notification.ejs", { notification: notif }); %><%
+                                }
+                            });
+                        %>
+                    </div>
+                </div>
+            </span>
+        <% } else { %>
+            <i class="fa-regular fa-bell select-none"></i>
+        <% } %>
         <span class="nav-user">
             <a href="/profile/<%=user.username %>">
                 <i class="fa-solid fa-user mr-1"></i>
@@ -18,7 +45,17 @@
             </a>
         </span>
 
+    </div>
     <% } else { %>
         <a href="/auth/oauth" class="nav-login"><i class="fa-solid fa-key mr-1"></i>Login</a>
     <% } %>
 </div>
+
+<% if(user) {%>
+
+<% } %>
+<script>
+    function toggleNotificationDropdown() {
+		document.getElementById("notificationDropdown").classList.toggle("hidden");
+    }
+</script>

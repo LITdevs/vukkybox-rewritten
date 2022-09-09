@@ -1,0 +1,15 @@
+<div class="notification<%=notification.read ? " notification-read" : ""%>">
+    <table>
+        <tr>
+            <% if (notification.image) { %>
+                <td class="w-1/5">
+                    <img src="<%=notification.image %>" alt="">
+                </td>
+            <% } %>
+            <td class="w-4/5">
+                <p class="font-bold"><%=notification.title %> <span class="text-gray-500 font-normal"><%=notification.timestamp.toLocaleString(lang.lang)%></span></p>
+                <p class="line-clamp-2 break-all cursor-pointer" onclick="this.classList.remove('line-clamp-2');this.classList.remove('cursor-pointer')"><%=notification.body %></p>
+            </td>
+        </tr>
+    </table>
+</div>

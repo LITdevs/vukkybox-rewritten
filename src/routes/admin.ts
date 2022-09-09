@@ -7,6 +7,7 @@ import {setVukkyList, vukkyList} from "../index";
 import multer from "multer";
 import path from "path";
 import db from "../databaseManager"
+import UserNotification from "../classes/UserNotification";
 
 // Storing the new vukky images
 let storage = multer.diskStorage({
@@ -121,6 +122,15 @@ router.post('/user', (req: Request, res: Response) => {
 
 router.get('/userEditor', (req: Request, res: Response) => {
     res.render("admin/userEditor", {title: "Vukkybox - User editor"})
+})
+
+router.post('/testNotification', (req: Request, res: Response) => {
+    // Assuming all parameters are correct because lol
+    res.locals.user.playerData.notifications.push(new UserNotification("Test notification", "This notification is a test"))
+    res.locals.user.playerData.notifications.push(new UserNotification("Test notification with image", "This notification is a test, but it has an image", "/flags/css.webp"))
+    res.locals.user.playerData.notifications.push(new UserNotification("Long test notification with image", "This notification is a test, but it has an image, and it is also very long, blah blah blah according to all known laws of aviation bees shouldnt fly but they do because fuck the police", "/flags/css.webp"))
+    res.locals.user.save();
+    res.json({success: true})
 })
 
 export default router;

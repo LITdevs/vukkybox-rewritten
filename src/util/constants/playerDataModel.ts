@@ -1,13 +1,19 @@
-interface IplayerDataModel {
+import UserNotification from "../../classes/UserNotification";
+
+interface IPlayerDataModel {
 	balance: number;
-	collection?: Object;
-	lastLogin: Date,
-	lastLoginD: Date
+	collection?: object;
+	lastLogin: Date;
+	lastLoginD: Date;
+	notifications: UserNotification[];
 }
 
 const playerDataModel = {
 	balance: Number,
-	collection: Object
+	collection: Object,
+	lastLogin: Date,
+	lastLoginD: Date,
+	notifications: Array<UserNotification>(),
 }
 
-export { IplayerDataModel, playerDataModel }
+export { IPlayerDataModel, playerDataModel }

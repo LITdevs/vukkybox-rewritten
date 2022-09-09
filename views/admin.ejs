@@ -10,6 +10,7 @@
         <div class="content">
             <button class="border border-black m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button><br>
             <button class="border border-black m-2" onclick="adminFlag()">Give yourself admin flag</button><br>
+            <button class="border border-black m-2" onclick="testNotif()">Send test notif to yourself</button><br>
             <a href="/admin/vukkydesigner"><button class="border border-black m-2">Add new Vukky</button></a>
             <a href="/admin/userEditor"><button class="border border-black m-2">Edit user</button></a>
         </div>
@@ -39,6 +40,23 @@
             }
             function adminFlag() {
 	            fetch("/admin/flag", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%= csrfToken %>"
+		            })
+	            }).then(res => res.json()).then(data => {
+		            if (data.error) {
+			            alert(data.error);
+		            } else {
+			            alert("Success!");
+		            }
+	            })
+            }
+            function testNotif() {
+	            fetch("/admin/testNotification", {
 		            method: "POST",
 		            headers: {
 			            "Content-Type": "application/json"

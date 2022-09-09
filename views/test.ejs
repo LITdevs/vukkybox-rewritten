@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <%- include("common/notification.ejs", { notification: { title: "a", body: "b" } }); %>
+            <%- include("common/notification.ejs", { notification: { title: "a", body: "b", read: true } }); %>
+            <%- include("common/notification.ejs", { notification: { title: "a", body: "b", image: "/flags/css.webp" } }); %>
+            <%- include("common/notification.ejs", { notification: { title: "a", body: "b", image: "/flags/css.webp", read: true } }); %>
+            <%- include("common/notification.ejs", { notification: { title: "a", body: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", image: "/flags/css.webp", read: true } }); %>
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

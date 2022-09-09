@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {playerDataModel, IplayerDataModel} from "./playerDataModel";
+import {playerDataModel, IPlayerDataModel} from "./playerDataModel";
 import {statisticsModel, IstatisticsModel} from "./statisticsModel";
 
 interface IUser {
@@ -10,7 +10,7 @@ interface IUser {
 	mfa?: Boolean,
 	mfasecret?: String,
 	apiKey?: String,
-	playerData?: IplayerDataModel,
+	playerData?: IPlayerDataModel,
 	statistics?: IstatisticsModel,
 	createdAt: Date,
 	profile: {

@@ -81,7 +81,12 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 			res.status(400).json({error: "Invalid action"});
 			break;
 	}
-
 });
+
+router.get("/notifications/read", (req: Request, res: Response) => {
+	req;
+	res;
+	// TODO: remove read notifications
+})
 
 export default router;

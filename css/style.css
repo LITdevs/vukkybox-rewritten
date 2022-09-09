@@ -76,9 +76,17 @@ body {
 }
 
 .flag-image {
-    @apply mx-auto m-2 max-h-16
+    @apply mx-auto m-2 max-h-16;
 }
 
 .fuckingstop {
-    @apply text-red-600 text-6xl
+    @apply text-red-600 text-6xl;
+}
+
+.notification {
+    @apply bg-gray-300 rounded-lg p-2.5 m-2 w-96 text-black;
+}
+
+.notification-read {
+    @apply bg-gray-200 text-gray-600;
 }
