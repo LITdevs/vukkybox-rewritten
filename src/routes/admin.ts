@@ -105,6 +105,18 @@ router.post('/flag/css', (req: Request, res: Response) => {
     Users.findOne({_id: req.body.targetId.trim()}, (err, user) => {
         //user.flags.push({flag: 2, date: new Date(), reason: "\"I dont want a garbage bag on my profile\""});
         user.flags.push({flag: 3, date: new Date(), reason: "Approved for full custom CSS by administrator"});
+        user.playerData.notifications.push(new UserNotification("Unrestricted CSS approved", "You have been given permission for use of unrestricted CSS!", "/flags/css.webp"))
+        user.save();
+        res.json({error: null});
+    })
+});
+
+router.post('/flag/admin', (req: Request, res: Response) => {
+    if (!req.body.targetId) return res.status(400).json({error: "Missing parameters"});
+    let Users = db.getUsers();
+    Users.findOne({_id: req.body.targetId.trim()}, (err, user) => {
+        user.flags.push({flag: 0, date: new Date()});
+        user.playerData.notifications.push(new UserNotification("Admin flag added", "hello LIT DEV you now have admin permissions here", "/flags/admin.webp"))
         user.save();
         res.json({error: null});
     })

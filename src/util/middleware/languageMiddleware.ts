@@ -25,6 +25,8 @@ export default function (req, res, next) {
 	let preferredLanguage = req.acceptsLanguages()[0].split("-")[0];
 	if (!LANG_LIST.includes(preferredLanguage)) preferredLanguage = "en";
 
+	if (req.cookies["lang"]) preferredLanguage = req.cookies["lang"]
+
 	// Copy the english language to a new object.
 	let enlang = {};
 	Object.assign(enlang, lang["en"]);

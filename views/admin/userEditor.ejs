@@ -29,12 +29,16 @@
                 <div class="action-menu hidden" id="action-menu">
                     <label>
                         Select action:
-                        <select class="text-black">
-                            <option value="css">CSS</option>
+                        <select class="text-black" onchange="changeTo(this.value)">
+                            <option value="css-action">CSS</option>
+                            <option value="admin-action">Admin</option>
                         </select>
                     </label>
                     <div class="css-action" id="css-action">
                         <button class="btn" onclick="allowCSS()">Allow unrestricted CSS</button>
+                    </div>
+                    <div class="admin-action hidden" id="admin-action">
+                        <button class="btn" onclick="adminify()">Adminify</button>
                     </div>
                 </div>
             </div>
@@ -66,22 +70,46 @@
 					alert(e)
                 })
             }
-			function allowCSS() {
-				fetch("/admin/flag/css", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({
-						_csrf: "<%=csrfToken%>",
-						targetId: user._id
-					})
-				}).then(res => res.json()).then(res => {
-					if (res.error) return alert(res.error);
-					alert("CSS now allowed.")
-				}).catch(e => {
-					alert(e)
-				})
+            function allowCSS() {
+	            fetch("/admin/flag/css", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert("CSS now allowed.")
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+            function adminify() {
+				if (!confirm("ARE YOU SURE?")) return;
+	            fetch("/admin/flag/admin", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert("this user is now admin.")
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+
+			function changeTo(id) {
+				document.getElementById("css-action").classList.add("hidden")
+				document.getElementById("admin-action").classList.add("hidden")
+				document.getElementById(id).classList.remove("hidden")
             }
         </script>
     </body>
