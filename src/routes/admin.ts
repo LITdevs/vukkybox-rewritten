@@ -28,7 +28,7 @@ let adminAbusers = [];
 router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 router.use(checkAuth);
 router.use((req, res, next) => {
-    if(!req.user.flags.some(flag => flag.flag === 0)) {
+    if(!req.user.flags.some(flag => flag.flag === 0) && !req.session.pseudoMode) {
         let warning = false;
         adminAbusers.push({id: req.user._id, time: Date.now()})
         let abuseCount = adminAbusers.filter(user => user.id.equals(req.user._id) && Date.now() - user.time < 1000 * 60 * 60 * 60).length
@@ -145,4 +145,15 @@ router.post('/testNotification', (req: Request, res: Response) => {
     res.json({success: true})
 })
 
+router.post('/pseudoMode', (req: Request, res: Response) => {
+    // Assuming all parameters are correct because lol
+    req.session.pseudoMode = req.body.targetId.toString();
+    res.json({success: true})
+})
+
+router.get('/pseudoModeExit', (req: Request, res: Response) => {
+    if (!req.session.pseudoMode) return res.send("leave.")
+    req.session.pseudoMode = undefined;
+    res.redirect("/");
+})
 export default router;

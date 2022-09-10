@@ -32,6 +32,7 @@
                         <select class="text-black" onchange="changeTo(this.value)">
                             <option value="css-action">CSS</option>
                             <option value="admin-action">Admin</option>
+                            <option value="pseudo-action">Pseudo Mode</option>
                         </select>
                     </label>
                     <div class="css-action" id="css-action">
@@ -39,6 +40,9 @@
                     </div>
                     <div class="admin-action hidden" id="admin-action">
                         <button class="btn" onclick="adminify()">Adminify</button>
+                    </div>
+                    <div class="pseudo-action hidden" id="pseudo-action">
+                        <button class="btn" onclick="pseudoMode()">Pikachu EVOLVE!!</button>
                     </div>
                 </div>
             </div>
@@ -88,7 +92,7 @@
 	            })
             }
             function adminify() {
-				if (!confirm("ARE YOU SURE?")) return;
+	            if (!confirm("ARE YOU SURE?")) return;
 	            fetch("/admin/flag/admin", {
 		            method: "POST",
 		            headers: {
@@ -101,6 +105,24 @@
 	            }).then(res => res.json()).then(res => {
 		            if (res.error) return alert(res.error);
 		            alert("this user is now admin.")
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+            function pseudoMode() {
+	            if (!confirm("ARE YOU SURE?")) return;
+	            fetch("/admin/pseudoMode", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert(`You are now ${user.username}`)
 	            }).catch(e => {
 		            alert(e)
 	            })

@@ -6,6 +6,9 @@
         <% if (user) { %>
         <span><a href="/balance"><%=user.playerData.balance%> Vukkybux</a></span>
         <% } %>
+        <% if (pseudoMode) { %>
+        <a href="/admin/pseudoModeExit"><span class="text-red-500">PSEUDO MODE CLICK HERE TO EXIT</span></a>
+        <% } %>
     </div>
     <% if (user) { %>
     <div>
