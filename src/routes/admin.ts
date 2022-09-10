@@ -127,7 +127,7 @@ router.post('/user', (req: Request, res: Response) => {
     let Users = db.getUsers();
     Users.findOne({_id: req.body._id}, (err, user) => {
         if(!user) return res.status(404).json({error: "User not found"})
-        if(err) return res.status(500).json({error: err})
+        if(err) return res.status(500).json({error: err});
         res.json({error: null, user});
     })
 })

@@ -7,11 +7,11 @@
         <meta name="title" content="<%=lang.profileOf.replace("{0}", puser.username)%>">
         <meta name="description" content="<%=lang.viewProfileOf.replace("{0}", puser.username)%>">
         <meta property="og:image" content="https://auth.litdevs.org/api/avatar/bg/<%=puser.litauthId%>">
-        <%if (puser?.profile?.css && puser?.profile?.css?.length > 0) { %>
-            <style>
+        <style id="customCSS">
+            <%if (puser?.profile?.css && puser?.profile?.css?.length > 0) { %>
                 <%-puser.profile.css %>
-            </style>
-        <% } %>
+            <% } %>
+        </style>
     </head>
     <body>
         <div class="content" <% if (puser.profile.background.mode === "image") { %> style="background-image: url('<%=puser.profile.background.image%>')" <% } %>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="hidden profile-card" id="css-editor">
                     <label for="css-editor-textarea" class="text-white"><%-lang.profile.turbonerd%></label>
-                    <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-white rounded-lg p-1" rows="4" placeholder="CSS code goes here..."><% if(puser.profile.css && puser.profile.css.length > 0) { %><%=puser.profile.css%><% } %></textarea>
+                    <textarea id="css-editor-textarea" class="w-full bg-gray-800 text-white rounded-lg p-1" rows="16" oninput="document.getElementById('customCSS').innerHTML = this.value" placeholder="CSS code goes here..."><% if(puser.profile.css && puser.profile.css.length > 0) { %><%=puser.profile.css%><% } %></textarea>
                     <input type="submit" class="btn" value="<%=lang.submit%>" onclick="submitCSS()">
                 </div>
             <% } %>

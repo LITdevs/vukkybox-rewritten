@@ -1,13 +1,13 @@
-<div <% if (editMode) { %>draggable="true"<% } %> id="2">
-    <table class="mx-auto w-4/5">
+<div <% if (editMode) { %>draggable="true"<% } %> id="2" class="bio-container">
+    <table class="mx-auto w-4/5 bio-container-table">
         <% if (editMode) { %>
             <i class="fa-solid fa-grip text-gray-400"></i>
             <i class="fa-solid fa-trash-can text-gray-400 cursor-pointer ml-2" onclick="deleteCard('2')"></i>
         <% } %>
         <tr>
-            <td class="p-2 w-full text-center">
+            <td class="p-2 w-full text-center bio">
                 <% if (editMode) { %>
-                <label for="bio-input"></label><textarea id="bio-input" class="text-black bio-input w-full" rows=4 maxlength="512" placeholder="Bio goes here..."><%=puser.profile.bio%></textarea>
+                    <label for="bio-input"></label><textarea id="bio-input" class="text-black bio-input w-full" rows=4 maxlength="512" placeholder="Bio goes here..."><%=puser.profile.bio%></textarea>
                 <% } else { %>
                     <p class="text-white whitespace-pre-wrap"><%=puser.profile.bio%></p>
                 <% } %>
