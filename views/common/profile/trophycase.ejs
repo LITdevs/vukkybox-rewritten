@@ -2,7 +2,8 @@
 <script src="https://unpkg.com/tippy.js@6"></script>
 <div <% if (editMode) { %>draggable="true"<% } %> id="1">
     <% if (editMode) { %>
-    <i class="fa-solid fa-grip text-gray-400"></i>
+        <i class="fa-solid fa-grip text-gray-400"></i>
+        <i class="fa-solid fa-trash-can text-gray-400 cursor-pointer ml-2" onclick="deleteCard('1')"></i>
     <% } %>
     <div class="trophycase">
         <p class="font-bold">Badges</p>

@@ -42,6 +42,19 @@
 						%><%- cardOrder[card] %><%
                     })
                 %>
+                <% if (editMode) { %>
+                        <i class="fa-solid fa-square-plus text-white text-2xl" onclick="document.getElementById('addSelectorContainer').classList.toggle('hidden');"></i>
+                        <div id="addSelectorContainer" class="hidden">
+                            <label for="addSelector" class="text-white">
+                                Select element to add:
+                            </label><select id="addSelector">
+                                <option value="0">Profile</option>
+                                <option value="1">Badges</option>
+                                <option value="2">Bio</option>
+                            </select>
+                            <button class="btn" onclick="addCard(document.getElementById('addSelector').value)">Add card</button>
+                        </div>
+                <% } %>
             </div>
             <%if (editMode) { %>
                 <div class="hidden profile-card" id="bg-editor">

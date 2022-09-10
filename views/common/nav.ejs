@@ -27,6 +27,9 @@
 								    %><%- include("notification.ejs", { notification: notif }); %><%
                                 }
                             });
+							if (user.playerData.notifications.length > 5) {
+								%><p class="text-center">And <%=user.playerData.notifications.length - 5%> more</p><%
+                            }
                         %>
                     </div>
                 </div>
