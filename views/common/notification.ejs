@@ -1,4 +1,4 @@
-<div class="notification<%=notification.read ? " notification-read" : ""%>">
+<div class="notification<%=notification.read ? " notification-read" : ""%>" id="<%=notification.id%>">
     <table>
         <tr>
             <% if (notification.image) { %>
@@ -8,7 +8,7 @@
             <% } %>
             <td class="w-4/5">
                 <p class="font-bold"><%=notification.title %> <span class="text-gray-500 font-normal"><%=notification.timestamp.toLocaleString(lang.lang)%></span></p>
-                <p class="line-clamp-2 break-all cursor-pointer" onclick="this.classList.remove('line-clamp-2');this.classList.remove('cursor-pointer')"><%=notification.body %></p>
+                <p class="line-clamp-2 break-all cursor-pointer" onclick="this.classList.remove('line-clamp-2');this.classList.remove('cursor-pointer');this.parentNode.parentNode.parentNode.parentNode.parentNode.classList.add('notification-read');markRead('<%=notification.id %>')"><%=notification.body %></p>
             </td>
         </tr>
     </table>

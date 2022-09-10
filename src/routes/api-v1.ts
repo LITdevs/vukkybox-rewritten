@@ -1,5 +1,6 @@
 import express, { Request, Response, Router} from 'express';
 import apiAuth from "../util/auth/apiAuth";
+import errorNotifier from "../util/errorNotifier";
 
 const router: Router = express.Router();
 
@@ -83,10 +84,17 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 	}
 });
 
-router.get("/notifications/read", (req: Request, res: Response) => {
-	req;
-	res;
-	// TODO: remove read notifications
+router.post("/notifications/read", (req: Request, res: Response) => {
+	if (!req.body.readNotifications) return res.status(400).json({error: "Missing parameters"})
+	if (typeof req.body.readNotifications !== "object") return res.status(400).json({error: "readNotifications must be an array"})
+	try {
+		res.locals.user.playerData.notifications = res.locals.user.playerData.notifications.filter(notification => !req.body.readNotifications.includes(notification.id.toString()));
+		res.locals.user.save();
+		return res.json({error: null})
+	} catch (e) {
+		errorNotifier(e, JSON.stringify({user: req.user, body: req.body}));
+		return res.status(500).json({error: "Internal server error"});
+	}
 })
 
 export default router;

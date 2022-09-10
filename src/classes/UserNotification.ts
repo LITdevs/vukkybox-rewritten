@@ -1,4 +1,7 @@
+import { Types } from "mongoose";
+
 interface INotification {
+	id: Types.ObjectId,
 	title: string;
 	body: string;
 	image?: string;
@@ -7,6 +10,7 @@ interface INotification {
 }
 
 class UserNotification implements INotification {
+	id: Types.ObjectId;
 	title: string;
 	body: string;
 	image: string;
@@ -19,6 +23,7 @@ class UserNotification implements INotification {
 		this.body = body;
 		this.image = image || undefined;
 		this.timestamp = new Date();
+		this.id = new Types.ObjectId();
 	}
 }
 

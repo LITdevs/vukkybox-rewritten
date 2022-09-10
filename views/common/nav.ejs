@@ -61,4 +61,15 @@
     function toggleNotificationDropdown() {
 		document.getElementById("notificationDropdown").classList.toggle("hidden");
     }
+	function markRead(idToMark) {
+		fetch('/api/v1/notifications/read', {
+			method: "POST",
+            headers: {
+				"Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+	            readNotifications: [idToMark]
+            })
+        })
+    }
 </script>

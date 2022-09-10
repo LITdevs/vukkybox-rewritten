@@ -14,6 +14,7 @@
                         puser.flags.forEach(flag => {
 							flag
                             // flag is an object, { flag: number, date: Date, reason: string }
+                            // other properties need to be grabbed from elsewhere
                             %><%- include("flag.ejs", { flag }); %><%
                         })
                     }
