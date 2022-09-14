@@ -1,6 +1,9 @@
 import express, { Request, Response, Router} from 'express';
 import apiAuth from "../util/auth/apiAuth";
 import errorNotifier from "../util/errorNotifier";
+import db from "../databaseManager";
+import Friendship from "../classes/Friendship";
+import UserNotification from "../classes/UserNotification";
 
 const router: Router = express.Router();
 
@@ -84,7 +87,7 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 	}
 });
 
-router.post("/notifications/read", (req: Request, res: Response) => {
+router.post("/notifications/read", apiAuth, (req: Request, res: Response) => {
 	if (!req.body.readNotifications) return res.status(400).json({error: "Missing parameters"})
 	if (typeof req.body.readNotifications !== "object") return res.status(400).json({error: "readNotifications must be an array"})
 	try {
@@ -95,6 +98,30 @@ router.post("/notifications/read", (req: Request, res: Response) => {
 		errorNotifier(e, JSON.stringify({user: req.user, body: req.body}));
 		return res.status(500).json({error: "Internal server error"});
 	}
+})
+
+router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
+	if (!req.body.friendId) return res.status(400).json({error: "Missing parameters"});
+	let requesterId : string = res.locals.user._id.toString()
+	let Friend = db.getFriends();
+	let Users = db.getUsers();
+	Friend.findOne({$or:[{requester: requesterId},{recipient: requesterId}]}, (err, friendship : Friendship) => {
+		if (err) {
+			res.status(500).json({error: "Internal server error"});
+			return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
+		}
+		if (friendship) {
+			return res.status(400).json({error: "Already friends"})
+		}
+		if (!friendship) {
+			new Friend(new Friendship(requesterId, req.body.friendId)).save();
+			res.json({error: null})
+			Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {
+				user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
+				user.save();
+			})
+		}
+	})
 })
 
 export default router;

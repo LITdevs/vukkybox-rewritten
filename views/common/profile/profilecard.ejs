@@ -22,14 +22,7 @@
             <td class="p-2 text-white">
                 <p class="username"><%=puser.username%></p>
                 <% if(user && !user._id.equals(puser._id)) { %>
-                    <span class="cursor-pointer rounded-md border-2 p-0.5 hover:border-red-400 hover:text-red-400 transition-all"
-                    onclick="document.getElementById('heart2').classList.replace('fa-heart', 'fa-hand-holding-heart');document.getElementById('heart2').classList.replace('fa-regular', 'fa-solid');this.innerHTML = this.innerHTML.replace('Friend', 'Request sent!')"
-                    >Friend <i id="heart2" class="fa-regular fa-heart"></i></span><br><br>
-                    <span class="cursor-pointer rounded-md border-2 border-red-500 p-0.5 text-red-500"
-                          onmouseenter="document.getElementById('heart').classList.replace('fa-heart', 'fa-heart-crack');this.innerHTML = this.innerHTML.replace('Friended', 'Unfriend?')"
-                          onmouseleave="document.getElementById('heart').classList.replace('fa-heart-crack', 'fa-heart');this.innerHTML = this.innerHTML.replace('Unfriend?', 'Friended')">
-                        Friended <i id="heart" class="fa-solid fa-heart"></i>
-                    </span>
+                    <%-include("../friendButton.ejs", {friendStatus: 0})%><br>
                 <% } %>
                 <br>
                 <a class="text-blue-500" href="/collection?user=<%=puser._id%>"><%=lang.viewCollection%></a>
