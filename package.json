@@ -26,7 +26,7 @@
 		"@types/nodemailer": "^6.4.5",
 		"@types/passport": "^1.0.10",
 		"@types/qrcode": "^1.5.0",
-		"autoprefixer": "^10.4.8",
+		"autoprefixer": "^10.4.10",
 		"concurrently": "^7.3.0",
 		"cross-env": "^7.0.3",
 		"nodemon": "^2.0.19",
