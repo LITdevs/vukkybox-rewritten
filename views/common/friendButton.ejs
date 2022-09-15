@@ -1,9 +1,9 @@
-<% if (friendStatus === 0 || friendStatus === 1 ) { %>
+<% if (friendship.state === 0 || friendship.state === 1 ) { %>
     <span class="cursor-pointer rounded-md border-2 p-0.5 hover:border-red-400 hover:text-red-400 transition-all"
           onclick="document.getElementById('heart').classList.replace('fa-heart', 'fa-hand-holding-heart');
 		  document.getElementById('heart').classList.replace('fa-regular', 'fa-solid');
-		  this.innerHTML = this.innerHTML.replace('Friend', 'Request sent!')<%if(friendStatus === 0) {%>;friendRequest()<%}%>">
-        <%= friendStatus === 1 ? "Request sent!" : "Friend"%> <i id="heart" class="<%=friendStatus === 1 ? "fa-solid fa-hand-holding-heart" : "fa-regular fa-heart"%>"></i></span>
+		  this.innerHTML = this.innerHTML.replace('Friend', 'Request sent!')<%if(friendship.state === 0) {%>;friendRequest()<%}%>">
+        <%= friendship.state === 1 ? "Request sent!" : "Friend"%> <i id="heart" class="<%=friendship.state === 1 ? "fa-solid fa-hand-holding-heart" : "fa-regular fa-heart"%>"></i></span>
 <script>
     function friendRequest() {
 		fetch("/api/v1/friendship/add", {
@@ -23,6 +23,8 @@
 </script>
 <% } else { %>
     <span class="cursor-pointer rounded-md border-2 border-red-500 p-0.5 text-red-500"
+		  onclick="unFriend()"
+
           onmouseenter="document.getElementById('heart').classList.replace('fa-heart', 'fa-heart-crack');
 		  this.innerHTML = this.innerHTML.replace('Friended', 'Unfriend?')"
 
@@ -30,4 +32,22 @@
 		  this.innerHTML = this.innerHTML.replace('Unfriend?', 'Friended')">
         Friended <i id="heart" class="fa-solid fa-heart"></i>
     </span>
+<script>
+	function unFriend() {
+		fetch("/api/v1/friendship/remove", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				requestId: "<%=friendship._id%>"
+			})
+		}).then(res => res.json()).then(res => {
+			if (res.error) {
+				return alert(res.error);
+			}
+			window.location.reload();
+		})
+	}
+</script>
 <% } %>

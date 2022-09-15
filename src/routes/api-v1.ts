@@ -2,8 +2,10 @@ import express, { Request, Response, Router} from 'express';
 import apiAuth from "../util/auth/apiAuth";
 import errorNotifier from "../util/errorNotifier";
 import db from "../databaseManager";
-import Friendship from "../classes/Friendship";
+import Friendship, { Status } from "../classes/Friendship";
 import UserNotification from "../classes/UserNotification";
+import event from "../index";
+import friendEvent from "../classes/events/friendEvent";
 
 const router: Router = express.Router();
 
@@ -105,23 +107,122 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 	let requesterId : string = res.locals.user._id.toString()
 	let Friend = db.getFriends();
 	let Users = db.getUsers();
-	Friend.findOne({$or:[{requester: requesterId},{recipient: requesterId}]}, (err, friendship : Friendship) => {
+
+	// Look for an existing friendship
+	Friend.findOne({$or:[{requester: requesterId, recipient: req.body.friendId},{requester: req.body.friendId, recipient: requesterId}]}, (err, friendship) => {
 		if (err) {
 			res.status(500).json({error: "Internal server error"});
 			return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
 		}
 		if (friendship) {
-			return res.status(400).json({error: "Already friends"})
+			if (friendship.state !== Status.NoFriendship) {
+				event.emit("doubleFriendEvent", { friendship })
+				return res.status(400).json({error: "Already friends"});
+			} else {
+				let oldState = friendship.state
+				friendship.state = Status.Pending;
+				friendship.timestamp = new Date();
+				Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {
+					if (!user) return res.status(400).json({error: "No such user"});
+					if (err) {
+						res.status(500).json({error: "Internal server error"});
+						return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
+					}
+					res.json({error: null});
+					user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
+					event.emit("friendEvent", new friendEvent(friendship, oldState))
+					friendship.save();
+					user.save();
+				})
+			}
 		}
 		if (!friendship) {
-			new Friend(new Friendship(requesterId, req.body.friendId)).save();
-			res.json({error: null})
+			let frsh = new Friend(new Friendship(requesterId, req.body.friendId));
 			Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {
+				if (!user) return res.status(400).json({error: "No such user"});
+				if (err) {
+					res.status(500).json({error: "Internal server error"});
+					return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
+				}
+				res.json({error: null})
 				user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
+				event.emit("friendEvent", new friendEvent(friendship))
+				frsh.save();
 				user.save();
 			})
 		}
 	})
+})
+
+router.post("/friendship/accept", apiAuth, (req : Request, res: Response) => {
+	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
+	let Friends = db.getFriends();
+	// Find a friendship with the provided ID, and where the user accepting it is the recipient.
+	Friends.findOne({ _id: req.body.requestId, recipient: res.locals.user._id.toString()}, (err, friendship) => {
+		if (err) {
+			res.status(500).json({error: "Internal server error"});
+			return errorNotifier(err, `${res.locals.username} tried to accept ${req.body.requestId}`);
+		}
+
+		// Making sure a pending request was found
+		if (!friendship || friendship.state !== Status.Pending) return res.json({error: "No such friend request"});
+
+		let oldState = friendship.state;
+		// Accept it :)
+		friendship.state = Status.Accepted;
+		friendship.timestamp = new Date();
+		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		friendship.save();
+	})
+})
+
+router.post("/friendship/reject", apiAuth, (req : Request, res: Response) => {
+	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
+	let Friends = db.getFriends();
+	// Find a friendship with the provided ID, and where the user rejecting it is the recipient.
+	Friends.findOne({ _id: req.body.requestId, recipient: res.locals.user._id.toString()}, (err, friendship) => {
+		if (err) {
+			res.status(500).json({error: "Internal server error"});
+			return errorNotifier(err, `${res.locals.username} tried to reject ${req.body.requestId}`);
+		}
+
+		// Making sure a pending request was found
+		if (!friendship || friendship.state !== Status.Pending) return res.json({error: "No such friend request"});
+
+		let oldState = friendship.state;
+
+		// Reject it :)
+		friendship.state = Status.NoFriendship;
+		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		friendship.save();
+	})
+})
+
+router.post("/friendship/remove", apiAuth, (req : Request, res: Response) => {
+	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
+	let Friends = db.getFriends();
+	// Find a friendship with the provided ID, and where the user can be the requester or recipient
+	Friends.findOne({$or:[{requester: res.locals.user._id, _id: req.body.requestId},{recipient: res.locals.user._id, _id: req.body.requestId}]}, (err, friendship) => {
+		if (err) {
+			res.status(500).json({error: "Internal server error"});
+			return errorNotifier(err, `${res.locals.username} tried to unfriend ${req.body.requestId}`);
+		}
+
+		// Making sure a pending request was found
+		if (!friendship) return res.json({error: "No such friend request"});
+
+		let oldState = friendship.state;
+
+		// Unfriend :)
+		friendship.state = Status.NoFriendship;
+		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		friendship.save();
+		res.json({error: null})
+	})
+})
+
+router.get('/friendship/get', (req : Request, res: Response) => {
+	// return friendship by id
 })
 
 export default router;
