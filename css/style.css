@@ -90,3 +90,7 @@ body {
 .notification-read {
     @apply bg-gray-200 text-gray-600;
 }
+
+.nav-button {
+    @apply p-1 rounded-lg cursor-pointer hover:bg-gray-800 select-none;
+}

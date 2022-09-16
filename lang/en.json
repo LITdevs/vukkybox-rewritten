@@ -86,6 +86,10 @@
 		"stalker": {
 			"name": "Stalker",
 			"description": "I don't know when to take 'yes' for an answer"
+		},
+		"ego": {
+			"name": "Ego",
+			"description": "I am the best friend.. of myself... TWICE :)"
 		}
 	},
 	"profile": {

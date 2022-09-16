@@ -6,6 +6,7 @@ import cssFlag from "./flags/cssFlag";
 import friendselfFlag from "./flags/friendselfFlag";
 import unfriendselfFlag from "./flags/unfriendselfFlag";
 import stalkerFlag from "./flags/stalkerFlag";
+import egoFlag from "./flags/egoFlag";
 
 
 function flagInitializer() {
@@ -17,6 +18,7 @@ function flagInitializer() {
 	flags.push(friendselfFlag());
 	flags.push(unfriendselfFlag());
 	flags.push(stalkerFlag());
+	flags.push(egoFlag());
 
 	return flags;
 }

@@ -11,6 +11,10 @@ import friendEvent from "../../../classes/events/friendEvent";
 
 const router: Router = express.Router();
 
+router.post("/aaa", apiAuth, (req, res) => {
+	res.json(req.user)
+})
+
 router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 	if (!req.body.friendId) return res.status(400).json({error: "Missing parameters"});
 	if (!isValidObjectId(req.body.friendId)) return res.status(400).json({error: "Id not valid"})
@@ -26,7 +30,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 		}
 		if (friendship) {
 			if (friendship.state !== Status.NoFriendship) {
-				event.emit("doubleFriendEvent", { friendship })
+				event.emit("doubleFriendEvent", { friendship, user: res.locals.user })
 				return res.status(400).json({error: "Already friends"});
 			} else {
 				let oldState = friendship.state
@@ -40,7 +44,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 					}
 					res.json({error: null});
 					user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
-					event.emit("friendEvent", new friendEvent(friendship, oldState))
+					event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 					friendship.save();
 					user.save();
 				})
@@ -56,7 +60,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 				}
 				res.json({error: null})
 				user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
-				event.emit("friendEvent", new friendEvent(frsh))
+				event.emit("friendEvent", new friendEvent(frsh, res.locals.user))
 				frsh.save();
 				user.save();
 			})
@@ -82,8 +86,9 @@ router.post("/friendship/accept", apiAuth, (req : Request, res: Response) => {
 		// Accept it :)
 		friendship.state = Status.Accepted;
 		friendship.timestamp = new Date();
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 		friendship.save();
+		res.json({error: null})
 	})
 })
 
@@ -105,7 +110,7 @@ router.post("/friendship/reject", apiAuth, (req : Request, res: Response) => {
 
 		// Reject it :)
 		friendship.state = Status.NoFriendship;
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 		friendship.save();
 	})
 })
@@ -128,7 +133,7 @@ router.post("/friendship/remove", apiAuth, (req : Request, res: Response) => {
 
 		// Unfriend :)
 		friendship.state = Status.NoFriendship;
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
+		event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 		friendship.save();
 		res.json({error: null})
 	})

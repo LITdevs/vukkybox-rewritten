@@ -12,9 +12,12 @@
     </div>
     <% if (user) { %>
     <div>
+        <a href="/friends" class="nav-button">
+                        <i class="fa-solid fa-user-group"></i>
+        </a>
         <% if (typeof user.playerData.notifications !== "undefined" && user.playerData.notifications.length > 0) { %>
             <span>
-                <span class="p-1 rounded-lg cursor-pointer hover:bg-gray-800 select-none" onclick="toggleNotificationDropdown()">
+                <span class="nav-button" onclick="toggleNotificationDropdown()">
                     <%-include("countToIcon.ejs", { count: user.playerData.notifications.length })%>
                     <i class="fa-solid fa-bell"></i>
                 </span>
@@ -57,13 +60,11 @@
     <% } %>
 </div>
 
-<% if(user) {%>
-
-<% } %>
+<% if(user) { %>
 <script>
-    function toggleNotificationDropdown() {
+	function toggleNotificationDropdown() {
 		document.getElementById("notificationDropdown").classList.toggle("hidden");
-    }
+	}
 	function markRead(idToMark) {
 		fetch('/api/v1/notifications/read', {
 			method: "POST",
@@ -76,3 +77,4 @@
         })
     }
 </script>
+<% } %>
