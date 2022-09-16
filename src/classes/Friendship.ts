@@ -3,7 +3,8 @@ import { Types } from "mongoose";
 enum Status {
 	NoFriendship,
 	Pending,
-	Accepted
+	Accepted,
+	NeverFriends
 }
 
 interface IFriendship {

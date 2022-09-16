@@ -2,10 +2,8 @@ import express, { Request, Response, Router} from 'express';
 import apiAuth from "../util/auth/apiAuth";
 import errorNotifier from "../util/errorNotifier";
 import db from "../databaseManager";
-import Friendship, { Status } from "../classes/Friendship";
-import UserNotification from "../classes/UserNotification";
-import event from "../index";
-import friendEvent from "../classes/events/friendEvent";
+import {isValidObjectId} from "mongoose";
+import friendshipAPI from "./api/v1/friendshipAPI";
 
 const router: Router = express.Router();
 
@@ -24,6 +22,19 @@ router.get('/user/email', apiAuth, (req : Request, res : Response) => {
 	if (req.user.mfa) req.user.mfasecret = undefined;
 	if (req.user.apiKey) req.user.apiKey = undefined;
 	res.json({user: req.user});
+})
+
+router.get('/user/friends', (req : Request, res : Response) => {
+	if (!req.query.userId) return res.status(400).json({error: "Missing parameters"})
+	if (!isValidObjectId(req.query.userId)) return res.status(400).json({error: "Invalid userId"})
+	let Friends = db.getFriends()
+	Friends.find({$or: [{recipient: req.query.userId}, {requester: req.query.userId}]}, (err, friends) => {
+		if (err) {
+			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+			return res.status(500).json({error: "Internal server error"});
+		}
+		return res.json(friends);
+	})
 })
 
 router.get('/leaderboard', (req : Request, res : Response) => {
@@ -102,127 +113,10 @@ router.post("/notifications/read", apiAuth, (req: Request, res: Response) => {
 	}
 })
 
-router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
-	if (!req.body.friendId) return res.status(400).json({error: "Missing parameters"});
-	let requesterId : string = res.locals.user._id.toString()
-	let Friend = db.getFriends();
-	let Users = db.getUsers();
-
-	// Look for an existing friendship
-	Friend.findOne({$or:[{requester: requesterId, recipient: req.body.friendId},{requester: req.body.friendId, recipient: requesterId}]}, (err, friendship) => {
-		if (err) {
-			res.status(500).json({error: "Internal server error"});
-			return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
-		}
-		if (friendship) {
-			if (friendship.state !== Status.NoFriendship) {
-				event.emit("doubleFriendEvent", { friendship })
-				return res.status(400).json({error: "Already friends"});
-			} else {
-				let oldState = friendship.state
-				friendship.state = Status.Pending;
-				friendship.timestamp = new Date();
-				Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {
-					if (!user) return res.status(400).json({error: "No such user"});
-					if (err) {
-						res.status(500).json({error: "Internal server error"});
-						return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
-					}
-					res.json({error: null});
-					user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
-					event.emit("friendEvent", new friendEvent(friendship, oldState))
-					friendship.save();
-					user.save();
-				})
-			}
-		}
-		if (!friendship) {
-			let frsh = new Friend(new Friendship(requesterId, req.body.friendId));
-			Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {
-				if (!user) return res.status(400).json({error: "No such user"});
-				if (err) {
-					res.status(500).json({error: "Internal server error"});
-					return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
-				}
-				res.json({error: null})
-				user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
-				event.emit("friendEvent", new friendEvent(friendship))
-				frsh.save();
-				user.save();
-			})
-		}
-	})
+router.get("/notifications", apiAuth, (req : Request, res : Response) => {
+	return res.json(res.locals.user.playerData.notifications);
 })
 
-router.post("/friendship/accept", apiAuth, (req : Request, res: Response) => {
-	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
-	let Friends = db.getFriends();
-	// Find a friendship with the provided ID, and where the user accepting it is the recipient.
-	Friends.findOne({ _id: req.body.requestId, recipient: res.locals.user._id.toString()}, (err, friendship) => {
-		if (err) {
-			res.status(500).json({error: "Internal server error"});
-			return errorNotifier(err, `${res.locals.username} tried to accept ${req.body.requestId}`);
-		}
-
-		// Making sure a pending request was found
-		if (!friendship || friendship.state !== Status.Pending) return res.json({error: "No such friend request"});
-
-		let oldState = friendship.state;
-		// Accept it :)
-		friendship.state = Status.Accepted;
-		friendship.timestamp = new Date();
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
-		friendship.save();
-	})
-})
-
-router.post("/friendship/reject", apiAuth, (req : Request, res: Response) => {
-	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
-	let Friends = db.getFriends();
-	// Find a friendship with the provided ID, and where the user rejecting it is the recipient.
-	Friends.findOne({ _id: req.body.requestId, recipient: res.locals.user._id.toString()}, (err, friendship) => {
-		if (err) {
-			res.status(500).json({error: "Internal server error"});
-			return errorNotifier(err, `${res.locals.username} tried to reject ${req.body.requestId}`);
-		}
-
-		// Making sure a pending request was found
-		if (!friendship || friendship.state !== Status.Pending) return res.json({error: "No such friend request"});
-
-		let oldState = friendship.state;
-
-		// Reject it :)
-		friendship.state = Status.NoFriendship;
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
-		friendship.save();
-	})
-})
-
-router.post("/friendship/remove", apiAuth, (req : Request, res: Response) => {
-	if(!req.body.requestId) return res.status(400).json({error: "Missing parameters"});
-	let Friends = db.getFriends();
-	// Find a friendship with the provided ID, and where the user can be the requester or recipient
-	Friends.findOne({$or:[{requester: res.locals.user._id, _id: req.body.requestId},{recipient: res.locals.user._id, _id: req.body.requestId}]}, (err, friendship) => {
-		if (err) {
-			res.status(500).json({error: "Internal server error"});
-			return errorNotifier(err, `${res.locals.username} tried to unfriend ${req.body.requestId}`);
-		}
-
-		// Making sure a pending request was found
-		if (!friendship) return res.json({error: "No such friend request"});
-
-		let oldState = friendship.state;
-
-		// Unfriend :)
-		friendship.state = Status.NoFriendship;
-		event.emit("friendEvent", new friendEvent(friendship, oldState))
-		friendship.save();
-		res.json({error: null})
-	})
-})
-
-router.get('/friendship/get', (req : Request, res: Response) => {
-	// return friendship by id
-})
+router.use(friendshipAPI);
 
 export default router;
