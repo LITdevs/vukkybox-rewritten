@@ -39,7 +39,7 @@ const sessionStore = new MongoDBStore({
 	uri: process.env.MONGODB_URI,
 	collection: 'sessions',
 	expires: 100 * 60 * 60 * 24 * 30
-})
+});
 
 passport.serializeUser(function(user : Express.User, done) {
 	done(null, user);
@@ -57,7 +57,7 @@ passport.use(new litauth.Strategy({
 	clientSecret: process.env.CLIENT_SECRET,
 	callbackURL: process.env.CALLBACK_URL ? process.env.CALLBACK_URL : "http://localhost:5000/auth/callback",
 	scope: scopes
-}, loginHandler))
+}, loginHandler));
 
 // TODO: Think about cookie options...
 app.use(session({
@@ -70,7 +70,7 @@ app.use(session({
 		maxAge: 100 * 60 * 60 * 24 * 30,
 		secure: process.env.CALLBACK_URL.startsWith("https")
 	}
-}))
+}));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -108,7 +108,7 @@ app.use('/admin', admin);
 app.use('/profile', profile);
 
 // 404
-app.get('*', (req, res) => { res.status(404).render('404', {title: "Vukkybox - 404"}); })
+app.get('*', (req, res) => { res.status(404).render('404', {title: "Vukkybox - 404"}); });
 
 import { verifyConnection } from './util/mailer';
 

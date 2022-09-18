@@ -39,11 +39,11 @@ function openBox(box : Box) {
 				possibleIds = box.uniques;
 				possibleVukkies = [];
 				possibleIds.forEach(pid => {
-					possibleVukkies.push(vukkyList.rarity[rarity][pid])
-				})
+					possibleVukkies.push(vukkyList.rarity[rarity][pid]);
+				});
 			}
 
-			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)]
+			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)];
 			const vukkyObj = possibleVukkies[vukkyId];
 			const vukky = new Vukky(parseInt(vukkyId), vukkyObj.url, vukkyObj.name, vukkyObj.description, rarity, vukkyObj.creator, vukkyObj.audioURL);
 			resolve(vukky);
