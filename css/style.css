@@ -48,11 +48,27 @@ body {
 }
 
 .profile-card {
-    @apply bg-gray-600 rounded-lg mx-auto my-5 w-3/4 p-2;
+    @apply bg-gray-600 rounded-lg shadow-lg mx-auto my-5 w-3/4 p-2;
+}
+
+.tab-card {
+    @apply profile-card text-white;
+    padding: 0 !important;
+    @apply bg-gray-700 !important;
 }
 
 .btn {
-    @apply text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm my-0.5;
+    @apply text-black rounded-lg px-2 py-1 bg-gray-200 shadow-lg hover:bg-gray-400 rounded-sm my-0.5 cursor-pointer;
+}
+
+.btn-green {
+    @apply btn;
+    @apply bg-green-400 hover:bg-green-500 !important;
+}
+
+.btn-red {
+    @apply btn;
+    @apply bg-red-400 hover:bg-red-500 !important;
 }
 
 .trophycase {
@@ -75,6 +91,10 @@ body {
     @apply font-semibold break-words text-ellipsis line-clamp-2 leading-tight;
 }
 
+/*
+    Other
+*/
+
 .flag-image {
     @apply mx-auto m-2 max-h-16;
 }
@@ -93,4 +113,16 @@ body {
 
 .nav-button {
     @apply p-1 rounded-lg cursor-pointer hover:bg-gray-800 select-none;
+}
+
+.tab {
+    @apply bg-gray-600 rounded-t-lg p-2 m-2 mb-0 mr-0 cursor-pointer select-none;
+}
+
+.tab-selected {
+    @apply bg-gray-700;
+}
+
+.tab-bar {
+    @apply bg-gray-300 rounded-t-lg w-full text-white flex flex-row;
 }

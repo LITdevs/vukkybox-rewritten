@@ -58,12 +58,12 @@ router.get("/view/:id", (req : Request, res : Response) => {
 
 router.get("/friends", checkAuth, (req : Request, res : Response) => {
 	let Friends = db.getFriends();
-	Friends.find({$or: [{recipient: req.query.userId}, {requester: req.query.userId}]}, (err, friends) => {
+	Friends.find({$or: [{recipient: res.locals.user._id}, {requester: res.locals.user._id}]}, (err, friends) => {
 		if (err) {
 			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
 			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
 		}
-		res.render("friends", { title: "Vukkybox", friends})
+		res.render("friends", { title: "Vukkybox", friendships: friends})
 	})
 })
 

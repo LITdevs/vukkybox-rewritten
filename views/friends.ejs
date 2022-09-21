@@ -8,7 +8,35 @@
     <body>
         <div class="content">
             <%-include("common/nav.ejs", { user }); %>
+            <div class="tab-card">
+                <div class="tab-bar">
+                    <span class="tab tab-selected" id="t0" onclick="tab(this.id)">
+                        Friends
+                    </span>
+                    <span class="tab" id="t1" onclick="tab(this.id)">
+                        <%-include("common/friendCountToIcon.ejs", {count: friendships.filter(friendship => friendship.state === 1).length})%> Requests
+                    </span>
+                </div>
+                <div class="m-2 tab-content" id="t0-content">
+                    <%-include("common/friendCard.ejs", { friend: user, friendship: {"_id":{"$oid":"63235f88dab5b9a30205e8e4"},"requester":"630f057d33f641b20919bac6","recipient":"630f057d33f641b20919bac6","timestamp":"2022-09-16T10:31:04.908Z","state":2,"__v":0} })%><br>
+                </div>
+                <div class="m-2 tab-content hidden" id="t1-content">
+                    <%-include("common/friendCard.ejs", { friend: user, friendship: {"_id":{"$oid":"63235f88dab5b9a30205e8e4"},"requester":"630f057d33f641b20919bac6","recipient":"630f057d33f641b20919bac6","timestamp":"2022-09-16T10:31:04.908Z","state":1,"__v":0} })%><br>
+                </div>
+            </div>
         </div>
         <%-include("common/footer.ejs", { user }); %>
+    <script>
+        function tab(newTab) {
+	        document.querySelectorAll(".tab-selected").forEach(el => {
+		        el.classList.remove("tab-selected");
+	        })
+	        document.querySelectorAll(".tab-content").forEach(el => {
+		        el.classList.add("hidden");
+	        })
+	        document.getElementById(newTab).classList.add("tab-selected");
+	        document.getElementById(`${newTab}-content`).classList.remove("hidden");
+        }
+    </script>
     </body>
 </html>
