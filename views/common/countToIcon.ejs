@@ -1,0 +1,51 @@
+<%
+    let icon
+    switch (count) {
+        case 1:
+			icon = "fa-solid fa-1"
+            break;
+        case 2:
+            icon = "fa-solid fa-2"
+            break;
+        case 3:
+            icon = "fa-solid fa-3"
+            break;
+        case 4:
+            icon = "fa-solid fa-4"
+            break;
+        case 5:
+            icon = "fa-solid fa-5"
+            break;
+        case 6:
+            icon = "fa-solid fa-6"
+            break;
+        case 7:
+            icon = "fa-solid fa-7"
+            break;
+        case 8:
+            icon = "fa-solid fa-8"
+            break;
+        case 9:
+            icon = "fa-solid fa-9"
+            break;
+        default:
+			icon = "fa-solid fa-e"
+            break;
+    }
+    if (count > 9) icon = "fa-solid fa-skull"
+    if (count > 24) icon = "fa-solid fa-book-skull"
+    if (count > 50) icon = "fa-solid fa-wheat-awn-circle-exclamation"
+    if (count > 99) icon = "fa-brands fa-linux"
+    if (count > 999) icon = "fa-solid fa-otter"
+    if (count > 1999) icon = "fa-solid fa-user-astronaut"
+    if (count > 2999) icon = "fa-solid fa-mosquito-net"
+    if (count > 3999) icon = "fa-solid fa-bugs"
+    if (count > 4999) icon = "fa-solid fa-poo-storm"
+    if (count > 5999) icon = "fa-solid fa-dumpster-fire"
+    if (count > 6999) icon = "fa-solid fa-person-rifle"
+    if (count > 7999) icon = "fa-solid fa-hippo"
+    if (count > 8999) icon = "fa-solid fa-lemon"
+    if (count > 9999) icon = "fa-solid fa-poo"
+    if (count > 19999) icon = "fa-solid fa-spaghetti-monster-flying"
+%>
+<i class="<%=icon%>"></i>

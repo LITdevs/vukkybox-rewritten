@@ -1,0 +1,18 @@
+<div class="friend-card bg-white text-black rounded-lg w-72">
+    <table>
+        <tr>
+            <td>
+                <img alt="<%=friend.username%>'s profile picture" src="https://auth.litdevs.org/api/avatar/bg/<%=friend.litauthId%>" class="rounded-lg w-16 h-16 m-1">
+            </td>
+            <td>
+                <%=friend.username%><br>
+                <% if (friendship.state === 1) { %>
+                    <span class="btn btn-green">Accept</span>
+                    <span class="btn btn-red">Reject</span>
+                <% } else if(friendship.state === 2) { %>
+                    <span class="text-sm">Friends since <%=new Date(friendship.timestamp).toLocaleString(lang.lang)%></span>
+                <% } %>
+            </td>
+        </tr>
+    </table>
+</div>

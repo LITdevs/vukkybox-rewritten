@@ -41,7 +41,15 @@
 
             function openBox() {
 	            document.getElementById("vukkyData").classList.add("hidden");
-	            fetch("/api/internal/open/<%=boxId%>")
+	            fetch("/api/internal/open/<%=boxId%>", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _csrf: "<%=csrfToken %>"
+                    })
+                })
 		            .then(res => res.json())
 		            .then(data => {
 						if (data.error) {

@@ -8,7 +8,7 @@ fs.readdirSync(`lang`).forEach(file => {
 	if (file.endsWith(".json")) {
 		lang[file.split('.')[0]] = JSON.parse(fs.readFileSync(`lang/${file}`).toString());
 	}
-})
+});
 
 /**
  * Middleware to add language to `res.locals` for use in templates.
@@ -24,6 +24,8 @@ fs.readdirSync(`lang`).forEach(file => {
 export default function (req, res, next) {
 	let preferredLanguage = req.acceptsLanguages()[0].split("-")[0];
 	if (!LANG_LIST.includes(preferredLanguage)) preferredLanguage = "en";
+
+	if (req.cookies["lang"]) preferredLanguage = req.cookies["lang"];
 
 	// Copy the english language to a new object.
 	let enlang = {};

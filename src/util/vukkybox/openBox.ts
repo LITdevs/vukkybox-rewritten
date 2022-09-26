@@ -31,9 +31,19 @@ function openBox(box : Box) {
 	return new Promise<Vukky>(resolve => {
 		const odds: Odds = box.odds;
 		level(odds).then(rarity => {
-			const possibleVukkies = vukkyList.rarity[rarity];
-			const possibleIds = Object.keys(possibleVukkies);
-			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)]
+			let possibleVukkies = vukkyList.rarity[rarity];
+			let possibleIds = Object.keys(possibleVukkies);
+
+			// Uniques can only be the uniques in each box, not all uniques.
+			if (rarity === "unique") {
+				possibleIds = box.uniques;
+				possibleVukkies = [];
+				possibleIds.forEach(pid => {
+					possibleVukkies.push(vukkyList.rarity[rarity][pid]);
+				});
+			}
+
+			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)];
 			const vukkyObj = possibleVukkies[vukkyId];
 			const vukky = new Vukky(parseInt(vukkyId), vukkyObj.url, vukkyObj.name, vukkyObj.description, rarity, vukkyObj.creator, vukkyObj.audioURL);
 			resolve(vukky);

@@ -13,7 +13,7 @@ router.get('/', checkAuth, (req: Request, res: Response) => {
 	res.json({message: "Hello World, this is the internal API"});
 })
 
-router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
+router.post('/open/:id', checkAuth, (req : Request, res : Response) => {
 	let realBoxIds = req.app.locals.boxes.map((box) => box.id);
 	if (!realBoxIds.includes(parseInt(req.params.id))) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Box not found"});
 	let boxPrice = req.app.locals.boxes.find((box) => box.id === parseInt(req.params.id)).price;

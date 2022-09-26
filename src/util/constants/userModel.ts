@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {playerDataModel, IplayerDataModel} from "./playerDataModel";
+import {playerDataModel, IPlayerDataModel} from "./playerDataModel";
 import {statisticsModel, IstatisticsModel} from "./statisticsModel";
 
 interface IUser {
@@ -10,7 +10,7 @@ interface IUser {
 	mfa?: Boolean,
 	mfasecret?: String,
 	apiKey?: String,
-	playerData?: IplayerDataModel,
+	playerData?: IPlayerDataModel,
 	statistics?: IstatisticsModel,
 	createdAt: Date,
 	profile: {
@@ -20,6 +20,7 @@ interface IUser {
 			image?: String
 		},
 		css: String,
+		bio: String,
 		order: Array<String>
 	},
 	flags: Array<{flag: number, date: Date, reason?: string}>
@@ -42,6 +43,7 @@ const UserSchema = {
 			image: String
 		},
 		css: String,
+		bio: String,
 		order: Array<String>
 	},
 	flags: Array<{flag: number, date: Date, reason: string}>

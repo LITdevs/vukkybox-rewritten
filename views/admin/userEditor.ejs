@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card text-white">
+                <div class="user-menu">
+                    <form id="user-menu-form">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                        <label>
+                            User ID (defaults to yours):
+                            <input class="text-black w-56" type="text" name="_id" value="<%=user._id%>">
+                        </label><br>
+                        <input type="submit" name="submit" class="btn" value="<%=lang.submit%>">
+                    </form>
+                </div>
+                <div class="user-info" id="user-info">
+                    <p id="user-info-username"></p><br>
+                    <p id="user-info-email"></p>
+                    <p id="user-info-id"></p>
+                    <p id="user-info-litauthId"></p>
+                    <br><br>
+                </div>
+                <div class="action-menu hidden" id="action-menu">
+                    <label>
+                        Select action:
+                        <select class="text-black" onchange="changeTo(this.value)">
+                            <option value="css-action">CSS</option>
+                            <option value="admin-action">Admin</option>
+                            <option value="pseudo-action">Pseudo Mode</option>
+                        </select>
+                    </label>
+                    <div class="css-action" id="css-action">
+                        <button class="btn" onclick="allowCSS()">Allow unrestricted CSS</button>
+                    </div>
+                    <div class="admin-action hidden" id="admin-action">
+                        <button class="btn" onclick="adminify()">Adminify</button>
+                    </div>
+                    <div class="pseudo-action hidden" id="pseudo-action">
+                        <button class="btn" onclick="pseudoMode()">Pikachu EVOLVE!!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include("../common/footer.ejs", { user }); %>
+        <script>
+            let user
+            document.getElementById("user-menu-form").onsubmit = e => {
+				e.preventDefault();
+				fetch("/admin/user", {
+					method: "POST",
+                    headers: {
+						"Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _csrf: e.target._csrf.value,
+                        _id: e.target._id.value
+                    })
+                }).then(res => res.json()).then(res => {
+					if (res.error) return alert(res.error);
+					document.getElementById("user-info-username").textContent = res.user.username
+					document.getElementById("user-info-email").textContent = res.user.email
+					document.getElementById("user-info-id").textContent = res.user._id
+					document.getElementById("user-info-litauthId").textContent = res.user.litauthId
+					document.getElementById("user-info").classList.remove("hidden")
+					document.getElementById("action-menu").classList.remove("hidden")
+                    user = res.user
+                }).catch(e => {
+					alert(e)
+                })
+            }
+            function allowCSS() {
+	            fetch("/admin/flag/css", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert("CSS now allowed.")
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+            function adminify() {
+	            if (!confirm("ARE YOU SURE?")) return;
+	            fetch("/admin/flag/admin", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert("this user is now admin.")
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+            function pseudoMode() {
+	            if (!confirm("ARE YOU SURE?")) return;
+	            fetch("/admin/pseudoMode", {
+		            method: "POST",
+		            headers: {
+			            "Content-Type": "application/json"
+		            },
+		            body: JSON.stringify({
+			            _csrf: "<%=csrfToken%>",
+			            targetId: user._id
+		            })
+	            }).then(res => res.json()).then(res => {
+		            if (res.error) return alert(res.error);
+		            alert(`You are now ${user.username}`)
+	            }).catch(e => {
+		            alert(e)
+	            })
+            }
+
+			function changeTo(id) {
+				document.getElementById("css-action").classList.add("hidden")
+				document.getElementById("admin-action").classList.add("hidden")
+				document.getElementById(id).classList.remove("hidden")
+            }
+        </script>
+    </body>
+</html>

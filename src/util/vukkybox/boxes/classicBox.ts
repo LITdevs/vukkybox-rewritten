@@ -11,6 +11,6 @@ const odds : Odds = {
 	pukky: 0
 }
 
-const classicBox = () => { return new Box("Classic Box", "Just your usual box.<br>Unique: VukkyBot", 10, [73], odds, "/resources/boxes/classicbox.webp") }
+const classicBox = () => { return new Box("Classic Box", "Just your usual box.<br>Unique: VukkyBot", 10, ["73"], odds, "/resources/boxes/classicbox.webp") }
 
 export default classicBox

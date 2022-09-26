@@ -11,6 +11,6 @@ const odds : Odds = {
 	pukky: 0.01 // Just a tiny little chance, if someone gets this please show me.
 }
 
-const sharkBox = () => { return new Box("Shark Box", "This box has no Vukkies below 3 stars (rare)<br>Unique: 2 secret Vukkies...", 100, [235, 236], odds, "/resources/boxes/sharkbox.webp") }
+const sharkBox = () => { return new Box("Shark Box", "This box has no Vukkies below 3 stars (rare)<br>Unique: 2 secret Vukkies...", 100, ["235", "236"], odds, "/resources/boxes/sharkbox.webp") }
 
 export default sharkBox

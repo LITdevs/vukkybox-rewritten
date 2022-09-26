@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <%- include("common/nav.ejs", { user }); %>
         <div class="content">
+            <%- include("common/nav.ejs", { user }); %>
             <label for="sortingMethod">
             Sorting method:
             </label>
@@ -23,7 +23,7 @@
             </select>
 
             <a class="text-blue-500 cursor-pointer" onclick="share()">
-                <%=lang.shareColelction%>
+                <%=lang.shareCollection%>
             </a>
 
             <div class="flex flex-wrap">
@@ -112,7 +112,9 @@
                 }
 
                 let lastRarity
+                let anything = false
                 finalVukkies.forEach(vukky => {
+					anything = true
                     if (vukky.rarity !== lastRarity && ["rarity", "rarity_r"].includes(sortMethod)) {
                         lastRarity = vukky.rarity;
                         %>
@@ -121,6 +123,9 @@
                     } %>
                     <%- include("common/vukky.ejs", { vukky }); %><%
                 })
+                if (!anything) {
+					%><p>This user doesn't have any Vukkies yet :(</p><%
+                }
              %>
             </div>
         </div>
@@ -143,7 +148,7 @@
             function share() {
                 var copyText = `${new URL(window.location).origin}/collection?user=<%=puser._id%>`;
                 navigator.clipboard.writeText(copyText).then(function() {
-                    alert("<%=lang.shareCopied%>");
+                    alert("<%=lang.shareCopied %>");
                 }, function(err) {
                     alert("<%=lang.copyFail %>");
                     console.error(err);

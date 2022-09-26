@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-function updateProfile() {
+function updateProfile(dontExit = false) {
 	fetch('/api/v1/profile', {
 		method: 'POST',
 		headers: {
@@ -77,13 +77,15 @@ function updateProfile() {
 		},
 		body: JSON.stringify({
 			"action": "update",
-			"order": order
+			"order": order,
+			"bio": `${document.getElementById("bio-input")?.value ? document.getElementById("bio-input")?.value : ""}`
 		})
 	}).then(res => res.json()).then(res => {
 		if (res.error) {
 			alert(res.error);
 		} else {
-			window.location.replace(window.location.href.replaceAll("?editmode", ""));
+			if (!dontExit) window.location.replace(window.location.href.replaceAll("?editmode", ""));
+			if (dontExit) window.location.reload();
 		}
 	})
 }
@@ -172,4 +174,14 @@ function submitCSS() {
 			cssEditor();
 		}
 	})
+}
+
+function addCard(newCardId) {
+	order.push(newCardId)
+	updateProfile(true);
+}
+
+function deleteCard(deleteId) {
+	order.splice(order.indexOf(deleteId), 1);
+	updateProfile(true);
 }

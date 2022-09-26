@@ -2,6 +2,7 @@
     <table class="mx-auto">
         <% if (editMode) { %>
             <i class="fa-solid fa-grip text-gray-400"></i>
+            <i class="fa-solid fa-trash-can text-gray-400 cursor-pointer ml-2" onclick="deleteCard('0')"></i>
         <% } %>
         <tr>
             <td class="p-2">
@@ -19,7 +20,11 @@
                 <% } %>
             </td>
             <td class="p-2 text-white">
-                <p class="username"><%=puser.username%></p><br>
+                <p class="username"><%=puser.username%></p>
+                <% if(user && !user._id.equals(puser._id)) { %>
+                    <%-include("../friendButton.ejs", {friendship})%><br>
+                <% } %>
+                <br>
                 <a class="text-blue-500" href="/collection?user=<%=puser._id%>"><%=lang.viewCollection%></a>
             </td>
         </tr>

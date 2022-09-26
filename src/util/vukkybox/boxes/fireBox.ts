@@ -11,6 +11,6 @@ const odds : Odds = {
 	pukky: 0
 }
 
-const fireBox = () => { return new Box("Fire Box", "This box has an increased chance of Uncommon Vukkies.<br>Unique: Fire Vukky", 25, [23], odds, "/resources/boxes/firebox.webp") }
+const fireBox = () => { return new Box("Fire Box", "This box has an increased chance of Uncommon Vukkies.<br>Unique: Fire Vukky", 25, ["23"], odds, "/resources/boxes/firebox.webp") }
 
 export default fireBox

@@ -53,7 +53,7 @@
 	},
 	"shareCollection": "Share collection",
 	"viewCollection": "View collection",
-	"shareCopied": "Share link copied to clipboard!\nSend it to your friends to flex your Vukkies on them!",
+	"shareCopied": "Share link copied to clipboard!\\nSend it to your friends to flex your Vukkies on them!",
 	"copyFail": "Failed to copy to clipboard!",
 	"profileOf": "{0}'s profile",
 	"viewProfileOf": "View {0}'s profile, badges and more!",
@@ -63,9 +63,33 @@
 			"name": "LIT Dev",
 			"description": "This user takes care of the Vukkies."
 		},
+		"garbage": {
+			"name": "Pile of garbage",
+			"description": "This person did something and got this stupid badge"
+		},
 		"migrator": {
 			"name": "Ancient gacha addict",
 			"description": "This user had a Vukkybox account on the old website."
+		},
+		"css": {
+			"name": "Verified CSS lover",
+			"description": "This user can use unrestricted CSS"
+		},
+		"friendself": {
+			"name": "A Friend in Need",
+			"description": "I am the best friend... of myself"
+		},
+		"unfriendself": {
+			"name": "Is a Friend Indeed",
+			"description": "Rejected by yourself"
+		},
+		"stalker": {
+			"name": "Stalker",
+			"description": "I don't know when to take 'yes' for an answer"
+		},
+		"ego": {
+			"name": "Ego",
+			"description": "I am the best friend.. of myself... TWICE :)"
 		}
 	},
 	"profile": {

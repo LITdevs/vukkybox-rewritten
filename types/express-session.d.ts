@@ -12,5 +12,6 @@ declare module "express-session" {
 			validated?: boolean; // Has the user validated 2FA?
 			tempsecret?: string; // The temporary secret for 2FA during the mfa enabling flow.
 		};
+		pseudoMode?: string;
 	}
 }
