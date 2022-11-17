@@ -15,7 +15,6 @@
                 <p><%=lang.mfa.youdidntit%></p>
             </div>
         </div>
-        <%- include("common/footer.ejs", { user }); %>
         <script>
             function disablemfa() {
                 fetch("/2fa/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({_csrf: "<%=csrfToken%>"}) })
@@ -30,5 +29,6 @@
                     });
             }
         </script>
-</body>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
 </html>

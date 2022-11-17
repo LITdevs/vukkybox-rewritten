@@ -1,4 +1,7 @@
 {
 	"lang": "fi",
-	"lang_full": "Suomi"
+	"lang_full": "Suomi",
+	"nav": {
+		"navTempText": "This is the navbar visible on every page. (finnish localization)"
+	}
 }

@@ -98,5 +98,7 @@
 		"bgmode1": "Random",
 		"bgmode2": "Image",
 		"turbonerd": "Are you a turbo nerd? You might want to make your own css for your profile!<br>Note that there is no fancy syntax highlighting here, so you might want to use an external editor."
-	}
+	},
+	"langInfo": "The language setting will impact various formatting, such as date and time.",
+	"langInfo2": "Missing localization (so all of it, since I'm not translating this stuff lol) is replaced with English."
 }

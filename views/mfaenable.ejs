@@ -29,7 +29,6 @@
                 <p><%=lang.mfa.youdidit%></p>
             </div>
         </div>
-        <%- include("common/footer.ejs", { user }); %>
         <script>
             document.getElementById("validationForm").onsubmit = (e) => {
 	            e.preventDefault();
@@ -92,5 +91,6 @@
 	            }
             }
         </script>
+        <%- include("common/footer.ejs", { user }); %>
     </body>
 </html>

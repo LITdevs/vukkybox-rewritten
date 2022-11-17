@@ -126,3 +126,7 @@ body {
 .tab-bar {
     @apply bg-gray-300 rounded-t-lg w-full text-white flex flex-row;
 }
+
+.input-box {
+    @apply p-1 rounded-md border border-gray-600 bg-gray-200 text-gray-900 my-2 outline-none focus:border-gray-500;
+}

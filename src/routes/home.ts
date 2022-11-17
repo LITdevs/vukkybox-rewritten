@@ -5,6 +5,8 @@ import checkAuth from "../util/auth/checkAuth";
 import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 import Vukky from "../classes/Vukky";
 import errorNotifier from "../util/errorNotifier";
+import LANG_LIST from "../../lang/codes";
+import fs from "fs";
 
 const router : Router = express.Router();
 
@@ -98,5 +100,15 @@ router.get("/friends", checkAuth, (req : Request, res : Response) => {
 		})
 	})
 })
+
+router.get("/settings", checkAuth, (req : Request, res : Response) => {
+	let langs = [];
+	LANG_LIST.forEach((lang) => {
+		let langJson = JSON.parse(fs.readFileSync(`lang/${lang}.json`).toString());
+		langs.push({code: lang, name: langJson["lang_full"]});
+	})
+	res.render("settings", { title: "Vukkybox", languages: langs });
+})
+
 
 export default router;

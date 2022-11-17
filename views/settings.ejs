@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <label class="m-2">
+                Language:
+                <select class="input-box" onchange="changeLang(this.value)"><%
+                    languages.forEach(language => {
+						language;%>
+                    <option value="<%=language.code%>"<%if (language.code === lang.lang) {%> selected<% } %>><%=language.name%></option>
+                    <%
+					}) %>
+                </select>
+            </label>
+            <p class="mx-2"><%=lang.langInfo%></p>
+            <p class="mx-2"><%=lang.langInfo2%></p>
+        </div>
+        <script>
+            function changeLang(lang) {
+                setCookie("lang", lang);
+				window.location.reload();
+            }
+        </script>
+
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

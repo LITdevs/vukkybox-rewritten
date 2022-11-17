@@ -47,7 +47,6 @@
                 </div>
             </div>
         </div>
-        <%- include("../common/footer.ejs", { user }); %>
         <script>
             let user
             document.getElementById("user-menu-form").onsubmit = e => {
@@ -134,5 +133,6 @@
 				document.getElementById(id).classList.remove("hidden")
             }
         </script>
+        <%- include("../common/footer.ejs", { user }); %>
     </body>
 </html>

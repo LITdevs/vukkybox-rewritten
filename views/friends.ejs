@@ -40,60 +40,60 @@
                     </div>
             </div>
         </div>
+        <script>
+	        function tab(newTab) {
+		        document.querySelectorAll(".tab-selected").forEach(el => {
+			        el.classList.remove("tab-selected");
+		        })
+		        document.querySelectorAll(".tab-content").forEach(el => {
+			        el.classList.add("hidden");
+		        })
+		        document.getElementById(newTab).classList.add("tab-selected");
+		        document.getElementById(`${newTab}-content`).classList.remove("hidden");
+	        }
+
+	        function accept(id) {
+		        fetch("/api/v1/friendship/accept", {
+			        method: "POST",
+			        headers: {
+				        "Content-Type": "application/json"
+			        },
+			        body: JSON.stringify({
+				        requestId: id
+			        })
+		        }).then(() => {
+			        window.location.reload();
+		        })
+	        }
+
+	        function reject(id) {
+		        fetch("/api/v1/friendship/reject", {
+			        method: "POST",
+			        headers: {
+				        "Content-Type": "application/json"
+			        },
+			        body: JSON.stringify({
+				        requestId: id
+			        })
+		        }).then(() => {
+			        window.location.reload();
+		        })
+	        }
+
+	        function unfriend(id) {
+		        fetch("/api/v1/friendship/remove", {
+			        method: "POST",
+			        headers: {
+				        "Content-Type": "application/json"
+			        },
+			        body: JSON.stringify({
+				        requestId: id
+			        })
+		        }).then(() => {
+			        window.location.reload();
+		        })
+	        }
+        </script>
         <%-include("common/footer.ejs", { user }); %>
-    <script>
-        function tab(newTab) {
-	        document.querySelectorAll(".tab-selected").forEach(el => {
-		        el.classList.remove("tab-selected");
-	        })
-	        document.querySelectorAll(".tab-content").forEach(el => {
-		        el.classList.add("hidden");
-	        })
-	        document.getElementById(newTab).classList.add("tab-selected");
-	        document.getElementById(`${newTab}-content`).classList.remove("hidden");
-        }
-
-		function accept(id) {
-            fetch("/api/v1/friendship/accept", {
-				method: "POST",
-                headers: {
-					"Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-	                requestId: id
-                })
-            }).then(() => {
-	            window.location.reload();
-            })
-        }
-
-        function reject(id) {
-	        fetch("/api/v1/friendship/reject", {
-		        method: "POST",
-		        headers: {
-			        "Content-Type": "application/json"
-		        },
-		        body: JSON.stringify({
-			        requestId: id
-		        })
-	        }).then(() => {
-		        window.location.reload();
-	        })
-        }
-
-        function unfriend(id) {
-	        fetch("/api/v1/friendship/remove", {
-		        method: "POST",
-		        headers: {
-			        "Content-Type": "application/json"
-		        },
-		        body: JSON.stringify({
-			        requestId: id
-		        })
-	        }).then(() => {
-		        window.location.reload();
-            })
-        }
-    </script>
     </body>
 </html>

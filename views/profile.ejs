@@ -90,13 +90,14 @@
                 </div>
             <% } %>
         </div>
-        <%- include("common/footer.ejs", { user }); %>
-    </body>
-    <% if (editMode) { %>
+        <% if (editMode) { %>
         <script>
-            let order = JSON.parse('<%-JSON.stringify(puser.profile.order)%>')
-            if (order.length === 0) order = ["0", "1", "2"]
+	        let order = JSON.parse('<%-JSON.stringify(puser.profile.order)%>')
+	        if (order.length === 0) order = ["0", "1", "2"]
         </script>
         <script src="/js/profile.js"></script>
-    <% } %>
+        <% } %>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+
 </html>
