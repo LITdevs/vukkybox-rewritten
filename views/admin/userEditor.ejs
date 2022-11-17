@@ -50,6 +50,7 @@
         <script>
             let user
             document.getElementById("user-menu-form").onsubmit = e => {
+				console.log("Submit event")
 				e.preventDefault();
 				fetch("/admin/user", {
 					method: "POST",

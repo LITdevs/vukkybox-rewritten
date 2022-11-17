@@ -27,6 +27,10 @@
 						friendship;
 						%><%-include("common/friendCard.ejs", { friend: friendship.friend, friendship: friendship.ship })%><br><%
                     })
+
+                    if (aFriends.length === 0) {
+                        %>You have no friends.<%
+                    }
                     %>
 
                     </div>
@@ -36,6 +40,10 @@
                         friendship;
                     %><%-include("common/friendCard.ejs", { friend: friendship.friend, friendship: friendship.ship })%><br><%
                     })
+
+                    if (pFriends.length === 0) {
+                        %>You have no pending friend requests.<%
+                    }
                     %>
                     </div>
             </div>
