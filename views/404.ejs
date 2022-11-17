@@ -12,7 +12,7 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
-            <h1 class="text-center align-middle font-mono pt-48"><img class="h-dyn inline-block" src="/resources/Fourkky.webp" alt="Vukky that looks like and represents the number Four"><img class="h-dyn inline-block" src="/resources/eggvukky.webp" alt="Vukky that looks like an egg, representing the number Zero"><img class="h-dyn inline-block" src="/resources/Fourkky.webp" alt="Vukky that looks like and represents the number Four"></h1>
+            <h1 class="text-center align-middle font-mono pt-48"><img class="h-dyn inline-block" src="/resources/Fourkky.webp" alt="Vukky that looks like and represents the number Four" style="transform: rotate(<%=Math.random() * 365%>deg)"><img class="h-dyn inline-block" src="/resources/eggvukky.webp" alt="Vukky that looks like an egg, representing the number Zero" style="transform: rotate(<%=Math.random() * 365%>deg)"><img class="h-dyn inline-block" src="/resources/Fourkky.webp" alt="Vukky that looks like and represents the number Four" style="transform: rotate(<%=Math.random() * 365%>deg)"></h1>
             <p class="text-center align-middle fs-dyn"><%=lang.numkies%></p>
             <a href="/" class="text-center align-middle text-blue-500 fs-dyn"><p><%=lang.gofindothers%></p></a>
         </div>

@@ -12,8 +12,9 @@ interface IFriendship {
 	requester: string;
 	recipient: string;
 	timestamp: Date;
-	originalDate: Date,
+	originalDate: Date;
 	state: Status;
+	friend?: object;
 }
 
 const FriendSchema = {
@@ -32,6 +33,7 @@ class Friendship implements IFriendship {
 	state: Status;
 	timestamp: Date;
 	originalDate: Date;
+	friend?: object;
 
 	constructor(requester : string, recipient : string, state?: Status) {
 		this.timestamp = new Date();

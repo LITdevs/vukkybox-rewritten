@@ -57,13 +57,45 @@ router.get("/view/:id", (req : Request, res : Response) => {
 })
 
 router.get("/friends", checkAuth, (req : Request, res : Response) => {
+	let Users = db.getUsers();
+	const lookupFriend = async (id) => {
+		return new Promise((resolve, reject) => {
+			Users.findOne({_id: id.toString()}, (err, user) => {
+				if (err) {
+					errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+					res.status(500).render("error", { title: "Vukkyboxn't :(" });
+					reject();
+				}
+				resolve(user);
+			})
+		});
+	}
+
 	let Friends = db.getFriends();
 	Friends.find({$or: [{recipient: res.locals.user._id}, {requester: res.locals.user._id}]}, (err, friends) => {
 		if (err) {
 			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
 			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
 		}
-		res.render("friends", { title: "Vukkybox", friendships: friends})
+		let newFriends = [];
+		let i = 0
+		friends.forEach(async (friend, index) => {
+			let idToLookup;
+			if (friend.recipient.toString() !== res.locals.user._id.toString()) idToLookup = friend.recipient;
+			if (friend.requester.toString() !== res.locals.user._id.toString()) idToLookup = friend.requester;
+			if (!idToLookup) {
+				i++;
+				newFriends[index] = {ship: friend, friend: res.locals.user};
+				return;
+			}
+			let friendData = await lookupFriend(idToLookup);
+			if (!friendData) return;
+			i++;
+			newFriends[index] = {ship: friend, friend: friendData};
+			if (i === friends.length) {
+				res.render("friends", { title: "Vukkybox", friendships: newFriends})
+			}
+		})
 	})
 })
 

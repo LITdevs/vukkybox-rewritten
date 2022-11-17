@@ -6,12 +6,17 @@
             </td>
             <td>
                 <%=friend.username%><br>
-                <% if (friendship.state === 1) { %>
-                    <span class="btn btn-green">Accept</span>
-                    <span class="btn btn-red">Reject</span>
+                <% if (friendship.state === 1 && friendship.requester.toString() === friend._id.toString()) { %>
+                    <span class="btn btn-green" onclick="accept('<%=friendship._id%>')">Accept</span>
+                    <span class="btn btn-red" onclick="reject('<%=friendship._id%>')">Reject</span>
                 <% } else if(friendship.state === 2) { %>
                     <span class="text-sm">Friends since <%=new Date(friendship.timestamp).toLocaleString(lang.lang)%></span>
+                <% } else if (friendship.state === 1 && friendship.requester.toString() !== friend._id.toString()) { %>
+                    <span class="text-sm">Request pending</span>
                 <% } %>
+            </td>
+            <td>
+                <i class="fa-solid fa-trash p-2 rounded-lg hover:bg-red-600 transition-colors duration-100" onclick="unfriend('<%=friendship._id%>')"></i>
             </td>
         </tr>
     </table>

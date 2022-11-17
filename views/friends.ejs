@@ -14,15 +14,30 @@
                         Friends
                     </span>
                     <span class="tab" id="t1" onclick="tab(this.id)">
-                        <%-include("common/friendCountToIcon.ejs", {count: friendships.filter(friendship => friendship.state === 1).length})%> Requests
+                        <%-include("common/friendCountToIcon.ejs", {count: friendships.filter(friendship => friendship.ship.state === 1).length})%> Requests
                     </span>
                 </div>
+                <%
+                let pFriends = friendships.filter(fs => fs.ship.state === 1);
+                let aFriends = friendships.filter(fs => fs.ship.state === 2);
+                %>
                 <div class="m-2 tab-content" id="t0-content">
-                    <%-include("common/friendCard.ejs", { friend: user, friendship: {"_id":{"$oid":"63235f88dab5b9a30205e8e4"},"requester":"630f057d33f641b20919bac6","recipient":"630f057d33f641b20919bac6","timestamp":"2022-09-16T10:31:04.908Z","state":2,"__v":0} })%><br>
-                </div>
+                    <%
+                    aFriends.forEach(friendship => {
+						friendship;
+						%><%-include("common/friendCard.ejs", { friend: friendship.friend, friendship: friendship.ship })%><br><%
+                    })
+                    %>
+
+                    </div>
                 <div class="m-2 tab-content hidden" id="t1-content">
-                    <%-include("common/friendCard.ejs", { friend: user, friendship: {"_id":{"$oid":"63235f88dab5b9a30205e8e4"},"requester":"630f057d33f641b20919bac6","recipient":"630f057d33f641b20919bac6","timestamp":"2022-09-16T10:31:04.908Z","state":1,"__v":0} })%><br>
-                </div>
+                    <%
+                    pFriends.forEach(friendship => {
+                        friendship;
+                    %><%-include("common/friendCard.ejs", { friend: friendship.friend, friendship: friendship.ship })%><br><%
+                    })
+                    %>
+                    </div>
             </div>
         </div>
         <%-include("common/footer.ejs", { user }); %>
@@ -36,6 +51,48 @@
 	        })
 	        document.getElementById(newTab).classList.add("tab-selected");
 	        document.getElementById(`${newTab}-content`).classList.remove("hidden");
+        }
+
+		function accept(id) {
+            fetch("/api/v1/friendship/accept", {
+				method: "POST",
+                headers: {
+					"Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+	                requestId: id
+                })
+            }).then(() => {
+	            window.location.reload();
+            })
+        }
+
+        function reject(id) {
+	        fetch("/api/v1/friendship/reject", {
+		        method: "POST",
+		        headers: {
+			        "Content-Type": "application/json"
+		        },
+		        body: JSON.stringify({
+			        requestId: id
+		        })
+	        }).then(() => {
+		        window.location.reload();
+	        })
+        }
+
+        function unfriend(id) {
+	        fetch("/api/v1/friendship/remove", {
+		        method: "POST",
+		        headers: {
+			        "Content-Type": "application/json"
+		        },
+		        body: JSON.stringify({
+			        requestId: id
+		        })
+	        }).then(() => {
+		        window.location.reload();
+            })
         }
     </script>
     </body>
