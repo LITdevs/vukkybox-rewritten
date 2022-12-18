@@ -5,6 +5,8 @@ import checkAuth from "../util/auth/checkAuth";
 import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 import Vukky from "../classes/Vukky";
 import errorNotifier from "../util/errorNotifier";
+import LANG_LIST from "../../lang/codes";
+import fs from "fs";
 
 const router : Router = express.Router();
 
@@ -57,13 +59,67 @@ router.get("/view/:id", (req : Request, res : Response) => {
 })
 
 router.get("/friends", checkAuth, (req : Request, res : Response) => {
+	let Users = db.getUsers();
+	const lookupFriend = async (id) => {
+		return new Promise((resolve, reject) => {
+			Users.findOne({_id: id.toString()}, (err, user) => {
+				if (err) {
+					errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+					res.status(500).render("error", { title: "Vukkyboxn't :(" });
+					reject();
+				}
+				resolve(user);
+			})
+		});
+	}
+
 	let Friends = db.getFriends();
 	Friends.find({$or: [{recipient: res.locals.user._id}, {requester: res.locals.user._id}]}, (err, friends) => {
 		if (err) {
 			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
 			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
 		}
-		res.render("friends", { title: "Vukkybox", friendships: friends})
+		let newFriends = [];
+		let i = 0
+		friends.forEach(async (friend, index) => {
+			let idToLookup;
+			if (friend.recipient.toString() !== res.locals.user._id.toString()) idToLookup = friend.recipient;
+			if (friend.requester.toString() !== res.locals.user._id.toString()) idToLookup = friend.requester;
+			if (!idToLookup) {
+				i++;
+				newFriends[index] = {ship: friend, friend: res.locals.user};
+				return;
+			}
+			let friendData = await lookupFriend(idToLookup);
+			if (!friendData) return;
+			i++;
+			newFriends[index] = {ship: friend, friend: friendData};
+			if (i === friends.length) {
+				res.render("friends", { title: "Vukkybox", friendships: newFriends})
+			}
+		})
+	})
+})
+
+router.get("/settings", checkAuth, (req : Request, res : Response) => {
+	let langs = [];
+	LANG_LIST.forEach((lang) => {
+		let langJson = JSON.parse(fs.readFileSync(`lang/${lang}.json`).toString());
+		langs.push({code: lang, name: langJson["lang_full"]});
+	})
+	res.render("settings", { title: "Vukkybox", languages: langs, csrfToken: req.csrfToken() });
+})
+
+router.get("/flag/:flagId", (req : Request, res : Response) => {
+	let flag = req.app.locals.flags.find((flag) => flag.id === parseInt(req.params.flagId));
+	if (!flag) return res.status(404).render("404", { title: "Vukkyboxn't :(" });
+	let Users = db.getUsers();
+	Users.find({"flags.flag": flag.id }, (err, users) => {
+		if (err) {
+			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
+		}
+		res.render("flag", { title: "Vukkybox", flag: flag, users: users });
 	})
 })
 

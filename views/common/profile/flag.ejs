@@ -1,9 +1,9 @@
 <% if (flags[flag.flag]) { %>
-    <div class="flag" id="f<%=flag.flag%>">
+    <a href="/flag/<%=flag.flag%>"><div class="flag" id="f<%=flag.flag%>">
         <img class="flag-image" src="<%=flags[flag.flag].imageURL %>" alt="<%=lang.flags[flags[flag.flag].langkey].name%> flag image">
         <span class="flag-name"><%=lang.flags[flags[flag.flag].langkey].name%></span>
         <!--<span class="flag-description"><%=lang.flags[flags[flag.flag].langkey].description%></span>-->
-    </div>
+    </div></a>
     <script>
         tippy('#f<%=flag.flag %>', {
             content: `<%=lang.flags[flags[flag.flag].langkey].description%><%-`${flag.reason ? "<br><span>" + flag.reason + "</span>" : ""}` %><br><span class="text-gray-400"><%=flag.date.toLocaleString(lang.lang)%></span>`,

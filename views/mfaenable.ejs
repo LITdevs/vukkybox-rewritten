@@ -9,17 +9,17 @@
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
             <div id="page1">
-                <p><%=lang.mfa.enableIntro%></p>
-                <button onclick="page2()"><%=lang.next%></button>
+                <p class="m-2"><%=lang.mfa.enableIntro%></p>
+                <button class="btn-green m-2" onclick="page2()"><%=lang.next%></button>
             </div>
-            <div id="page2" class="hidden">
+            <div id="page2" class="hidden m-2">
                 <p><%=lang.mfa.enableHow%></p>
                 <img id="qrcode" alt="" src="">
                 <form id="validationForm">
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <label>
                         <%=lang.mfa.inputCode %>
-                    <input type="text" class="mfa-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
+                    <input type="text" class="mfa-box input-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
                     </label>
                     <p class="text-red-500" id="error"></p>
                     <input type="submit" value="<%=lang.submit %>" disabled>
@@ -27,13 +27,14 @@
             </div>
             <div id="success" class="hidden">
                 <p><%=lang.mfa.youdidit%></p>
+                <br>
+                <a class="text-blue-500" href="/store">Continue</a>
             </div>
         </div>
-        <%- include("common/footer.ejs", { user }); %>
         <script>
             document.getElementById("validationForm").onsubmit = (e) => {
 	            e.preventDefault();
-	            fetch("/2fa/verify", {
+	            fetch("/mfa/verify", {
 		            method: "POST",
 		            headers: {
 			            "Content-Type": "application/json"
@@ -66,7 +67,7 @@
             function page2() {
 				document.getElementById("page1").classList.add("hidden");
 				document.getElementById("page2").classList.remove("hidden");
-				fetch("/2fa/enable", {
+				fetch("/mfa/enable", {
 					method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -92,5 +93,6 @@
 	            }
             }
         </script>
+        <%- include("common/footer.ejs", { user }); %>
     </body>
 </html>

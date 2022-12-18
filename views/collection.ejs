@@ -130,7 +130,6 @@
             </div>
         </div>
 
-        <%- include("common/footer.ejs", { user }); %>
         <script>
             // create proxy for url params
             const urlParams = new URLSearchParams(window.location.search);
@@ -155,5 +154,6 @@
                 });
             }
         </script>
+        <%- include("common/footer.ejs", { user }); %>
     </body>
 </html>

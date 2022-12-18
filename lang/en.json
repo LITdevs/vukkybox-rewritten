@@ -98,5 +98,15 @@
 		"bgmode1": "Random",
 		"bgmode2": "Image",
 		"turbonerd": "Are you a turbo nerd? You might want to make your own css for your profile!<br>Note that there is no fancy syntax highlighting here, so you might want to use an external editor."
-	}
+	},
+	"langTitle": "Localization",
+	"langInfo": "The language setting will impact various formatting, such as date and time.",
+	"langInfo2": "Missing localization (so all of it, since I'm not translating this stuff lol) is replaced with English.",
+	"mfaTitle": "Multi-Factor Authentication",
+	"mfaInfo": "You can enable 2-Factor Authentication to add an extra layer of security to your account.",
+	"mfaButtonEnable": "Enable 2-Factor Authentication",
+	"mfaButtonDisable": "Disable 2-Factor Authentication",
+	"logout": "Logout",
+	"tokenTitle": "API token",
+	"tokenInfo": "You can use this token to access the Public API. \"Where is the documentation??\" you ask? Well, nowhere! Have fun digging through the source"
 }

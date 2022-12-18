@@ -63,12 +63,12 @@ body {
 
 .btn-green {
     @apply btn;
-    @apply bg-green-400 hover:bg-green-500 !important;
+    @apply bg-green-400 hover:bg-green-500 text-gray-100 !important;
 }
 
 .btn-red {
     @apply btn;
-    @apply bg-red-400 hover:bg-red-500 !important;
+    @apply bg-red-400 hover:bg-red-500 text-gray-100 !important;
 }
 
 .trophycase {
@@ -125,4 +125,39 @@ body {
 
 .tab-bar {
     @apply bg-gray-300 rounded-t-lg w-full text-white flex flex-row;
+}
+
+.input-box {
+    @apply p-1 rounded-md border border-gray-600 bg-gray-200 text-gray-900 my-2 outline-none focus:border-gray-500;
+}
+
+#tokenBox {
+    color: transparent;
+    text-shadow: 0 0 7px rgba(0,0,0,0.5);
+    @apply transition-all ease-in-out duration-150;
+}
+
+#tokenBox:hover {
+    color: unset;
+    text-shadow: unset;
+}
+
+.regen-btn {
+    @apply hover:bg-gray-200 p-1 rounded-full cursor-pointer;
+}
+
+.regen-btn:hover {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

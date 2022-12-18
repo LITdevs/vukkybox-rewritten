@@ -8,7 +8,7 @@
                 </td>
             <% } %>
             <td class="w-4/5">
-                <p class="font-bold"><%=notification.title %> <span class="text-gray-500 font-normal"><%=notification.timestamp.toLocaleString(lang.lang)%></span></p>
+                <p class="font-bold"><%=notification.title %> <span class="text-gray-500 font-normal"><%=`<$date:${new Date(notification.timestamp)}>`%></span></p>
                 <p class="line-clamp-2 break-words cursor-pointer" onclick="this.classList.remove('line-clamp-2');this.classList.remove('cursor-pointer');"><%=notification.body %></p>
             </td>
         </tr>

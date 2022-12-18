@@ -11,10 +11,6 @@ import friendEvent from "../../../classes/events/friendEvent";
 
 const router: Router = express.Router();
 
-router.post("/aaa", apiAuth, (req, res) => {
-	res.json(req.user)
-})
-
 router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 	if (!req.body.friendId) return res.status(400).json({error: "Missing parameters"});
 	if (!isValidObjectId(req.body.friendId)) return res.status(400).json({error: "Id not valid"})
@@ -34,6 +30,8 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 				return res.status(400).json({error: "Already friends"});
 			} else {
 				let oldState = friendship.state
+				friendship.requester = requesterId; // Set the people the right way around :P
+				friendship.recipient = req.body.friendId;
 				friendship.state = Status.Pending;
 				friendship.timestamp = new Date();
 				Users.findOne({_id: req.body.friendId.toString()}, (err, user) => {

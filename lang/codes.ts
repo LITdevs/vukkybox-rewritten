@@ -1,4 +1,5 @@
 const LANG_LIST = [
-	"en"
+	"en",
+	"fi"
 ]
 export default LANG_LIST;

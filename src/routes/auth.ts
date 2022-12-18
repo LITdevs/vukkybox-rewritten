@@ -3,7 +3,7 @@ import {PassportStatic} from "passport";
 import scopes from '../util/constants/scopes';
 import errorNotifier from "../util/errorNotifier";
 import csurf from "csurf";
-import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
+import {CSRF_COOKIE_OPTIONS, MFA_ROUTE} from "../util/constants/constants";
 
 function routerFunc(passport : PassportStatic) {
 	const router: Router = express.Router();
@@ -15,11 +15,12 @@ function routerFunc(passport : PassportStatic) {
 	router.get('/callback', passport.authenticate('litauth', { failureRedirect: '/' }), (req: Request, res: Response) => {
 		if (!req.session.vukkybox) req.session.vukkybox = {};
 		req.session.vukkybox.validated = false;
-		if (req.cookies['redirectTo']) {
+		if (req.cookies['redirectTo'] && !req.user.mfa) {
 			let dest = req.cookies['redirectTo'];
 			res.clearCookie("redirectTo");
 			res.redirect(dest);
 		} else {
+			if (req.user.mfa) return res.redirect(MFA_ROUTE);
 			res.redirect('/');
 		}
 	});

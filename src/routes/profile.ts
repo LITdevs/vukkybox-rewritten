@@ -30,6 +30,7 @@ router.get('/:username', (req: Request, res: Response) => {
 
 function getFriendship(user, puser) {
 	return new Promise(resolve => {
+		if (!user) return resolve({error: null, friendship: null});
 		if (user._id.equals(puser._id)) return resolve({error: null, friendship: null})
 		let Friends = db.getFriends();
 		// Find a friendship between the provided users
