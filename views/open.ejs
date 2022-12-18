@@ -8,12 +8,15 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
-            <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
-            <div class="hidden" id="vukkyData">
-                <%- include("common/vukky.ejs"); %>
+            <div class="m-2">
+                <h1>Opening <%=boxes.filter(box => box.id === parseInt(boxId))[0].name%></h1>
+                <div class="hidden" id="vukkyData">
+                    <%- include("common/vukky.ejs"); %>
+                </div>
+                <br>
+                <button onclick="openBox()" class="btn">Open</button>
+
             </div>
-            <br>
-            <button onclick="openBox()">Open</button>
         </div>
         <script>
             const rarityLang = {
@@ -54,16 +57,16 @@
 						if (data.error) {
 							return alert(data.error);
                         }
-			            document.getElementById("vukkyName").innerHTML = data.name;
-						document.getElementById("vukkyImage").src = data.imageURL;
-			            document.getElementById("vukkyRarity").innerHTML = rarityLang[data.rarity];
-			            document.getElementById("vukkyCreator").innerHTML = `Created by ${data.creator ? data.creator : "Unknown"}`;
-			            document.getElementById("vukkyDescription").innerHTML = data.description;
-						document.getElementById("vukkyCard").style.borderColor = rarityColor[data.rarity];
+                        document.getElementById("balance").textContent = data.newBalance;
+			            document.getElementById("vukkyName").innerHTML = data.vukky.name;
+						document.getElementById("vukkyImage").src = data.vukky.imageURL;
+			            document.getElementById("vukkyRarity").innerHTML = rarityLang[data.vukky.rarity];
+			            document.getElementById("vukkyCreator").innerHTML = `Created by ${data.vukky.creator ? data.vukky.creator : "Unknown"}`;
+			            document.getElementById("vukkyDescription").innerHTML = data.vukky.description;
+						document.getElementById("vukkyCard").style.borderColor = rarityColor[data.vukky.rarity];
 			            document.getElementById("vukkyData").classList.remove("hidden");
 		            });
             }
-			openBox();
         </script>
         <%- include("common/footer.ejs", { user }); %>
     </body>

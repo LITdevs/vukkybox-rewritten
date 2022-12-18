@@ -27,9 +27,9 @@
 
 <div class="nav">
     <div>
-        <span class="mx-2"><%=lang.nav.navTempText %></span>
+        <a href="/" alt="Homepage"><img src="/resources/icons/512.png" alt="A Vukky inside a cardboard box" class="w-12 inline"></a>
         <% if (user) { %>
-        <span><a href="/balance"><%=user.playerData.balance%> Vukkybux</a></span>
+        <span><a href="/balance"><span id="balance"><%=user.playerData.balance%></span> Vukkybux</a></span>
         <% } %>
         <% if (pseudoMode) { %>
         <a href="/admin/pseudoModeExit"><span class="text-red-500">PSEUDO MODE CLICK HERE TO EXIT</span></a>

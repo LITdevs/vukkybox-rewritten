@@ -37,10 +37,12 @@ function openBox(box : Box) {
 			// Uniques can only be the uniques in each box, not all uniques.
 			if (rarity === "unique") {
 				possibleIds = box.uniques;
-				possibleVukkies = [];
+				possibleVukkies = {};
 				possibleIds.forEach(pid => {
-					possibleVukkies.push(vukkyList.rarity[rarity][pid]);
+					possibleVukkies[pid] = vukkyList.rarity[rarity][pid];
 				});
+				console.log(possibleVukkies)
+				console.log(possibleIds)
 			}
 
 			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)];

@@ -35,7 +35,8 @@ router.post('/open/:id', checkAuth, (req : Request, res : Response) => {
 		res.locals.user.statistics.rarity[vukky.rarity] += 1;
 
 		// Is duplicate?
-		if (res.locals.user.playerData.collection[vukky.id]) {
+		let dupe = !!res.locals.user.playerData.collection[vukky.id];
+		if (dupe) {
 			// Duplicate
 			res.locals.user.statistics.duplicatesGotten += 1;
 			res.locals.user.playerData.collection[vukky.id] += 1;
@@ -51,7 +52,7 @@ router.post('/open/:id', checkAuth, (req : Request, res : Response) => {
 		res.locals.user.playerData.balance = res.locals.user.playerData.balance.toFixed(2);
 		res.locals.user.save();
 		if (vukky.rarity === "unique") event.emit("uniqueGetEvent", new uniqueGetEvent(vukky, res.locals.user));
-		res.json(vukky)
+		res.json({vukky, newBalance: res.locals.user.playerData.balance, duplicate: dupe});
 	})
 })
 

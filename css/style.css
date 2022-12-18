@@ -15,7 +15,7 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
@@ -160,4 +160,8 @@ body {
     100% {
         transform: rotate(360deg);
     }
+}
+
+body {
+        @apply bg-gradient-to-tr from-[#00A8F3] to-teal-400;
 }

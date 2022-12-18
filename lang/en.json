@@ -10,7 +10,12 @@
 		"navTempText": "This is the navbar visible on every page."
 	},
 	"footer": {
-		"footerTempText": "This is the footer visible on every page."
+		"footerTempText": "This is the footer visible on every page.",
+		"credits": "Credits",
+		"terms": "Terms of Service",
+		"privacy": "Privacy Policy",
+		"contact": "Contact",
+		"about": "Homepage"
 	},
 	"error": {
 		"topText": "Uh oh... The server ran into an error while processing your request.",

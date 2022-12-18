@@ -8,11 +8,11 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
-            <button class="border border-black m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button><br>
-            <button class="border border-black m-2" onclick="adminFlag()">Give yourself admin flag</button><br>
-            <button class="border border-black m-2" onclick="testNotif()">Send test notif to yourself</button><br>
-            <a href="/admin/vukkydesigner"><button class="border border-black m-2">Add new Vukky</button></a>
-            <a href="/admin/userEditor"><button class="border border-black m-2">Edit user</button></a>
+            <button class="btn-red m-2" onclick="allVukkies()">Give yourself all Vukkies (DANGER!)</button><br>
+            <button class="btn-red m-2" onclick="adminFlag()">Give yourself admin flag</button><br>
+            <button class="btn-red m-2" onclick="testNotif()">Send test notif to yourself</button><br>
+            <a href="/admin/vukkydesigner"><button class="btn-red m-2">Add new Vukky</button></a>
+            <a href="/admin/userEditor"><button class="btn-red m-2">Edit user</button></a>
         </div>
         <script>
             function allVukkies() {

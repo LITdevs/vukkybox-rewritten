@@ -13,7 +13,7 @@ router.get('/:username', (req: Request, res: Response) => {
 	let User = db.getUsers();
 	User.findOne({username: req.params.username}, (err, user) => {
 		if (err || !user) {
-			return res.status(404).render('error', {title: "Vukkyboxn't", error: "User not found"});
+			return res.status(404).render('404', {title: "Vukkyboxn't"});
 		}
 		let editMode = false;
 		if (typeof req?.query?.editmode !== "undefined" && user._id.equals(req.user?._id)) editMode = true;
