@@ -21,6 +21,9 @@ let Friends
 db.once('open', () => {
 	let userSchema = new mongoose.Schema<IUser>(UserSchema);
 	let friendSchema = new mongoose.Schema<IFriendship>(FriendSchema);
+	userSchema.post('save', (doc) => {
+		dbEvents.emit('userSave', doc);
+	});
 	Users = mongoose.model('User', userSchema);
 	Friends = mongoose.model('Friendship', friendSchema);
 	// The database manager is ready, emit an event.

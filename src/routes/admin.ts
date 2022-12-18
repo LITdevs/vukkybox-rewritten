@@ -8,6 +8,7 @@ import multer from "multer";
 import path from "path";
 import db from "../databaseManager"
 import UserNotification from "../classes/UserNotification";
+import sendNotification from "../util/sendNotification";
 
 // Storing the new vukky images
 let storage = multer.diskStorage({
@@ -95,6 +96,7 @@ router.post('/createvukky', upload.single('image'),(req: Request, res: Response)
 
 router.post('/flag', (req: Request, res: Response) => {
     res.locals.user.flags.push({flag: 0, date: new Date()});
+    sendNotification(new UserNotification("Admin flag added", "hello LIT DEV you now have admin permissions here", "/flags/admin.webp"), res.locals.user);
     res.locals.user.save();
     res.json({error: null});
 });
@@ -105,7 +107,7 @@ router.post('/flag/css', (req: Request, res: Response) => {
     Users.findOne({_id: req.body.targetId.trim()}, (err, user) => {
         //user.flags.push({flag: 2, date: new Date(), reason: "\"I dont want a garbage bag on my profile\""});
         user.flags.push({flag: 3, date: new Date(), reason: "Approved for full custom CSS by administrator"});
-        user.playerData.notifications.push(new UserNotification("Unrestricted CSS approved", "You have been given permission for use of unrestricted CSS!", "/flags/css.webp"))
+        sendNotification(new UserNotification("Unrestricted CSS approved", "You have been given permission for use of unrestricted CSS!", "/flags/css.webp"), user);
         user.save();
         res.json({error: null});
     })
@@ -116,7 +118,7 @@ router.post('/flag/admin', (req: Request, res: Response) => {
     let Users = db.getUsers();
     Users.findOne({_id: req.body.targetId.trim()}, (err, user) => {
         user.flags.push({flag: 0, date: new Date()});
-        user.playerData.notifications.push(new UserNotification("Admin flag added", "hello LIT DEV you now have admin permissions here", "/flags/admin.webp"))
+        sendNotification(new UserNotification("Admin flag added", "hello LIT DEV you now have admin permissions here", "/flags/admin.webp"), user);
         user.save();
         res.json({error: null});
     })
@@ -138,9 +140,9 @@ router.get('/userEditor', (req: Request, res: Response) => {
 
 router.post('/testNotification', (req: Request, res: Response) => {
     // Assuming all parameters are correct because lol
-    res.locals.user.playerData.notifications.push(new UserNotification("Test notification", "This notification is a test"))
-    res.locals.user.playerData.notifications.push(new UserNotification("Test notification with image", "This notification is a test, but it has an image", "/flags/css.webp"))
-    res.locals.user.playerData.notifications.push(new UserNotification("Long test notification with image", "This notification is a test, but it has an image, and it is also very long, blah blah blah according to all known laws of aviation bees shouldnt fly but they do because fuck the police", "/flags/css.webp"))
+    sendNotification(new UserNotification("Test notification", "This notification is a test"), res.locals.user);
+    sendNotification(new UserNotification("Test notification with image", "This notification is a test, but it has an image", "/flags/css.webp"), res.locals.user);
+    sendNotification(new UserNotification("Long test notification with image", "This notification is a test, but it has an image, and it is also very long, blah blah blah according to all known laws of aviation bees shouldnt fly but they do because fuck the police", "/flags/css.webp"), res.locals.user);
     res.locals.user.save();
     res.json({success: true})
 })

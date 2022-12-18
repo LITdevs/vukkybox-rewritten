@@ -7,6 +7,7 @@ import Friendship, {Status} from "../../../classes/Friendship";
 import event from "../../../index";
 import UserNotification from "../../../classes/UserNotification";
 import friendEvent from "../../../classes/events/friendEvent";
+import sendNotification from "../../../util/sendNotification";
 
 
 const router: Router = express.Router();
@@ -41,7 +42,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 						return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
 					}
 					res.json({error: null});
-					user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
+					sendNotification(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"), user);
 					event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 					friendship.save();
 					user.save();
@@ -57,7 +58,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 					return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
 				}
 				res.json({error: null})
-				user.playerData.notifications.push(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"));
+				sendNotification(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"), user)
 				event.emit("friendEvent", new friendEvent(frsh, res.locals.user))
 				frsh.save();
 				user.save();
