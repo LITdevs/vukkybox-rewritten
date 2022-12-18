@@ -79,6 +79,7 @@ router.get("/friends", checkAuth, (req : Request, res : Response) => {
 			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
 			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
 		}
+		if (!friends || friends.length === 0) return res.render("friends", { title: "Vukkybox", friendships: [] });
 		let newFriends = [];
 		let i = 0
 		friends.forEach(async (friend, index) => {

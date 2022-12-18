@@ -29,7 +29,7 @@ interface IUser {
 const UserSchema = {
 	litauthId: mongoose.Types.ObjectId,
 	username: String,
-	email: String,
+	email: {type: String, unique: true},
 	mfa: Boolean,
 	mfasecret: String,
 	apiKey: String,

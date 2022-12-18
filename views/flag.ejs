@@ -8,16 +8,20 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
-            <img src="<%=flag.imageURL%>" width="64" alt="Flag icon">
-            <span><%=lang.flags[flag.langkey].name%></span><br>
-            <span><%=lang.flags[flag.langkey].description%></span><br>
-            <br>
-            <span class="font-bold">Users who have this flag:</span><br>
-            <%
-                users.forEach(usr => { // <$date:Sun Oct 03 2022 14:53:15 GMT+0300 (Eastern European Summer Time)>
-					usr;%><%=usr.username%> since <%=`<$date:${new Date(usr.flags.find(flg => flg.flag === flag.id).date)}>`%><br><%
-                });
-            %>
+            <div class="m-2 profile-card text-white">
+                <img src="<%=flag.imageURL%>" width="64" alt="Flag icon">
+                <span><%=lang.flags[flag.langkey].name%></span><br>
+                <span><%=lang.flags[flag.langkey].description%></span><br>
+                <br>
+                <span class="font-bold">Users who have this badge:</span><br>
+                <%
+                    users.forEach(usr => {
+                        let flg = usr.flags.find(flg => flg.flag === flag.id)
+                        let flgDate = `<$date:${new Date(flg.date)}>`
+                        usr;flg;%><a class="text-blue-500" href="/profile/<%=usr.username%>"><%=usr.username%></a> since <%=flgDate%><%=flg.reason ? ` for ${flg.reason}` : ""%><br><%
+                    });
+                %>
+            </div>
         </div>
         <%- include("common/footer.ejs", { user }); %>
     </body>
