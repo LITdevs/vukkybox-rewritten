@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <img src="<%=flag.imageURL%>" width="64" alt="Flag icon">
+            <span><%=lang.flags[flag.langkey].name%></span><br>
+            <span><%=lang.flags[flag.langkey].description%></span><br>
+            <br>
+            <span class="font-bold">Users who have this flag:</span><br>
+            <%
+                users.forEach(usr => { // <$date:Sun Oct 03 2022 14:53:15 GMT+0300 (Eastern European Summer Time)>
+					usr;%><%=usr.username%> since <%=`<$date:${new Date(usr.flags.find(flg => flg.flag === flag.id).date)}>`%><br><%
+                });
+            %>
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

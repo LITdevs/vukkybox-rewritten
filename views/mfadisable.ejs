@@ -9,7 +9,7 @@
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
             <div id="page1">
-                <button onclick="disablemfa()"><%=lang.mfa.disableButton%></button>
+                <button onclick="disablemfa()" class="btn-red"><%=lang.mfa.disableButton%></button>
             </div>
             <div id="page2" class="hidden">
                 <p><%=lang.mfa.youdidntit%></p>
@@ -17,7 +17,7 @@
         </div>
         <script>
             function disablemfa() {
-                fetch("/2fa/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({_csrf: "<%=csrfToken%>"}) })
+                fetch("/mfa/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({_csrf: "<%=csrfToken%>"}) })
                     .then(res => res.json())
                     .then(res => {
                         if (res.success) {

@@ -102,7 +102,7 @@ app.use('/api/v1/', apiv1);
 app.use('/api/internal/', apiinternal);
 app.use('/', home);
 app.use('/', express.static('public'));
-app.use('/2fa/', mfa);
+app.use('/mfa/', mfa);
 app.use('/auth', auth(passport));
 app.use('/admin', admin);
 app.use('/profile', profile);

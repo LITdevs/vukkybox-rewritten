@@ -2,17 +2,31 @@
     <p><%=lang.footer.footerTempText %></p><img alt="flashing 'web design is my passion' sign" src="/design.gif">
 </div>
 <script defer>
-	// TODO - Use data formatting in notifications
-    // TODO - Fix date formatter to not break EVERYTHING
+	// DONE - Use data formatting in notifications
+    // DONE - Fix date formatter to not break EVERYTHING
 	// Loop through each date formatter match <$date:Sun Oct 03 2022 14:53:15 GMT+0300 (Eastern European Summer Time)>
-	/*setTimeout(() => {
-		console.log("dink")
-		document.body.innerHTML = document.body.innerHTML.replace(dateFormatterRegex, (match) => {
-			// Isolate the date portion of the match
-            console.log("Date formatter match: " + match)
-			let date = new Date(match.split("&lt;$date:")[1].split("&gt;")[0]);
-			// return formatted date
-			return `${date.toLocaleString("<%=lang.lang %>")}`
-		});
-	}, 1000);*/ // This broke literally everything lol
+	replaceInText(document.body, dateFormatterRegex, (match) => {
+		// Isolate the date portion of the match
+        console.log("Date formatter match: " + match)
+		let date = new Date(match.split("<$date:")[1].split(">")[0]);
+		// return formatted date
+		return `${date.toLocaleString("<%=lang.lang %>")}`
+	});
+
+	// Thank you random stackoverflow answer S2 <-- that's a heart
+    // https://stackoverflow.com/a/50537862/9342273
+	function replaceInText(element, pattern, replacement) {
+		for (let node of element.childNodes) {
+			switch (node.nodeType) {
+				case Node.ELEMENT_NODE:
+					replaceInText(node, pattern, replacement);
+					break;
+				case Node.TEXT_NODE:
+					node.textContent = node.textContent.replace(pattern, replacement);
+					break;
+				case Node.DOCUMENT_NODE:
+					replaceInText(node, pattern, replacement);
+			}
+		}
+	}
 </script>

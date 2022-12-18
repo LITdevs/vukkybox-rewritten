@@ -15,17 +15,22 @@ router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
  */
 router.post('/verify', checkAuth, (req: Request, res: Response) => {
 	if (!req.body.token) return res.status(400).send({error: "No token provided"});
+	//console.log(req.body.token);
 	let tokenValid
 	if (res.locals.user.mfa) {
+		//console.log("mfa")
 		// User has MFA enabled
 		if (!res.locals.user?.mfasecret) return res.status(400).send({error: "2-Factor Authentication is not enabled"});
 		tokenValid = authenticator.check(req.body.token, res.locals.user.mfasecret);
 	} else {
+		//console.log("no mfa")
 		// User is in the process of enabling MFA
 		if (!req.session?.vukkybox?.tempsecret) return res.status(400).send({error: "2-Factor Authentication is not enabled"});
 		tokenValid = authenticator.check(req.body.token, req.session?.vukkybox?.tempsecret);
+		//console.log(`v${tokenValid}`)
 		// If the token is valid, we can delete the temporary secret from the session and save it to the user.
 		if (tokenValid) {
+			//console.log("valid")
 			res.locals.user.mfasecret = req.session.vukkybox.tempsecret
 			req.session.vukkybox.tempsecret = undefined;
 			res.locals.user.mfa = true;

@@ -107,8 +107,20 @@ router.get("/settings", checkAuth, (req : Request, res : Response) => {
 		let langJson = JSON.parse(fs.readFileSync(`lang/${lang}.json`).toString());
 		langs.push({code: lang, name: langJson["lang_full"]});
 	})
-	res.render("settings", { title: "Vukkybox", languages: langs });
+	res.render("settings", { title: "Vukkybox", languages: langs, csrfToken: req.csrfToken() });
 })
 
+router.get("/flag/:flagId", (req : Request, res : Response) => {
+	let flag = req.app.locals.flags.find((flag) => flag.id === parseInt(req.params.flagId));
+	if (!flag) return res.status(404).render("404", { title: "Vukkyboxn't :(" });
+	let Users = db.getUsers();
+	Users.find({"flags.flag": flag.id }, (err, users) => {
+		if (err) {
+			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
+		}
+		res.render("flag", { title: "Vukkybox", flag: flag, users: users });
+	})
+})
 
 export default router;

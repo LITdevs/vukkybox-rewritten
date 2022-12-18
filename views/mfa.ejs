@@ -22,7 +22,7 @@
         <script>
             document.getElementById("validationForm").addEventListener("submit", e => {
                 e.preventDefault();
-                fetch("/2fa/verify", {
+                fetch("/mfa/verify", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -42,7 +42,7 @@
                 }).then(res => {
                     if (res?.exit) return;
                     if (res?.valid) {
-                        window.location.href = "/2fa/success";
+                        window.location.href = "/mfa/success";
                     } else {
                         document.querySelector("input[name=token]").value = "";
                         document.querySelector("input[name=token]").style.border = "1px solid red";

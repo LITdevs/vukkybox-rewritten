@@ -11,7 +11,13 @@ import errorNotifier from "../errorNotifier";
 export default function (req, res, next) {
 	try {
 		const User = db.getUsers();
-		if (req.isAuthenticated()) return next();
+		if (req.isAuthenticated()) {
+			// User is authenticated via session.
+			if (req.user.mfa && !req.session.vukkybox.validated) {
+				return res.status(401).json({error: "2FA not validated."});
+			}
+			return next();
+		}
 		if (!req.headers?.["authorization"]?.startsWith("Bearer")) return res.status(401).json({
 			error: "Unauthorized",
 			message: "No Bearer token present in Authorization header"

@@ -4,8 +4,8 @@ import {CookieOptions} from "csurf";
 dotenv.config();
 
 const LOGIN_ROUTE = "/auth/oauth";
-const MFA_ROUTE = "/2fa/validate";
-const MFA_POST_ROUTE = "/2fa/verify";
+const MFA_ROUTE = "/mfa/validate";
+const MFA_POST_ROUTE = "/mfa/verify";
 
 const CSRF_COOKIE_OPTIONS : CookieOptions = {
 	httpOnly: true,

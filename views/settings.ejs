@@ -8,6 +8,7 @@
     <body>
         <%- include("common/nav.ejs", { user }); %>
         <div class="content">
+            <h1 class="font-bold m-1"><%=lang.langTitle%></h1>
             <label class="m-2">
                 Language:
                 <select class="input-box" onchange="changeLang(this.value)"><%
@@ -20,11 +21,29 @@
             </label>
             <p class="mx-2"><%=lang.langInfo%></p>
             <p class="mx-2"><%=lang.langInfo2%></p>
+            <h1 class="font-bold m-1"><%=lang.mfaTitle%></h1>
+            <p class="mx-2"><%=lang.mfaInfo%></p>
+            <button class="btn-<%=user.mfa ? 'red' : 'green'%> m-2" onclick="window.location.href = '/mfa/<%=user.mfa ? 'disable' : 'enable'%>'"><%=user.mfa ? lang.mfaButtonDisable : lang.mfaButtonEnable%></button>
+            <h1 class="font-bold m-1"><%=lang.logout%></h1>
+            <a class="btn-red m-2" href="/auth/logout"><%=lang.logout%></a>
+            <p class="font-bold m-1"><%=lang.tokenTitle%></p>
+            <p class="mx-2"><%=lang.tokenInfo%></p>
+            <label for="tokenBox"></label><input type="text" readonly class="input-box mx-2" id="tokenBox" onclick="this.select()"><i class="fa-solid fa-arrow-rotate-right regen-btn" onclick="regenToken()"></i>
         </div>
         <script>
             function changeLang(lang) {
                 setCookie("lang", lang);
 				window.location.reload();
+            }
+
+			fetch("/api/internal/token").then(res => res.json()).then(data => {
+                document.getElementById("tokenBox").value = data.token;
+            });
+
+			function regenToken() {
+				fetch("/api/internal/token", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({_csrf: "<%=csrfToken%>"}) }).then(res => res.json()).then(data => {
+					document.getElementById("tokenBox").value = data.token;
+                });
             }
         </script>
 

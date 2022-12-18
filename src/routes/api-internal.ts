@@ -4,6 +4,7 @@ import csurf from "csurf";
 import openBox from "../util/vukkybox/openBox";
 import event from "../index";
 import uniqueGetEvent from "../classes/events/uniqueGetEvent";
+import crypto from "crypto";
 
 const router: Router = express.Router();
 
@@ -52,6 +53,20 @@ router.post('/open/:id', checkAuth, (req : Request, res : Response) => {
 		if (vukky.rarity === "unique") event.emit("uniqueGetEvent", new uniqueGetEvent(vukky, res.locals.user));
 		res.json(vukky)
 	})
+})
+
+router.get('/token', checkAuth, (req : Request, res : Response) => {
+	if (res.locals.user.apiKey) return res.json({token: res.locals.user.apiKey});
+	let token = crypto.randomBytes(32).toString('base64url');
+	res.locals.user.apiKey = token;
+	res.locals.user.save();
+	res.json({token: token});
+})
+
+router.post("/token", checkAuth, (req : Request, res : Response) => {
+	res.locals.user.apiKey = crypto.randomBytes(32).toString('base64url');
+	res.locals.user.save();
+	res.json({token: res.locals.user.apiKey});
 })
 
 export default router;
