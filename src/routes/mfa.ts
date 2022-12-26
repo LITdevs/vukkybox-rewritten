@@ -2,11 +2,7 @@ import express, {Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
 import { authenticator } from 'otplib';
 import QRCode from 'qrcode';
-import csurf from "csurf";
-import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 const router: Router = express.Router();
-
-router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
 
 /**
  * Verify the user's 2FA code against the stored secret.
@@ -73,17 +69,17 @@ router.post('/disable', checkAuth, (req: Request, res: Response) => {
 });
 
 router.get('/validate', checkAuth, (req: Request, res: Response) => {
-	res.render('mfa', {title: 'Vukkybox', csrfToken: req.csrfToken()});
+	res.render('mfa', {title: 'Vukkybox'});
 });
 
 router.get('/disable', checkAuth, (req: Request, res: Response) => {
 	if (!res.locals.user.mfa) return res.status(400).render("error", {title: "Vukkyboxn't", error: res.locals.lang.mfa.alreadyDisabled});
-	res.render('mfadisable', {title: 'Vukkybox', csrfToken: req.csrfToken()});
+	res.render('mfadisable', {title: 'Vukkybox'});
 });
 
 router.get('/enable', checkAuth, (req: Request, res: Response) => {
 	if (res.locals.user.mfa) return res.status(400).render("error", {title: "Vukkyboxn't", error: res.locals.lang.mfa.alreadyEnabled});
-	res.render('mfaenable', {title: 'Vukkybox', csrfToken: req.csrfToken()});
+	res.render('mfaenable', {title: 'Vukkybox'});
 });
 
 // Once 2FA is validated, the user is redirected here. Redirect them to the page they were trying to access before they validated 2FA.

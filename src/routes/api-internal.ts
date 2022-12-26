@@ -1,14 +1,11 @@
 import express, { Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
-import csurf from "csurf";
 import openBox from "../util/vukkybox/openBox";
 import event from "../index";
 import uniqueGetEvent from "../classes/events/uniqueGetEvent";
 import crypto from "crypto";
 
 const router: Router = express.Router();
-
-router.use(csurf({ cookie: true }));
 
 router.get('/', checkAuth, (req: Request, res: Response) => {
 	res.json({message: "Hello World, this is the internal API"});

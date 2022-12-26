@@ -105,7 +105,7 @@
 	            form.append("creator", document.querySelector("input[name=vukkyCreator]").value)
 	            form.append("description", document.querySelector("textarea[name=vukkyDescription]").value.replaceAll("\n", "<br>"))
                 form.append("image", document.querySelector("input[name=vukkyImage]").files[0])
-                fetch("/admin/createvukky?_csrf=<%= csrfToken %>", {
+                fetch("/admin/createvukky", {
                     method: "POST",
                     body: form
                 }).then(res => res.json()).then(res => {

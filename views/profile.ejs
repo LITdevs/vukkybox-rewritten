@@ -21,7 +21,6 @@
             <!--Edit mode is enabled? <%=editMode%>-->
             <% if (puser._id.equals(user?._id)) { %>
                 <% if (editMode) { %>
-                    <input type="hidden" id="_csrf" value="<%=csrfToken%>">
                     <a onclick="updateProfile()"><i class="fa-solid m-2 text-2xl fa-check cursor-pointer hover:text-gray-700"></i></a>
                     <i class="m-2 text-2xl fa-solid fa-window-maximize cursor-pointer" onclick="backgroundEditor()"></i>
                     <i class="fa-solid fa-code m-2 text-2xl cursor-pointer" onclick="cssEditor()"></i>

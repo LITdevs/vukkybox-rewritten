@@ -68,7 +68,8 @@ app.use(session({
 	proxy: true,
 	cookie: {
 		maxAge: 100 * 60 * 60 * 24 * 30,
-		secure: process.env.CALLBACK_URL.startsWith("https")
+		secure: process.env.CALLBACK_URL.startsWith("https"),
+		sameSite: "lax"
 	}
 }));
 app.use(cookieParser(process.env.SESSION_SECRET));

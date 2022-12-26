@@ -11,7 +11,6 @@
             <div class="profile-card text-white">
                 <div class="user-menu">
                     <form id="user-menu-form">
-                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                         <label>
                             User ID (defaults to yours):
                             <input class="text-black w-56" type="text" name="_id" value="<%=user._id%>">
@@ -58,7 +57,6 @@
 						"Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        _csrf: e.target._csrf.value,
                         _id: e.target._id.value
                     })
                 }).then(res => res.json()).then(res => {
@@ -81,7 +79,6 @@
 			            "Content-Type": "application/json"
 		            },
 		            body: JSON.stringify({
-			            _csrf: "<%=csrfToken%>",
 			            targetId: user._id
 		            })
 	            }).then(res => res.json()).then(res => {
@@ -99,7 +96,6 @@
 			            "Content-Type": "application/json"
 		            },
 		            body: JSON.stringify({
-			            _csrf: "<%=csrfToken%>",
 			            targetId: user._id
 		            })
 	            }).then(res => res.json()).then(res => {
@@ -117,7 +113,6 @@
 			            "Content-Type": "application/json"
 		            },
 		            body: JSON.stringify({
-			            _csrf: "<%=csrfToken%>",
 			            targetId: user._id
 		            })
 	            }).then(res => res.json()).then(res => {

@@ -36,7 +36,7 @@ function init() {
 			const hasBadge = event.user.flags.some(flag => flag.flag === 7);
 			if (hasBadge) return;
 			event.user.flags.push({flag: 7, date: new Date()})
-			sendNotification(new UserNotification("What an ego", "You've been awarded a new badge", "/flags/ego.webp"), event.user);
+			sendNotification(new UserNotification("Huh...", "You've been awarded a new badge", "/flags/ego.webp"), event.user);
 			event.user.save();
 
 		} else {

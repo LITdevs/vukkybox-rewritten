@@ -1,15 +1,10 @@
 import express, {Request, Response, Router} from 'express';
 import db from '../databaseManager';
-import csurf from "csurf";
-import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 import errorNotifier from "../util/errorNotifier";
 
 const router: Router = express.Router();
 
-router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
-
 router.get('/:username', (req: Request, res: Response) => {
-	res.locals.csrfToken = req.csrfToken();
 	let User = db.getUsers();
 	User.findOne({username: req.params.username}, (err, user) => {
 		if (err || !user) {

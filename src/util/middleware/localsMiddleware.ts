@@ -13,7 +13,6 @@ import pseudoModeMiddleware from "./pseudoModeMiddleware";
  */
 export default (req, res, next) => {
 	res.locals.pseudoMode = false; // This will get overwritten later if the user is indeed in pseudoMode
-	if (req.csrfToken) res.locals.csrfToken = req.csrfToken();
 	res.locals.user = req.user ? req.user : null;
 	if (res.locals.user) {
 		if (req.session.pseudoMode) {

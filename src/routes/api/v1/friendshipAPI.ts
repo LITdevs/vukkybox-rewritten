@@ -42,7 +42,7 @@ router.post("/friendship/add", apiAuth, (req : Request, res: Response) => {
 						return errorNotifier(err, `${res.locals.username} tried to friend ${req.body.friendId}`);
 					}
 					res.json({error: null});
-					sendNotification(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/duolingo.webp"), user);
+					sendNotification(new UserNotification("New friend request", `${res.locals.user.username} has requested to be your friend!`, "/resources/friend.webp"), user);
 					event.emit("friendEvent", new friendEvent(friendship, res.locals.user, oldState))
 					friendship.save();
 					user.save();

@@ -2,16 +2,12 @@ import express, {Request, Response, Router} from 'express';
 import csurf from "csurf";
 import db from '../databaseManager';
 import checkAuth from "../util/auth/checkAuth";
-import {CSRF_COOKIE_OPTIONS} from "../util/constants/constants";
 import Vukky from "../classes/Vukky";
 import errorNotifier from "../util/errorNotifier";
 import LANG_LIST from "../../lang/codes";
 import fs from "fs";
 
 const router : Router = express.Router();
-
-router.use(csurf({ cookie: CSRF_COOKIE_OPTIONS }));
-
 
 router.get('/', (req : Request, res : Response) => {
 	res.render('index', {title: "Vukkybox"});
@@ -26,7 +22,7 @@ router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 	if (!realBoxIds.includes(parseInt(req.params.id))) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Box not found"});
 	let boxPrice = req.app.locals.boxes.find((box) => box.id === parseInt(req.params.id)).price;
 	if (req.user.playerData.balance < boxPrice) return res.status(403).render('error', {title: "Vukkyboxn't", error: "You do not have enough money to open this box"});
-	res.render('open', {title: "Vukkybox", boxId: req.params.id, csrfToken: req.csrfToken()});
+	res.render('open', {title: "Vukkybox", boxId: req.params.id});
 });
 
 router.get('/collection', (req : Request, res : Response) => {
@@ -108,7 +104,7 @@ router.get("/settings", checkAuth, (req : Request, res : Response) => {
 		let langJson = JSON.parse(fs.readFileSync(`lang/${lang}.json`).toString());
 		langs.push({code: lang, name: langJson["lang_full"]});
 	})
-	res.render("settings", { title: "Vukkybox", languages: langs, csrfToken: req.csrfToken() });
+	res.render("settings", { title: "Vukkybox", languages: langs });
 })
 
 router.get("/flag/:flagId", (req : Request, res : Response) => {

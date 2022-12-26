@@ -16,7 +16,6 @@
                 <p><%=lang.mfa.enableHow%></p>
                 <img id="qrcode" alt="" src="">
                 <form id="validationForm">
-                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <label>
                         <%=lang.mfa.inputCode %>
                     <input type="text" class="mfa-box input-box" maxlength="6" minlength="6" autocomplete="off" name="token" placeholder="123 456" oninput="validateInput(this)" required/>
@@ -40,7 +39,6 @@
 			            "Content-Type": "application/json"
 		            },
 		            body: JSON.stringify({
-			            _csrf: document.querySelector("input[name=_csrf]").value,
 			            token: document.querySelector("input[name=token]").value
 		            })
 	            }).then(res => {
@@ -72,9 +70,7 @@
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({
-                        "_csrf": "<%= csrfToken %>"
-                    })
+                    body: JSON.stringify({})
                 }).then(res => res.json()).then(data => {
 					document.getElementById("qrcode").src = data.qr;
 					document.getElementById("qrcode").alt = data.secret;

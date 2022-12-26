@@ -7,12 +7,6 @@ const LOGIN_ROUTE = "/auth/oauth";
 const MFA_ROUTE = "/mfa/validate";
 const MFA_POST_ROUTE = "/mfa/verify";
 
-const CSRF_COOKIE_OPTIONS : CookieOptions = {
-	httpOnly: true,
-	sameSite: "strict",
-	secure: process.env.CALLBACK_URL.startsWith("https")
-}
-
 const MAILER_CONFIG : SMTPTransport.Options = {
 	host: process.env.MAILER_HOST,
 	port: Number(process.env.MAILER_PORT),
@@ -31,6 +25,5 @@ export {
 	LOGIN_ROUTE,
 	MFA_ROUTE,
 	MFA_POST_ROUTE,
-	CSRF_COOKIE_OPTIONS,
 	MAILER_CONFIG
 }

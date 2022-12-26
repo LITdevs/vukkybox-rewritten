@@ -41,7 +41,7 @@
             });
 
 			function regenToken() {
-				fetch("/api/internal/token", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({_csrf: "<%=csrfToken%>"}) }).then(res => res.json()).then(data => {
+				fetch("/api/internal/token", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) }).then(res => res.json()).then(data => {
 					document.getElementById("tokenBox").value = data.token;
                 });
             }
