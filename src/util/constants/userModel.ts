@@ -44,6 +44,7 @@ const UserSchema = {
 		},
 		css: String,
 		bio: String,
+		allowHTML: { type: Boolean, default: false },
 		order: Array<String>
 	},
 	flags: Array<{flag: number, date: Date, reason: string}>

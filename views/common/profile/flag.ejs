@@ -1,8 +1,10 @@
 <% if (flags[flag.flag]) { %>
+    <% if (adminMode) {%>
+        <i class="fa-solid fa-trash-can text-red-500 p-2 hover:bg-gray-400 rounded-lg" onclick="deleteFlag(<%=flag.flag%>)" title="Remove the <%=lang.flags[flags[flag.flag].langkey].name%>"></i>
+    <% } %>
     <a href="/flag/<%=flag.flag%>"><div class="flag" id="f<%=flag.flag%>">
         <img class="flag-image" src="<%=flags[flag.flag].imageURL %>" alt="<%=lang.flags[flags[flag.flag].langkey].name%> flag image">
-        <span class="flag-name"><%=lang.flags[flags[flag.flag].langkey].name%></span>
-        <!--<span class="flag-description"><%=lang.flags[flags[flag.flag].langkey].description%></span>-->
+        <span class="flag-name"><%=lang.flags[flags[flag.flag].langkey].name%><%=user?.flags?.some(flg => flg.flag === 0) ? ` (${flag.flag})` : ""%></span>
     </div></a>
     <script>
         tippy('#f<%=flag.flag %>', {

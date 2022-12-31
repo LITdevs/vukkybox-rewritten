@@ -83,13 +83,6 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 					res.locals.user.save();
 					res.json({error: null, success: true});
 					break;
-				case "image":
-					if (!req.body.bgImage) return res.status(400).json({error: "Missing parameters"});
-					res.locals.user.profile.background.mode = "image";
-					res.locals.user.profile.background.image = req.body.bgImage;
-					res.locals.user.save();
-					res.json({error: null, success: true});
-					break;
 				case "random":
 					res.locals.user.profile.background.mode = "random";
 					res.locals.user.save();

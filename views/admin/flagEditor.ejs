@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card">
+                <%-include("../common/profile/trophycase.ejs", {puser, editMode: false, adminMode: true})%>
+            </div>
+        </div>
+        <script>
+            async function deleteFlag(flagId) {
+                try {
+                    let res = await fetch("/admin/flagEditor", {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userId: "<%= puser._id %>",
+                            flagId: flagId
+                        })
+                    })
+                    console.log(res)
+                    window.location.reload();
+                } catch (e) {
+                    alert(`Error removing flag:\n${e}\n\nfix me pls`)
+                }
+            }
+
+            async function addFlag(flagId, reason = undefined) {
+                try {
+                    let res = await fetch("/admin/flagEditor", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userId: "<%= puser._id %>",
+                            flagId: flagId,
+                            reason: reason || ""
+                        })
+                    })
+                    console.log(res)
+                    window.location.reload();
+                } catch (e) {
+                    alert(`Error adding flag:\n${e}\n\nfix me pls`)
+                }
+            }
+        </script>
+        <%- include("../common/footer.ejs", { user }); %>
+    </body>
+</html>

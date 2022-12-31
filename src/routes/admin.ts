@@ -7,6 +7,7 @@ import path from "path";
 import db from "../databaseManager"
 import UserNotification from "../classes/UserNotification";
 import sendNotification from "../util/sendNotification";
+import {isValidObjectId} from "mongoose";
 
 // Storing the new vukky images
 let storage = multer.diskStorage({
@@ -97,6 +98,45 @@ router.post('/flag', (req: Request, res: Response) => {
     res.json({error: null});
 });
 
+router.delete("/flagEditor", (req: Request, res: Response) => {
+    if (!req.body.userId && req.body.flagId || !isValidObjectId(req.body.userId)) return res.status(400).send("Missing parameters")
+    let Users = db.getUsers();
+    Users.findOne({_id: req.body.userId}, (err, user) => {
+        if (err) {
+            errorNotifier(err);
+            return res.status(500).send("Internal Server Error")
+        }
+        if (!user) return res.status(404).send("no such user")
+        if (isNaN(parseInt(req.body.flagId))) return res.status(400).send("flag id please")
+        user.flags = user.flags.filter(flag => flag.flag !== req.body.flagId)
+        sendNotification(new UserNotification("Badge revoked", `"Your "${res.locals.lang.flags[res.app.locals.flags[req.body.flagId].langkey].name}" badge has been revoked`, res.app.locals.flags[req.body.flagId].imageURL), user);
+        user.save();
+        res.sendStatus(200)
+    })
+})
+
+router.post("/flagEditor", (req: Request, res: Response) => {
+    // Add flag
+    if (!req.body.userId && req.body.flagId || !isValidObjectId(req.body.userId)) return res.status(400).send("Missing parameters")
+    let Users = db.getUsers();
+    Users.findOne({_id: req.body.userId}, (err, user) => {
+        if (err) {
+            errorNotifier(err);
+            return res.status(500).send("Internal Server Error")
+        }
+        if (!user) return res.status(404).send("no such user")
+        if (user.flags.some(flag => flag.flag === req.body.flagId)) return res.status(400).send("User already has flag")
+        if (isNaN(parseInt(req.body.flagId))) return res.status(400).send("flag id please")
+        let flag : { flag: number, date: Date, reason?: string} = {flag: parseInt(req.body.flagId), date: new Date() }
+        if (req.body.reason) flag.reason = req.body.reason;
+        user.flags.push(flag)
+        // TODO: the flag array is not actually ordered lol, use array.find or something here
+        sendNotification(new UserNotification("New badge", "You have been awarded a new badge!", res.app.locals.flags[flag.flag].imageURL), user);
+        user.save();
+        res.sendStatus(200)
+    })
+})
+
 router.post('/flag/css', (req: Request, res: Response) => {
     if (!req.body.targetId) return res.status(400).json({error: "Missing parameters"});
     let Users = db.getUsers();
@@ -132,6 +172,18 @@ router.post('/user', (req: Request, res: Response) => {
 
 router.get('/userEditor', (req: Request, res: Response) => {
     res.render("admin/userEditor", {title: "Vukkybox - User editor"})
+})
+
+router.get('/flagEditor/:id', (req: Request, res: Response) => {
+    let Users = db.getUsers();
+    if (!isValidObjectId(req.params.id)) return res.status(400).render("error", { title: "Vukkyboxn't", error: "Invalid id" })
+    Users.findOne({_id: req.params.id}, (err, user) => {
+        if (err) {
+            errorNotifier(err);
+            return res.status(500).render('error', {title: "Vukkyboxn't" });
+        }
+        res.render("admin/flagEditor", {title: "Vukkybox - Flag editor", puser: user})
+    })
 })
 
 router.post('/testNotification', (req: Request, res: Response) => {

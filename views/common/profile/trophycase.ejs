@@ -1,3 +1,7 @@
+<%
+    let adm = false
+ if (typeof adminMode !== "undefined") adm = adminMode
+ %>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 <div <% if (editMode) { %>draggable="true"<% } %> id="1">
@@ -15,7 +19,7 @@
 							flag
                             // flag is an object, { flag: number, date: Date, reason: string }
                             // other properties need to be grabbed from elsewhere
-                            %><%- include("flag.ejs", { flag }); %><%
+                            %><%- include("flag.ejs", { flag, adminMode: adm }); %><%
                         })
                     }
                 %>

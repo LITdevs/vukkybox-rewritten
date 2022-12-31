@@ -9,7 +9,11 @@
                 <% if (editMode) { %>
                     <label for="bio-input"></label><textarea id="bio-input" class="text-black bio-input w-full" rows=4 maxlength="512" placeholder="Bio goes here..."><%=puser.profile.bio%></textarea>
                 <% } else { %>
-                    <p class="text-white whitespace-pre-wrap"><%=puser.profile.bio%></p>
+                    <% if (puser.profile.allowHTML) {%>
+                        <p class="text-white whitespace-pre-wrap"><%-puser.profile.bio%></p>
+                    <% } else { %>
+                        <p class="text-white whitespace-pre-wrap"><%=puser.profile.bio%></p>
+                    <% } %>
                 <% } %>
             </td>
         </tr>

@@ -28,6 +28,10 @@
                     <a href="?editmode"><i class="fa-solid m-2 text-2xl fa-pen-to-square cursor-pointer hover:text-gray-700"></i></a>
                 <% } %>
             <% }%>
+
+            <% if (user?.flags?.some(flag => flag.flag === 0)) { %>
+            <a href="/admin/userEditor?id=<%=puser._id%>"><i class="fa-solid m-2 text-2xl fa-calculator cursor-pointer hover:text-gray-700"></i></a>
+            <% } %>
             <div class="profile-card" id="profile-card">
                 <%
                     let cardOrder = {
@@ -62,7 +66,6 @@
                         <select class="text-black" onchange="changeBgMode(this.value)">
                             <option value="color" <%if(puser.profile.background.mode === "color") { %> selected <% } %> ><%=lang.profile.bgmode0%></option>
                             <option value="random" <%if(puser.profile.background.mode === "random") { %> selected <% } %>><%=lang.profile.bgmode1%></option>
-                            <option value="image" <%if(puser.profile.background.mode === "image") { %> selected <% } %>><%=lang.profile.bgmode2%></option>
                         </select>
                     </label><br><br>
                     <div id="bg-editor-color" <%if(puser.profile.background.mode !== "color") { %> class="hidden" <% } %>>
@@ -73,12 +76,6 @@
                     </div>
                     <div id="bg-editor-random" <%if(puser.profile.background.mode !== "random") { %> class="hidden" <% } %>>
                         <p class="text-white">The profile page background will be randomly selected.</p>
-                    </div>
-                    <div id="bg-editor-image" <%if(puser.profile.background.mode !== "image") { %> class="hidden" <% } %>>
-                        <label class="text-white">
-                            Enter URL of image:
-                            <input <% if(puser.profile.background.image) { %>value="<%=puser.profile.background.image%>"<% } %> type="url" class="text-black" placeholder="https://example.com/image.jpg" oninput="bgImage = this.value" id="bgImage">
-                        </label>
                     </div>
                     <input type="submit" class="btn" value="<%=lang.submit%>" onclick="submitBg()">
                 </div>

@@ -32,6 +32,7 @@
                             <option value="css-action">CSS</option>
                             <option value="admin-action">Admin</option>
                             <option value="pseudo-action">Pseudo Mode</option>
+                            <option value="flags-action">Edit flags</option>
                         </select>
                     </label>
                     <div class="css-action" id="css-action">
@@ -47,6 +48,10 @@
             </div>
         </div>
         <script>
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+            if (params?.id) document.querySelector("input[name='_id']").value = params.id;
             let user
             document.getElementById("user-menu-form").onsubmit = e => {
 				console.log("Submit event")
@@ -124,6 +129,7 @@
             }
 
 			function changeTo(id) {
+                if (id === "flags-action") return window.location.href = `/admin/flagEditor/${user._id}`;
 				document.getElementById("css-action").classList.add("hidden")
 				document.getElementById("admin-action").classList.add("hidden")
 				document.getElementById(id).classList.remove("hidden")

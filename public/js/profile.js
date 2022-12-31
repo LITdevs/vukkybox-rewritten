@@ -92,7 +92,6 @@ function updateProfile(dontExit = false) {
 
 let bgMode = "color";
 let bgColor = document.getElementById("bgColor").value;
-let bgImage = document.getElementById("bgImage").value;
 
 let bge = false
 let csse = false
@@ -117,7 +116,6 @@ function cssEditor() {
 function changeBgMode(newMode) {
 	document.getElementById("bg-editor-color").classList.add("hidden");
 	document.getElementById("bg-editor-random").classList.add("hidden");
-	document.getElementById("bg-editor-image").classList.add("hidden");
 	bgMode = newMode;
 	switch (newMode) {
 		case "color":
@@ -127,9 +125,6 @@ function changeBgMode(newMode) {
 			break;
 		case "random":
 			document.getElementById("bg-editor-random").classList.remove("hidden");
-			break;
-		case "image":
-			document.getElementById("bg-editor-image").classList.remove("hidden");
 			break;
 	}
 }
@@ -144,8 +139,7 @@ function submitBg() {
 		body: JSON.stringify({
 			"action": "background",
 			"bgMode": bgMode,
-			"bgColor": bgColor,
-			"bgImage": bgImage
+			"bgColor": bgColor
 		})
 	}).then(res => res.json()).then(res => {
 		if (res.error) {
