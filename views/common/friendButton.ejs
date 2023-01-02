@@ -3,7 +3,7 @@
           onclick="document.getElementById('heart').classList.replace('fa-heart', 'fa-hand-holding-heart');
 		  document.getElementById('heart').classList.replace('fa-regular', 'fa-solid');
 		  this.innerHTML = this.innerHTML.replace('Friend', 'Request sent!')<%if(friendship.state === 0) {%>;friendRequest()<%}%>">
-        <%= friendship.state === 1 ? `Request ${friendship.requester === user?._id ? "sent" : "received"}!` : "Friend"%> <i id="heart" class="<%=friendship.state === 1 ? "fa-solid fa-hand-holding-heart" : "fa-regular fa-heart"%>"></i></span>
+        <%= friendship.state === 1 ? `Request ${friendship.requester.toString() === user?._id?.toString() ? "sent" : "received"}!` : "Friend"%> <i id="heart" class="<%=friendship.state === 1 ? "fa-solid fa-hand-holding-heart" : "fa-regular fa-heart"%>"></i></span>
 <script>
     function friendRequest() {
 		fetch("/api/v1/friendship/add", {

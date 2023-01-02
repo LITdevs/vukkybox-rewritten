@@ -16,6 +16,11 @@
                     <span class="tab" id="t1" onclick="tab(this.id)">
                         <%-include("common/friendCountToIcon.ejs", {count: friendships.filter(friendship => friendship.ship.state === 1).length})%> Requests
                     </span>
+                    <a class="tab" id="t2" href="/usersearch">
+                        <span>
+                            Add friend
+                        </span>
+                    </a>
                 </div>
                 <%
                 let pFriends = friendships.filter(fs => fs.ship.state === 1);

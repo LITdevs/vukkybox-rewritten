@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+                <div class="flex justify-center">
+                    <div class="mx-auto">
+                        <input type="text" class="input-box" placeholder="Friend's username" oninput="searchInput(this.value)"/><br>
+                        <span id="result">Start typing to search for users</span>
+                    </div>
+                </div>
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    <script>
+        let latestSearchTime // The time the latest search was initiated
+        /**
+         * Update search results from API
+         * @param inputValue{string}
+         * @returns {Promise<void|string>}
+         */
+        async function searchInput(inputValue) {
+            latestSearchTime = Date.now();
+            let searchStarted = latestSearchTime; // The time the current search was initiated
+            if (!inputValue?.trim()) return document.querySelector("#result").innerHTML = "Start typing to search for users"
+            let results = await fetch(`/api/v1/users/search/${inputValue}`);
+            results = await results.json();
+            let resultString = ""
+            results.forEach((result, index) => {
+                if (result.score > 0.2) resultString += `<div class="bg-gray-600 text-white rounded-lg m-2">
+    <table>
+        <tr>
+            <td class="">
+                <img width=64 src="${result.avatarURI}" class="rounded-lg w-16 h-16 m-1">
+            </td>
+            <td class="ml-2">
+                <a href="/profile/${result.username}" class="text-blue-500">${result.username}</a>
+            </td>
+        </tr>
+    </table>
+</div>`
+            })
+            // Only print out the results if another search hasn't been queued afterwards
+            if (searchStarted === latestSearchTime) {
+                document.querySelector("#result").innerHTML = resultString || `No results were found :(<br>Try being more specific!`
+            } else {
+                console.log("Skipping result print out, out of date " + inputValue)
+            }
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <center>
+
+                <input type="text" oninput="searchInput(this.value)"><br>
+                <span id="result"></span>
+
+            </center>
+
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    <script>
+        let vukkiesJSON = <%-JSON.stringify(vukkies)%>;
+        let vukkiesArray = [];
+        let vukkiesJSONkeys = Object.keys(vukkiesJSON.rarity);
+        vukkiesJSONkeys.forEach(rarity => {
+            let rarityObj = vukkiesJSON.rarity[rarity]
+            let rarityObjKeys = Object.keys(rarityObj)
+            rarityObjKeys.forEach(vukkyKey => {
+                let vukky = rarityObj[vukkyKey]
+                vukkiesArray.push(vukky)
+            })
+        })
+        let vukkiesNameArray = vukkiesArray.map(vukky => vukky.name);
+        /**
+         * Find similarity of two strings
+         * Stolen from https://github.com/aceakash/string-similarity
+         * Licensed MIT
+         * @param first - First string
+         * @param second - Second string
+         * @returns {number} - 0 = no match, 1 = full match
+         */
+        function compareTwoStrings(first, second) {
+            first = first.replace(/\s+/g, '')
+            second = second.replace(/\s+/g, '')
+
+            if (first === second) return 1; // identical or empty
+            if (first.length < 2 || second.length < 2) return 0; // if either is a 0-letter or 1-letter string
+
+            let firstBigrams = new Map();
+            for (let i = 0; i < first.length - 1; i++) {
+                const bigram = first.substring(i, i + 2);
+                const count = firstBigrams.has(bigram)
+                    ? firstBigrams.get(bigram) + 1
+                    : 1;
+
+                firstBigrams.set(bigram, count);
+            }
+
+            let intersectionSize = 0;
+            for (let i = 0; i < second.length - 1; i++) {
+                const bigram = second.substring(i, i + 2);
+                const count = firstBigrams.has(bigram)
+                    ? firstBigrams.get(bigram)
+                    : 0;
+
+                if (count > 0) {
+                    firstBigrams.set(bigram, count - 1);
+                    intersectionSize++;
+                }
+            }
+
+            return (2.0 * intersectionSize) / (first.length + second.length - 2);
+        }
+
+        function findVukky(searchName) {
+            let resultArray = [];
+            vukkiesNameArray.forEach(vukkyName => {
+                let similarityScore = compareTwoStrings(vukkyName.toLowerCase(), searchName.toLowerCase())
+                resultArray.push({ name: vukkyName, score: similarityScore })
+            })
+            resultArray.sort((a, b) => b.score - a.score);
+            return resultArray.slice(0, 10)
+        }
+
+        function searchInput(inputValue) {
+            if (!inputValue) return document.querySelector("#result").innerHTML = ""
+            let results = findVukky(inputValue);
+            let resultString = ""
+            results.forEach((result, index) => {
+                if (result.score > 0.2) resultString += `${index+1}. ${result.name} (certainty: ${(result.score * 100).toFixed(2)}%)<br>`
+            })
+            document.querySelector("#result").innerHTML = resultString || `No good results were found :(<br>The closest match is ${results[0].name} at ${(results[0].score * 100).toFixed(2)}% certainty`
+        }
+    </script>
+    </body>
+</html>

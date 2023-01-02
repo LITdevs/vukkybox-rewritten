@@ -27,7 +27,16 @@ export default (req, res, next) => {
 			res.locals.pseudoMode = true;
 			res.locals.user = user;
 			req.user = user;
-			return next();
+			let Friendships = db.getFriends();
+			Friendships.countDocuments({recipient: user._id, state: 1}, (err, count) => {
+				if (err) {
+					console.error(err);
+					errorNotifier(err, "pseudomode erorr", "pseudomode friend error");
+					return next(err);
+				}
+				res.locals.pendingFriends = count;
+				return next();
+			})
 		}
 	})
 }

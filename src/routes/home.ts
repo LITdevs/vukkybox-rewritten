@@ -17,6 +17,14 @@ router.get('/store', (req : Request, res : Response) => {
 	res.render('store', {title: "Vukkybox"});
 });
 
+router.get('/searchtest', (req : Request, res : Response) => {
+	res.render('searchTest', {title: "Vukkybox"});
+});
+
+router.get('/usersearch', (req : Request, res : Response) => {
+	res.render('userSearch', {title: "Vukkybox"});
+});
+
 router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 	let realBoxIds = req.app.locals.boxes.map((box) => box.id);
 	if (!realBoxIds.includes(parseInt(req.params.id))) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Box not found"});

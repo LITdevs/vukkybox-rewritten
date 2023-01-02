@@ -4,6 +4,7 @@ import errorNotifier from "../util/errorNotifier";
 import db from "../databaseManager";
 import {isValidObjectId} from "mongoose";
 import friendshipAPI from "./api/v1/friendshipAPI";
+import compare from "../util/stringComparision";
 
 const router: Router = express.Router();
 
@@ -114,6 +115,29 @@ router.post("/notifications/read", apiAuth, (req: Request, res: Response) => {
 
 router.get("/notifications", apiAuth, (req : Request, res : Response) => {
 	return res.json(res.locals.user.playerData.notifications);
+})
+
+router.get("/users/search/:username", (req : Request, res : Response) => {
+	if (!req.params.username) return res.status(400).send("Please provide an username")
+	let Users = db.getUsers();
+	Users.find({}, (err, users) => {
+		if (err) {
+			errorNotifier(err);
+			return res.status(500).send("Internal Server Error")
+		}
+		let usernames = users.map(user => user.username);
+		let resultArray = [];
+		usernames.forEach(username => {
+			let similarityScore = compare(username.toLowerCase(), req.params.username.toString().toLowerCase())
+			if (similarityScore > 0.4) {
+				let user = users.find(user => user.username === username)
+				resultArray.push({ username, score: similarityScore, _id: user._id, avatarURI: `https://auth.litdevs.org/api/avatar/bg/${user.litauthId}` });
+			}
+		})
+		resultArray.sort((a, b) => b.score - a.score);
+		res.json(resultArray)
+	})
+
 })
 
 router.use(friendshipAPI);

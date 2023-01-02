@@ -41,6 +41,7 @@
             <i class="fa-solid fa-sliders"></i>
         </a>
         <a href="/friends" class="nav-button">
+                        <%-include("friendCountToIcon.ejs", {count: pendingFriends, hideZero: true, showRed: true})%>
                         <i class="fa-solid fa-user-group"></i>
         </a>
         <% if (typeof user.playerData.notifications !== "undefined" && user.playerData.notifications.length > 0) { %>
