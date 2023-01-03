@@ -1,10 +1,11 @@
-import express, { Request, Response, Router} from 'express';
+import express, {Request, Response, Router} from 'express';
 import apiAuth from "../util/auth/apiAuth";
 import errorNotifier from "../util/errorNotifier";
 import db from "../databaseManager";
 import {isValidObjectId} from "mongoose";
 import friendshipAPI from "./api/v1/friendshipAPI";
 import compare from "../util/stringComparision";
+import {checkCodeStatus, claimCode, ClaimResult, CodeStatus} from "../util/codeHelper";
 
 const router: Router = express.Router();
 
@@ -137,7 +138,34 @@ router.get("/users/search/:username", (req : Request, res : Response) => {
 		resultArray.sort((a, b) => b.score - a.score);
 		res.json(resultArray)
 	})
+})
 
+router.post("/promo/claim", apiAuth, async (req : Request, res : Response) => {
+	if (!req.body.code) return res.status(400).send("Please provide a code");
+	let codeValidity : CodeStatus = await checkCodeStatus(req.body.code, res.locals.user);
+	if ([CodeStatus.Claimable, CodeStatus.InfiniteUses].includes(codeValidity)) {
+		let claimResult : ClaimResult = await claimCode(req.body.code, res.locals.user);
+		if (claimResult === ClaimResult.Claimed) {
+			return res.status(200).send("CLAIMED");
+		} else {
+			res.status(500).send("ERR_INTERNALSERVERERROR")
+		}
+	} else {
+		switch (codeValidity) {
+			case CodeStatus.Claimed:
+				res.status(403).send("ERR_CLAIMED")
+				break;
+			case CodeStatus.InvalidCode:
+				res.status(404).send("ERR_INVALID")
+				break;
+			case CodeStatus.ServerError:
+				res.status(500).send("ERR_INTERNALSERVERERROR")
+				break;
+			case CodeStatus.NoUses:
+				res.status(403).send("ERR_NOUSES")
+				break;
+		}
+	}
 })
 
 router.use(friendshipAPI);

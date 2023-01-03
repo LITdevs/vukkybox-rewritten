@@ -206,4 +206,59 @@ router.get('/pseudoModeExit', (req: Request, res: Response) => {
     req.session.pseudoMode = undefined;
     res.redirect("/");
 })
+
+router.post('/code', (req: Request, res: Response) => {
+    if (!req.body.reason || !req.body.code || !req.body.uses || !req.body.value) return res.status(400).send("Missing parameters, code value uses reason")
+    let Code = db.getCodes();
+    let code = new Code({
+        code: req.body.code.trim(),
+        reason: req.body.reason,
+        uses: req.body.uses,
+        value: req.body.value,
+        createdAt: new Date(),
+        createdBy: req.user._id
+    })
+    code.save((err, code) => {
+        if (err) {
+            errorNotifier(err);
+            return res.sendStatus(500);
+        }
+        res.status(201).json(code);
+    })
+
+})
+router.get('/code', (req: Request, res: Response) => {
+    let Codes = db.getCodes();
+    Codes.find({}, (err, codes) => {
+        if (err) {
+            errorNotifier(err);
+            return res.sendStatus(500);
+        }
+        return res.json(codes);
+    })
+})
+router.delete('/code/:id', (req: Request, res: Response) => {
+    if (!isValidObjectId(req.params.id)) return res.sendStatus(400);
+    let Codes = db.getCodes();
+    Codes.deleteOne({_id: req.params.id}, (err, code) => {
+        if (err) {
+            errorNotifier(err);
+            return res.sendStatus(500);
+        }
+        return res.json(code);
+    })
+})
+
+router.patch('/code/:id', (req: Request, res: Response) => {
+    if (!isValidObjectId(req.params.id)) return res.sendStatus(400);
+    let Codes = db.getCodes();
+    Codes.updateOne({_id: req.params.id}, req.body, (err, code) => {
+        if (err) {
+            errorNotifier(err);
+            return res.sendStatus(500);
+        }
+        return res.json(code);
+    })
+})
+
 export default router;
