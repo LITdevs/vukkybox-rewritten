@@ -14,17 +14,17 @@ class Vukky implements IVukky {
 	name: string;
 	description : string;
 	rarity: string;
-	creator?: string;
+	creator: string;
 	audioURL?: string;
 
-	constructor(id : number, imageURL: string, name : string, description : string, rarity : string, creator? : string, audioURL? : string) {
-		this.id = id;
-		this.imageURL = imageURL;
-		this.name = name;
-		this.description = description;
-		this.rarity = rarity;
-		if(creator) this.creator = creator;
-		if(audioURL) this.audioURL = audioURL;
+	constructor(vukkyObj : IVukky) {
+		this.id = vukkyObj.id;
+		this.imageURL = vukkyObj.imageURL;
+		this.name = vukkyObj.name;
+		this.description = vukkyObj.description;
+		this.rarity = vukkyObj.rarity;
+		this.creator = vukkyObj.creator || "Unknown";
+		if(vukkyObj.audioURL) this.audioURL = vukkyObj.audioURL;
 	}
 }
 

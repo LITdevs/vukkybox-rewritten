@@ -35,30 +35,10 @@
                 // Iterate through each Vukky in the users' collection, the keys are the Vukky IDs
                 if (!puser.playerData.collection) puser.playerData.collection = {};
                 Object.keys(puser.playerData.collection).forEach(function(key) {
-                    let rarityLevels = Object.keys(vukkies.rarity);
-                    let vukky
-                    let rarity
                     let duplicates = puser.playerData.collection[key];
-                    // Get the rarity of the Vukky
-                    rarityLevels.some(rarityLevel => {
-                        if (Object.keys(vukkies.rarity[rarityLevel]).includes(key)) {
-                            vukky = vukkies.rarity[rarityLevel][key];
-                            rarity = rarityLevel;
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    })
-
-                    vukky = {
-                        name: vukky.name,
-                        id: parseInt(key),
-                        rarity: rarity,
-                        description: vukky.description,
-                        creator: vukky.creator,
-                        imageURL: vukky.url,
-                        duplicateCount: duplicates
-                    }
+                    let vukky = vukkies.vukkies.find(el => el.id === Number(key))
+                    if (!vukky) return;
+                    vukky.duplicates = duplicates
                     // Add to array for sorting
                     finalVukkies.push(vukky);
                 });
@@ -66,26 +46,26 @@
                 if (sortMethod === "rarity") {
                     // Sort the array by rarity
                     finalVukkies.sort((a, b) => {
-                        return vukkies.levels[a.rarity].level - vukkies.levels[b.rarity].level;
+                        return rarity[a.rarity].index - rarity[b.rarity].index;
                     }).reverse();
                 }
 
                 if (sortMethod === "rarity_r") {
-                    // Sort the array by rarity
+                    // Sort the array by rarity in reverse
                     finalVukkies.sort((a, b) => {
-                        return vukkies.levels[a.rarity].level - vukkies.levels[b.rarity].level;
+                        return rarity[a.rarity].index - rarity[b.rarity].index;
                     })
                 }
 
                 if (sortMethod === "id") {
-                    // Sort the array by rarity
+                    // Sort the array by id
                     finalVukkies.sort((a, b) => {
                         return a.id - b.id;
                     }).reverse()
                 }
 
                 if (sortMethod === "id_r") {
-                    // Sort the array by rarity
+                    // Sort the array by id in reverse
                     finalVukkies.sort((a, b) => {
                         return a.id - b.id;
                     })

@@ -25,6 +25,10 @@ router.get('/usersearch', (req : Request, res : Response) => {
 	res.render('userSearch', {title: "Vukkybox"});
 });
 
+router.get('/promo', (req : Request, res : Response) => {
+	res.render('promo', {title: "Vukkybox"});
+});
+
 router.get('/open/:id', checkAuth, (req : Request, res : Response) => {
 	let realBoxIds = req.app.locals.boxes.map((box) => box.id);
 	if (!realBoxIds.includes(parseInt(req.params.id))) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Box not found"});
@@ -57,8 +61,8 @@ router.get("/view/:id", (req : Request, res : Response) => {
 	let rarities = Object.keys(req.app.locals.vukkies.rarity);
 	let rarity = rarities.find((rarity) => Object.keys(req.app.locals.vukkies.rarity[rarity]).includes(req.params.id));
 	if (!rarity) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Vukky not found"});
-	let vukkyObj = req.app.locals.vukkies.rarity[rarity][req.params.id];
-	res.locals.vukky = new Vukky(parseInt(req.params.id), vukkyObj.url, vukkyObj.name, vukkyObj.description, rarity, vukkyObj.creator);
+	let vukkyObj = req.app.locals.vukkies.find(vukky => vukky.id === req.params.id);
+	res.locals.vukky = new Vukky(vukkyObj);
 	res.render('view', {title: "Vukkybox"});
 })
 

@@ -141,12 +141,13 @@ router.get("/users/search/:username", (req : Request, res : Response) => {
 })
 
 router.post("/promo/claim", apiAuth, async (req : Request, res : Response) => {
+	let startingBalance = res.locals.user.playerData.balance;
 	if (!req.body.code) return res.status(400).send("Please provide a code");
 	let codeValidity : CodeStatus = await checkCodeStatus(req.body.code, res.locals.user);
 	if ([CodeStatus.Claimable, CodeStatus.InfiniteUses].includes(codeValidity)) {
 		let claimResult : ClaimResult = await claimCode(req.body.code, res.locals.user);
 		if (claimResult === ClaimResult.Claimed) {
-			return res.status(200).send("CLAIMED");
+			return res.status(200).send(`${res.locals.user.playerData.balance - startingBalance}`);
 		} else {
 			res.status(500).send("ERR_INTERNALSERVERERROR")
 		}

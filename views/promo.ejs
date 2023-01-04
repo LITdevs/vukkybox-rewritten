@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+
+            <div class="profile-card text-white">
+                <form id="promoForm">
+                    <label>
+                        Enter a promo code (case insensitive):<br>
+                        <input type="text" class="input-box" oninput="unerrorify()" name="code" placeholder="VUKJY31">
+                    </label>
+                    <input type="submit" value="<%=lang.submit%>" id="submitButton" class="btn-green"><br>
+                    <span class="text-green-600" id="result"></span>
+                </form>
+            </div>
+
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    <script>
+        document.querySelector("#promoForm").onsubmit = (e) => {
+            e.preventDefault();
+            let codeInput = document.querySelector("input[name='code']")
+            fetch("/api/v1/promo/claim", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    code: codeInput.value
+                })
+            }).then(res => res.text()).then(res => {
+                let resultSpan = document.getElementById("result")
+                switch (res) {
+                    default:
+                        unerrorify()
+                        resultSpan.innerHTML = `You have claimed code <span class="font-mono">${codeInput.value}</span>.<br>You have been awarded <span class="font-mono">${res}</span> Vukkybux.`
+                        break;
+                    case "ERR_CLAIMED":
+                        errorify()
+                        resultSpan.innerHTML = `You have claimed this code before.`
+                        break;
+                    case "ERR_NOUSES":
+                        errorify()
+                        resultSpan.innerHTML = `This code has no uses left.`
+                        break;
+                    case "ERR_INVALID":
+                        errorify()
+                        resultSpan.innerHTML = `No such code was found, make sure it is correct.`
+                        break;
+                    case "ERR_INTERNALSERVERERROR":
+                        errorify()
+                        resultSpan.innerHTML = `Internal Server Error. Try again later.`
+                        break;
+                }
+            })
+        }
+
+        function errorify() {
+            document.querySelector("input[name='code']").classList.add("input-invalid");
+            document.querySelector("#result").classList.add("text-red-600");
+            document.querySelector("#result").classList.remove("text-green-600");
+        }
+
+        function unerrorify() {
+            document.querySelector("input[name='code']").classList.remove("input-invalid");
+            document.querySelector("#result").classList.remove("text-red-600");
+            document.querySelector("#result").classList.add("text-green-600");
+            document.querySelector("#result").innerHTML = ""
+        }
+    </script>
+    </body>
+</html>

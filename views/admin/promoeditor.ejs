@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card text-white">
+               <br>
+               <form id="printerForm">
+                   <label>
+                       Code:
+                       <input type="text" placeholder="Code" name="code" class="input-box" required value="<%=code.code%>">
+                   </label>
+                   <br>
+                   <label>
+                       Value:
+                       <input type="number" placeholder="1000" name="value" class="input-box" required value="<%=code.value%>">
+                   </label>
+                   <br>
+                   <label>
+                       Uses (-1 for infinite):
+                       <input type="number" min="-1" step="1" placeholder="10" name="uses" class="input-box" required value="<%=code.uses%>">
+                   </label>
+                   <br>
+                   <label>
+                       Reason for code:
+                       <input type="text" minlength="8" placeholder="Reward for 1st place in tetris" name="reason" class="input-box" required value="<%=code.reason%>">
+                   </label>
+                   <br>
+                   <input type="submit" value="Apply correction tape" class="btn-red">
+               </form>
+            </div>
+        </div>
+        <script>
+            document.querySelector("#printerForm").onsubmit = (e) => {
+                e.preventDefault();
+                let code = document.querySelector("input[name='code']").value;
+                let value = document.querySelector("input[name='value']").value;
+                let uses = document.querySelector("input[name='uses']").value;
+                let reason = document.querySelector("input[name='reason']").value;
+                fetch("/admin/code/<%=code._id%>", {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        code,
+                        value,
+                        uses,
+                        reason
+                    })
+                }).then(res => {
+                    if (res.ok) return window.location.href = "/admin/codes";
+                    alert(`Ewwow nya ;-;\n${res.status}`)
+                })
+            }
+        </script>
+        <%- include("../common/footer.ejs", { user }); %>
+    </body>
+</html>

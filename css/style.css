@@ -131,6 +131,10 @@ body {
     @apply p-1 rounded-md border border-gray-600 bg-gray-200 text-gray-900 my-2 outline-none focus:border-gray-500;
 }
 
+.input-invalid {
+    @apply border-2 border-red-500 !important;
+}
+
 #tokenBox {
     color: transparent;
     text-shadow: 0 0 7px rgba(0,0,0,0.5);

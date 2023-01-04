@@ -24,7 +24,7 @@ export enum ClaimResult {
 export function checkCodeStatus(code : string, user : any) : Promise<CodeStatus> {
     return new Promise(resolve => {
         let Codes = db.getCodes()
-        Codes.findOne({code: code}, (err, promoCode) => {
+        Codes.findOne({code: { $regex: new RegExp(`^${code}$`), $options: "i" }}, (err, promoCode) => {
             if (err) {
                 errorNotifier(err);
                 return resolve(CodeStatus.ServerError);
@@ -51,7 +51,7 @@ export function checkCodeStatus(code : string, user : any) : Promise<CodeStatus>
 export function claimCode(code : string, user : any) : Promise<ClaimResult> {
     return new Promise(resolve => {
         let Codes = db.getCodes()
-        Codes.findOne({code: code}, async (err, promoCode) => {
+        Codes.findOne({code: { $regex: new RegExp(`^${code}$`), $options: "i"  }}, async (err, promoCode) => {
             if (err) {
                 errorNotifier(err);
                 return resolve(ClaimResult.ServerError);

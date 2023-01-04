@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card text-white">
+                hello LITE DEV (or code reader)<br>
+                this is the promo code printer (pcp)!!! you can print money codes here but please please please dont do it for no reason or just to give to friends ty <3<br>
+                also fill in the reason, putting in "lol" "aaa" "code" "haha" "money" "buckies" or similar will result in access termination
+                <br>
+               <form id="printerForm">
+                   <label>
+                       Code:
+                       <input type="text" placeholder="Code" name="code" class="input-box" required>
+                   </label>
+                   <br>
+                   <label>
+                       Value:
+                       <input type="number" placeholder="1000" name="value" class="input-box" required>
+                   </label>
+                   <br>
+                   <label>
+                       Uses (-1 for infinite):
+                       <input type="number" min="-1" step="1" placeholder="10" name="uses" class="input-box" required>
+                   </label>
+                   <br>
+                   <label>
+                       Reason for code:
+                       <input type="text" minlength="8" placeholder="Reward for 1st place in tetris" name="reason" class="input-box" required>
+                   </label>
+                   <br>
+                   <input type="submit" value="Print code" class="btn-red">
+               </form>
+            </div>
+        </div>
+        <script>
+            document.querySelector("#printerForm").onsubmit = (e) => {
+                e.preventDefault();
+                let code = document.querySelector("input[name='code']").value;
+                let value = document.querySelector("input[name='value']").value;
+                let uses = document.querySelector("input[name='uses']").value;
+                let reason = document.querySelector("input[name='reason']").value;
+                fetch("/admin/code", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        code,
+                        value,
+                        uses,
+                        reason
+                    })
+                }).then(res => {
+                    if (res.ok) return window.location.href = "/admin/codes";
+                    alert(`Ewwow nya ;-;\n${res.status}`)
+                })
+            }
+        </script>
+        <%- include("../common/footer.ejs", { user }); %>
+    </body>
+</html>

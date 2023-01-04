@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("../common/nav.ejs", { user }); %>
+        <div class="content">
+
+            <div class="profile-card text-white">
+                <i class="fa-solid fa-rotate text-xl p-1 hover:bg-gray-500 rounded-md" onclick="refresh()"></i>
+                <a href="/admin/promoprinter"><i class="fa-solid fa-plus text-xl p-1 hover:bg-gray-500 rounded-md" onclick="refresh()"></i></a>
+                <table class="code-container w-full rounded-lg">
+                </table>
+            </div>
+        </div>
+        <script>
+            function refresh() {
+                fetch("/admin/code").then(res => res.json()).then(res => {
+                    document.querySelector(".code-container").innerHTML = "<tr><td>Code</td><td>Value</td><td>Uses left</td><td>Reason</td><td>Creator</td></tr>";
+                    if (res.length === 0) {
+                        let el = document.createElement("span");
+                        el.innerHTML = "No codes found"
+                        document.querySelector(".code-container").appendChild(el)
+                    }
+                    res.forEach(code => {
+                        let row = document.createElement("tr")
+                        row.classList.add("bg-white")
+                        row.classList.add("rounded-lg")
+                        row.classList.add("p-2")
+                        row.classList.add("my-2")
+                        row.classList.add("text-black")
+                        row.innerHTML = `<td>${code.code}</td><td>${code.value}VB</td><td>${code.uses === -1 ? "Infinite" : code.uses} uses left</td><td>${code.reason}</td><td>${JSON.parse(code.createdBy).username}</td><td><span class="text-red-600 cursor-pointer" onclick="deleteRow('${code._id}')">Delete</span><a href="/admin/promoeditor/${code._id}"><span class="ml-4 text-blue-600">Update</span></a></td>`
+                        document.querySelector(".code-container").appendChild(row);
+                    })
+                }).catch(err => {
+                    console.log(err)
+                    document.querySelector(".code-container").innerHTML = "Error loading codes, check console"
+                })
+            }
+            refresh()
+
+            function deleteRow(codeId) {
+                fetch(`/admin/code/${codeId}`, {
+                    method: "DELETE"
+                }).then(res => {
+                    if (res.ok) return refresh();
+                    alert(res.status);
+                }).catch(e => {
+                    alert(e);
+                })
+            }
+        </script>
+        <%- include("../common/footer.ejs", { user }); %>
+    </body>
+</html>

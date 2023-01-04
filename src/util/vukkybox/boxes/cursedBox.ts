@@ -11,6 +11,6 @@ const odds : Odds = {
 	pukky: 0
 }
 
-const cursedBox = () => { return new Box("Cursed Box", "This box has no Common Vukkies.<br>Unique: Vukky Meat (Normal, Cooked, Burnt)", 50, ["69", "70", "71"], odds, "/resources/boxes/cursedbox.webp") }
+const cursedBox = () => { return new Box("Cursed Box", "This box has no Common Vukkies.<br>Unique: Vukky Meat (Normal, Cooked, Burnt)", 50, [69, 70, 71], odds, "/resources/boxes/cursedbox.webp") }
 
 export default cursedBox

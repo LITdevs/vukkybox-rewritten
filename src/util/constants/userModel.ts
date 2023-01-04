@@ -21,7 +21,8 @@ interface IUser {
 		},
 		css: String,
 		bio: String,
-		order: Array<String>
+		order: Array<String>,
+		favoriteVukky: number
 	},
 	flags: Array<{flag: number, date: Date, reason?: string}>
 }
@@ -45,9 +46,10 @@ const UserSchema = {
 		css: String,
 		bio: String,
 		allowHTML: { type: Boolean, default: false },
-		order: Array<String>
+		order: Array<String>(),
+		favoriteVukky: Number
 	},
-	flags: Array<{flag: number, date: Date, reason: string}>
+	flags: Array<{flag: number, date: Date, reason: string}>()
 
 }
 

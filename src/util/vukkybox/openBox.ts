@@ -1,6 +1,6 @@
 import {Box, Odds} from "../../classes/Box";
 import { vukkyList } from "../../index";
-import Vukky from "../../classes/Vukky";
+import Vukky, {IVukky} from "../../classes/Vukky";
 
 /**
  * Returns a promise of the rarity of the Vukky
@@ -31,23 +31,15 @@ function openBox(box : Box) {
 	return new Promise<Vukky>(resolve => {
 		const odds: Odds = box.odds;
 		level(odds).then(rarity => {
-			let possibleVukkies = vukkyList.rarity[rarity];
-			let possibleIds = Object.keys(possibleVukkies);
+			let possibleVukkies = vukkyList.vukkies.filter(vukky => vukky.rarity === rarity);
 
 			// Uniques can only be the uniques in each box, not all uniques.
 			if (rarity === "unique") {
-				possibleIds = box.uniques;
-				possibleVukkies = {};
-				possibleIds.forEach(pid => {
-					possibleVukkies[pid] = vukkyList.rarity[rarity][pid];
-				});
-				console.log(possibleVukkies)
-				console.log(possibleIds)
+				possibleVukkies = vukkyList.vukkies.filter(vukky => vukky.rarity === rarity && box.uniques.includes(vukky.id));
 			}
 
-			const vukkyId = possibleIds[Math.floor(Math.random() * possibleIds.length)];
-			const vukkyObj = possibleVukkies[vukkyId];
-			const vukky = new Vukky(parseInt(vukkyId), vukkyObj.url, vukkyObj.name, vukkyObj.description, rarity, vukkyObj.creator, vukkyObj.audioURL);
+			const vukkyObj : IVukky = possibleVukkies[Math.floor(Math.random() * possibleVukkies.length)];
+			const vukky = new Vukky(vukkyObj);
 			resolve(vukky);
 		});
 	});

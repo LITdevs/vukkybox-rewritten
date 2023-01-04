@@ -16,7 +16,7 @@ interface IBox {
 	name : string;
 	description: string;
 	price : number;
-	uniques : string[];
+	uniques : number[];
 	odds : Odds;
 	imageURL : string;
 	noRefund? : boolean;
@@ -32,10 +32,10 @@ class Box implements IBox {
 	description : string;
 	odds: Odds;
 	price: number;
-	uniques: string[];
+	uniques: number[];
 	noRefund? : boolean;
 
-	constructor(name : string, description : string, price : number, uniques : string[], odds : Odds, imageURL : string, noRefund? : boolean) {
+	constructor(name : string, description : string, price : number, uniques : number[], odds : Odds, imageURL : string, noRefund? : boolean) {
 		this.id = boxId + 1;
 		this.name = name;
 		this.description = description;
@@ -61,13 +61,10 @@ class Box implements IBox {
 		if (this.price <= 0) throw new Error(`Box price ${this.price} is negative or zero!`);
 
 		// Verify uniques exist
-		this.uniques.forEach((unique) => {
-			if (!vukkyList.rarity.unique[unique])  {
-				Object.keys(vukkyList.rarity).forEach((rarity) => {
-					if (Object.keys(vukkyList.rarity[rarity]).includes(String(unique))) throw new Error(`Unique ${unique} in box "${this.name}" is in rarity "${rarity}", needs to be "unique"`);
-				})
-				throw new Error(`Unique ${unique} in box "${this.name}" does not exist!`);
-			}
+		this.uniques.forEach((unique : number) => {
+			let vukky = vukkyList.vukkies.find(vukky => vukky.id === unique);
+			if (!vukky) throw new Error(`Unique ${unique} in box "${this.name}" does not exist!`);
+			if (vukky.rarity !== "unique") throw new Error(`Unique ${unique} in box "${this.name}" is in rarity "${vukky.rarity}", needs to be "unique"`);
 		})
 
 		boxId += 1;

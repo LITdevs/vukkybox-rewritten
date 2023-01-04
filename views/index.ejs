@@ -8,10 +8,7 @@
     <body>
         <%-include("common/nav.ejs", { user }); %>
         <%
-            let vukkyAmount = 0;
-			Object.keys(vukkies.rarity).forEach(rarity => {
-				vukkyAmount += Object.keys(vukkies.rarity[rarity]).length;
-            })
+            let vukkyAmount = vukkies.vukkies.length;
         %>
         <div class="content">
             this is the vukkybocs game<br>
@@ -22,9 +19,9 @@
             you can also <a href="/404" class="text-blue-600">trade</a> with other people... I lied its not implemented yet<br>
             <br>
             <br>
-            <img src="<%=vukkies.rarity.common["2"].url%>" alt="A happy vukky" />
-            <img src="<%=vukkies.rarity.common["1"].url%>" alt="A vukky" />
-            <img src="<%=vukkies.rarity.common["5"].url%>" alt="A dead vukky" />
+            <img src="<%=vukkies.vukkies.find(vukky => vukky.id === 2).imageURL%>" alt="A happy vukky" />
+            <img src="<%=vukkies.vukkies.find(vukky => vukky.id === 1).imageURL%>" alt="A vukky" />
+            <img src="<%=vukkies.vukkies.find(vukky => vukky.id === 5).imageURL%>" alt="A dead vukky" />
         </div>
         <%-include("common/footer.ejs", { user }); %>
     </body>

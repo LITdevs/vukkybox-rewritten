@@ -1,0 +1,21 @@
+<div <% if (editMode) { %>draggable="true"<% } %> id="2" class="bio-container">
+    <table class="mx-auto w-4/5 bio-container-table">
+        <% if (editMode) { %>
+            <i class="fa-solid fa-grip text-gray-400"></i>
+            <i class="fa-solid fa-trash-can text-gray-400 cursor-pointer ml-2" onclick="deleteCard('3')"></i>
+        <% } %>
+        <tr>
+            <td class="p-2 w-full text-center bio">
+                <% if (editMode) { %>
+                    <select>
+                        <%
+
+                        %>
+                    </select>
+                <% } else { %>
+                    <img src="" alt="Favorite Vukky">
+                <% } %>
+            </td>
+        </tr>
+    </table>
+</div>

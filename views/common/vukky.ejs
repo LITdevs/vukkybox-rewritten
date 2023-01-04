@@ -1,7 +1,7 @@
-<div class="vukkyCard" id="vukkyCard" <%-typeof vukky !== "undefined" ? `style="border-color: ${vukkies.levels[vukky.rarity].color}"` : "" %>>
-    <h1 id="vukkyName" class="font-bold"><%-typeof vukky !== "undefined" ? `${vukky.name} #${vukky.id}${vukky.duplicateCount > 1 ? ` (${vukky.duplicateCount})` : ""}` : ""%></h1>
+<div class="vukkyCard" id="vukkyCard" <%-typeof vukky !== "undefined" ? `style="border-color: ${rarity[vukky.rarity].color}"` : "" %>>
+    <h1 id="vukkyName" class="font-bold"><%-typeof vukky !== "undefined" ? `${vukky.name} #${vukky.id}${vukky.duplicates > 1 ? ` (${vukky.duplicates})` : ""}` : ""%></h1>
     <img id="vukkyImage" class="mx-auto w-52" src="<%=typeof vukky !== "undefined" ? vukky.imageURL : ""%>" alt="">
-    <span id="vukkyRarity" <%-typeof vukky !== "undefined" ? `style="color: ${vukkies.levels[vukky.rarity].color}"` : "" %> class="font-semibold"><%=typeof vukky !== "undefined" ? lang.vukkies[vukky.rarity] : ""%></span><br>
+    <span id="vukkyRarity" <%-typeof vukky !== "undefined" ? `style="color: ${rarity[vukky.rarity].color}"` : "" %> class="font-semibold"><%=typeof vukky !== "undefined" ? lang.vukkies[vukky.rarity] : ""%></span><br>
     <span id="vukkyCreator" class="font-semibold"><%=typeof vukky !== "undefined" ? vukky.creator ? `Created by ${vukky.creator}` : "" : ""%></span><br>
     <span id="vukkyDescription" class="mx-2 whitespace-normal break-words w-52"><%-typeof vukky !== "undefined" ? vukky.description : ""%></span>
 </div>

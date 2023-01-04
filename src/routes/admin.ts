@@ -77,15 +77,16 @@ router.post('/createvukky', upload.single('image'),(req: Request, res: Response)
         return res.status(400).json({error: "Missing file"});
     }
     let newVukkyList = vukkyList;
-    newVukkyList.currentId++;
-    let newId = vukkyList.currentId;
-    newVukkyList.rarity[req.body.rarity][newId] = {
+    let newId = vukkyList.nextFreeId;
+    newVukkyList.nextFreeId++;
+    newVukkyList.vukkies.push({
         name: req.body.name,
         description: req.body.description,
-        url: `https://vukkybox.com/resources/${req.file.filename}`,
-        rarity: req.body.rarity
-    }
-    if (req.body.creator) newVukkyList.rarity[req.body.rarity][newId].creator = req.body.creator;
+        imageURL: `https://vukkybox.com/resources/${req.file.filename}`,
+        rarity: req.body.rarity,
+        id: newId,
+        creator: req.body.creator || "Unknown"
+    })
     setVukkyList(newVukkyList);
     console.log(`New Vukky added: ${req.body.name} (${newId})`);
     res.json({success: true});
@@ -227,14 +228,33 @@ router.post('/code', (req: Request, res: Response) => {
     })
 
 })
+
+async function addCreatorToCodes(codes) {
+    try {
+        let newCodeArray = [];
+        let Users = db.getUsers();
+        for (const code of codes) {
+            let user = await Users.findOne({_id: code.createdBy})
+            code.createdBy = JSON.stringify(user)
+            newCodeArray.push(code)
+        }
+        return newCodeArray
+    } catch (e) {
+        errorNotifier(e);
+        return null;
+    }
+}
+
 router.get('/code', (req: Request, res: Response) => {
     let Codes = db.getCodes();
-    Codes.find({}, (err, codes) => {
+    Codes.find({}, async (err, codes) => {
         if (err) {
             errorNotifier(err);
             return res.sendStatus(500);
         }
-        return res.json(codes);
+        let codesWithCreator = await addCreatorToCodes(codes);
+        if (!codesWithCreator) return res.sendStatus(500)
+        return res.json(codesWithCreator);
     })
 })
 router.delete('/code/:id', (req: Request, res: Response) => {
@@ -259,6 +279,22 @@ router.patch('/code/:id', (req: Request, res: Response) => {
         }
         return res.json(code);
     })
+})
+
+router.get("/promoprinter", (req: Request, res: Response) => {
+    res.render("admin/promoprinter", { title: "Vukkybox - PCP" })
+})
+
+router.get("/codes", (req: Request, res: Response) => {
+    res.render("admin/codes", { title: "Vukkbyox - PCV" })
+})
+
+router.get("/promoeditor/:id", async (req: Request, res: Response) => {
+    if (!isValidObjectId(req.params.id)) return res.sendStatus(400)
+    let Codes = db.getCodes();
+    let code = await Codes.findOne({_id: req.params.id})
+    if (!code) return res.render("404", { title: "Vukkyboxn't" })
+    res.render("admin/promoeditor", { title: "Vukkybox - PCE", code})
 })
 
 export default router;
