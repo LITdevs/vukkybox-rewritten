@@ -2474,7 +2474,7 @@
         {
             "id": 308,
             "imageURL": "https://vukkybox.com/resources/webtvvukky.webp",
-            "name": "<script src='/resources/reskin/webtv.js'></script><span style=\"text-transform: lowercase; font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;\">Web<span style=\"color:gold;\">TV</span></span> Vukky",
+            "name": "WebTV Vukky",
             "description": "<i>banger music plays</i>",
             "rarity": "bukky",
             "creator": "Vukky",
@@ -2524,7 +2524,7 @@
         {
             "id": 314,
             "imageURL": "https://vukkybox.com/resources/corruptedvukky.webp",
-            "name": "<script src='/resources/reskin/corrupted.js'></script>Corrupted Vukky (Animated)",
+            "name": "Corrupted Vukky (Animated)",
             "description": "There is no escape from what is about to come.",
             "rarity": "bukky",
             "creator": "Vukky",
@@ -2709,7 +2709,7 @@
         {
             "id": 337,
             "imageURL": "https://vukkybox.com/resources/vukkynow.webp",
-            "name": "<script src='/resources/reskin/vukkynow.js'></script>Vukky Now!",
+            "name": "Vukky Now!",
             "description": "Seems like it's a button of some kind.",
             "rarity": "rare",
             "creator": "Vukky"

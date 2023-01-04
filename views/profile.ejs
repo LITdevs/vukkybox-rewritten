@@ -37,7 +37,8 @@
                     let cardOrder = {
 						"0": include("common/profile/profilecard.ejs", { puser }),
                         "2": include("common/profile/bio.ejs", { puser }),
-                        "1": include("common/profile/trophycase.ejs", { puser })
+                        "1": include("common/profile/trophycase.ejs", { puser }),
+                        "3": include("common/profile/favoriteVukky.ejs", { puser })
                     }
 					let order = Object.keys(cardOrder);
 					if (puser.profile.order.length > 0) order = puser.profile.order
@@ -54,6 +55,7 @@
                                 <option value="0">Profile</option>
                                 <option value="1">Badges</option>
                                 <option value="2">Bio</option>
+                                <option value="3">Favorite Vukky showcase</option>
                             </select>
                             <button class="btn" onclick="addCard(document.getElementById('addSelector').value)">Add card</button>
                         </div>

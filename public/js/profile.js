@@ -78,7 +78,8 @@ function updateProfile(dontExit = false) {
 		body: JSON.stringify({
 			"action": "update",
 			"order": order,
-			"bio": `${document.getElementById("bio-input")?.value ? document.getElementById("bio-input")?.value : ""}`
+			"bio": `${document.getElementById("bio-input")?.value ? document.getElementById("bio-input")?.value : ""}`,
+			"favoriteVukky": document.getElementById("favoriteVukkySelector")?.value
 		})
 	}).then(res => res.json()).then(res => {
 		if (res.error) {

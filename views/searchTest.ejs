@@ -10,26 +10,21 @@
         <div class="content">
             <center>
 
-                <input type="text" oninput="searchInput(this.value)"><br>
-                <span id="result"></span>
+                <input type="text" oninput="searchInput(this.value)" disabled><br>
+                <span id="result">Loading list...</span>
 
             </center>
 
         </div>
         <%- include("common/footer.ejs", { user }); %>
     <script>
-        let vukkiesJSON = <%-JSON.stringify(vukkies)%>;
-        let vukkiesArray = [];
-        let vukkiesJSONkeys = Object.keys(vukkiesJSON.rarity);
-        vukkiesJSONkeys.forEach(rarity => {
-            let rarityObj = vukkiesJSON.rarity[rarity]
-            let rarityObjKeys = Object.keys(rarityObj)
-            rarityObjKeys.forEach(vukkyKey => {
-                let vukky = rarityObj[vukkyKey]
-                vukkiesArray.push(vukky)
-            })
+        let resetString = "Start typing to find your Vukky!"
+        let vukkiesNameArray = []
+        fetch("/data/vukkies.json").then(res => res.json()).then(res => {
+            vukkiesNameArray = res.vukkies.map(vukky => vukky.name)
+            document.getElementById("result").innerHTML = resetString;
+            document.querySelector("input[type=text]").disabled = false;
         })
-        let vukkiesNameArray = vukkiesArray.map(vukky => vukky.name);
         /**
          * Find similarity of two strings
          * Stolen from https://github.com/aceakash/string-similarity
@@ -82,7 +77,7 @@
         }
 
         function searchInput(inputValue) {
-            if (!inputValue) return document.querySelector("#result").innerHTML = ""
+            if (!inputValue) return document.querySelector("#result").innerHTML = resetString;
             let results = findVukky(inputValue);
             let resultString = ""
             results.forEach((result, index) => {
