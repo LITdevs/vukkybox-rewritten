@@ -1,3 +1,8 @@
+let favoriteVukkyId = Number("<%=puser?.profile?.favoriteVukky%>") || null;
+
+// This right here is black magic, i wrote it and remember nothing about it
+// Something something allows reordering the elements on your profile
+// by drag and drop. something something halfway on y changes side its on???
 document.addEventListener('DOMContentLoaded', () => {
 	var dragSrcEl = null;
 	let moved
@@ -79,7 +84,7 @@ function updateProfile(dontExit = false) {
 			"action": "update",
 			"order": order,
 			"bio": `${document.getElementById("bio-input")?.value ? document.getElementById("bio-input")?.value : ""}`,
-			"favoriteVukky": document.getElementById("favoriteVukkySelector")?.value
+			"favoriteVukky": favoriteVukkyId || undefined
 		})
 	}).then(res => res.json()).then(res => {
 		if (res.error) {

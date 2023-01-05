@@ -7,7 +7,8 @@
             "name": "Vukky",
             "description": "Oh look, it's a standard Vukky! How boring and simple.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 2,
@@ -15,7 +16,8 @@
             "name": "Happy Vukky",
             "description": "This Vukky seems to be happy. About what, though?",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 3,
@@ -23,7 +25,8 @@
             "name": "Sad Vukky",
             "description": "This Vukky is sad. Did you upset it?",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 4,
@@ -31,7 +34,8 @@
             "name": "Confused Vukky",
             "description": "'Where the fuck am I??' -Vukky",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 5,
@@ -39,7 +43,8 @@
             "name": "Dead Vukky",
             "description": "This might be tastier if I slice its limbs and eyes off.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 6,
@@ -47,7 +52,8 @@
             "name": "Joy Vukky",
             "description": "This Vukky seems to have spent time on Facebook again...",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 7,
@@ -55,7 +61,8 @@
             "name": "Mad Vukky",
             "description": "Wow! It sure is pissed off! Maybe because it's a card!",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 8,
@@ -63,7 +70,8 @@
             "name": "Scared Vukky",
             "description": "Please stop shitting your pants because you saw a fly, Vukky...",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 9,
@@ -71,7 +79,8 @@
             "name": "Shruggy",
             "description": "This Vukky didn't care enough to write its own description.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 10,
@@ -79,7 +88,8 @@
             "name": "Thinking Vukky",
             "description": "It's trying to think of a plan to destroy the unive- uh, I mean, get food from the store.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 11,
@@ -87,7 +97,8 @@
             "name": "Vukky Woah",
             "description": "This Vukky appears to be mildly impressed by your lack of computer knowledge.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 12,
@@ -95,7 +106,8 @@
             "name": "Vukky Head",
             "description": "This Vukky... This Vukky. It's a special one. Why, exactly? Well... it knows what you did.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 13,
@@ -103,7 +115,8 @@
             "name": "Yes Vukky",
             "description": "This Vukky agrees with you.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 14,
@@ -111,7 +124,8 @@
             "name": "No Vukky",
             "description": "This Vukky is ready to start a 5-hour war on reddit.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 15,
@@ -119,7 +133,8 @@
             "name": "Mixed Vukky",
             "description": "This Vukky is not sure if it wants to agree or start World War 3.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 16,
@@ -127,7 +142,8 @@
             "name": "Left Looking Vukky",
             "description": "What is it looking at? You'll never know...",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 17,
@@ -135,7 +151,8 @@
             "name": "Right Looking Vukky",
             "description": "...wonk reven ll'uoY ?ta gnikool ti si tahW",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 18,
@@ -143,7 +160,8 @@
             "name": "Crying Vukky",
             "description": "This Vukky is crying. It saw Twitter.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 19,
@@ -151,7 +169,8 @@
             "name": "Vukky with no soul",
             "description": "Someone forgot to color in this one... Damn you, <insert random name later>!!",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 20,
@@ -160,7 +179,8 @@
             "description": "susi baka",
             "rarity": "uncommon",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3",
+            "duplicates": 999
         },
         {
             "id": 21,
@@ -168,7 +188,8 @@
             "name": "Pink Vukky Head",
             "description": "Do you think this is funny?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 22,
@@ -176,7 +197,8 @@
             "name": "Cursed Vukky",
             "description": "This Vukky finally has some world domination plans.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 23,
@@ -184,7 +206,8 @@
             "name": "Fire Vukky",
             "description": "Wow! It's on fire, but literally!",
             "rarity": "unique",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 24,
@@ -192,7 +215,8 @@
             "name": "Fat Vukky",
             "description": "This Vukky ate the Sussy Burger 2 with extra sauce.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 25,
@@ -200,7 +224,8 @@
             "name": "Flat Vukky",
             "description": "Vukky on the Nintendo!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 26,
@@ -208,7 +233,8 @@
             "name": "Vukky Pain",
             "description": "This Vukky is in severe pain... Did it try out 'JavaScript'?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 27,
@@ -216,7 +242,8 @@
             "name": "Vukky This",
             "description": "This Vukky 'agrees with the message above'. I have no idea what that means.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 28,
@@ -224,7 +251,8 @@
             "name": "Vukky Sweat",
             "description": "This Vukky has anxiety! Cool!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 29,
@@ -232,7 +260,8 @@
             "name": "Sleeping Vukky",
             "description": "Quiet! It's sleeping... BOO!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 30,
@@ -240,7 +269,8 @@
             "name": "Sarcastic Vukky",
             "description": "This Vukky doesn't seem to be very serious. Is it a redditor, perhaps?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 31,
@@ -248,7 +278,8 @@
             "name": "Salad Vukky",
             "description": "A Vukky? Eating healthy food? Impossible!",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 32,
@@ -256,7 +287,8 @@
             "name": "Ragi Vukky",
             "description": "Wow! This Vukky is the most poorly drawn one yet! Oh, it didn't like that.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 33,
@@ -264,7 +296,8 @@
             "name": "Vukky Love",
             "description": "Vukky loves you.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 34,
@@ -272,7 +305,8 @@
             "name": "Flushed and Happy Vukky",
             "description": "This Vukky is flushed AND happy! Did you give it a compliment?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 35,
@@ -280,7 +314,8 @@
             "name": "Flushed Vukky",
             "description": "So embarrasing... Crap, I even spelt embarrasing wrong. Oh, I did it again... embraasing.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 36,
@@ -288,7 +323,8 @@
             "name": "Disappointed Vukky",
             "description": "This Vukky has been exposed to the internet for too long.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 37,
@@ -296,7 +332,8 @@
             "name": "Sliced Vukky",
             "description": "Ready for meat processing! Wait, what now?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 38,
@@ -304,7 +341,8 @@
             "name": "Blank Vukky",
             "description": "This Vukky is so disappointed it doesn't even know what to display.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 39,
@@ -312,7 +350,8 @@
             "name": "Sleeping Vukky in bed",
             "description": "That looks really comfortable! Mind if I push you off, Vukky?",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 40,
@@ -320,7 +359,8 @@
             "name": "Santa Vukky",
             "description": "I don't want a lot for Christmas, there is just one thing I need... Vukkies!",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 41,
@@ -328,7 +368,8 @@
             "name": "Denmark Vukky",
             "description": "This Vukky has been to Denmark.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 42,
@@ -336,7 +377,8 @@
             "name": "Faroes Vukky",
             "description": "This Vukky has been to the Faroes.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 43,
@@ -344,7 +386,8 @@
             "name": "Finland Vukky",
             "description": "This Vukky has been to Finland.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 44,
@@ -352,7 +395,8 @@
             "name": "Greenland Vukky",
             "description": "This Vukky has been to Greenland.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 45,
@@ -360,7 +404,8 @@
             "name": "Halloween Vukky",
             "description": "Very very scary!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 46,
@@ -368,7 +413,8 @@
             "name": "Iceland Vukky",
             "description": "This Vukky has been to Iceland.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 47,
@@ -376,7 +422,8 @@
             "name": "New Year Vukky",
             "description": "Yes! It's 2020 2! Uh, I mean 2022. Hold on, what do you mean \"COVID-22\"??",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 48,
@@ -384,7 +431,8 @@
             "name": "Norway Vukky",
             "description": "This Vukky has been to Norway!",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 49,
@@ -392,7 +440,8 @@
             "name": "Sweden Vukky",
             "description": "This Vukky has been to Sweden.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 50,
@@ -400,7 +449,8 @@
             "name": "Valentine Vukky",
             "description": "What a cute Vukky. Does it have chocolate for me? The description writer?",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 51,
@@ -408,7 +458,8 @@
             "name": "Worker's Day Vukky",
             "description": "This Vukky is a hard worker.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 52,
@@ -416,7 +467,8 @@
             "name": "Yahoo Vukky",
             "description": "This Vukky has a track record of ruining the internet! Watch out.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 53,
@@ -424,7 +476,8 @@
             "name": "Åland Vukky",
             "description": "This Vukky has been to Åland.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 54,
@@ -432,7 +485,8 @@
             "name": "Popcorn Vukky",
             "description": "This Vukky is enjoying a movie, or cancel culture. You decide.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 55,
@@ -440,7 +494,8 @@
             "name": "Burnt Vukky",
             "description": "Oh dear, it's totally burnt!",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 56,
@@ -448,7 +503,8 @@
             "name": "Cooked Vukky",
             "description": "Mmm, that cookied Vukky looks tasty.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 57,
@@ -456,7 +512,8 @@
             "name": "Bukky",
             "description": "This Ykkuv has been through the depths of hell.",
             "rarity": "bukky",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 58,
@@ -464,7 +521,8 @@
             "name": "Vukky Gun",
             "description": "It doesn't think you're that funny.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 59,
@@ -472,7 +530,8 @@
             "name": "Smart Vukky",
             "description": "It's been editing Wikipedia a lot. So much knowledge.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 60,
@@ -480,7 +539,8 @@
             "name": "Popcorn Vukky (Animated)",
             "description": "This Vukky is enjoying cancel cultu- uh, I mean movies, so much that it moves!",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 61,
@@ -488,7 +548,8 @@
             "name": "Blinking Vukky (Animated)",
             "description": "Is it bored?",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 62,
@@ -496,7 +557,8 @@
             "name": "Looking Vukky (Animated)",
             "description": "This Vukky is looking around in its freshly minted card.",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 63,
@@ -504,7 +566,8 @@
             "name": "Spinning Vukky (Animated)",
             "description": "Wee! Oh wait, it's going to throw up.",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 64,
@@ -512,7 +575,8 @@
             "name": "Waving Vukky (Animated)",
             "description": "It's waving at you! Say hello, and don't mention the fourth wall!",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 65,
@@ -520,7 +584,8 @@
             "name": "Vukky Plush",
             "description": "Looks quite huggable. Not for sale, though.",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 66,
@@ -528,7 +593,8 @@
             "name": "Wikipedia Vukky",
             "description": "This Vukky has been editing Wikipedia so much that it IS Wikipedia.",
             "rarity": "bukky",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 67,
@@ -536,7 +602,8 @@
             "name": "Vukky Miner",
             "description": "This Vukky's going to mine crypto and convert it to SQUID! Wait! No! <a class='text-blue-500' href='https://www.reddit.com/qkai4d'>The value dropped by 99%!</a> You're going to lose all your money! Stop!",
             "rarity": "bukky",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 68,
@@ -544,7 +611,8 @@
             "name": "Planet Vukky",
             "description": "You're living on a Vukky.",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 69,
@@ -552,7 +620,8 @@
             "name": "Vukky Meat",
             "description": "Delicious! ...what does it taste like?",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 70,
@@ -560,7 +629,8 @@
             "name": "Cooked Vukky Meat",
             "description": "I hope you're prepared for an unforgettable luncheon.",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 71,
@@ -568,7 +638,8 @@
             "name": "Burnt Vukky Meat",
             "description": "That isn't smoke. It's steam. Steam from the steamed Vukkies we're having. Mmm. Steamed Vukkies.",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 72,
@@ -576,7 +647,8 @@
             "name": "Wikilink Vukky",
             "description": "This Vukky has entered the world of MediaWiki, and can never leave.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 73,
@@ -584,7 +656,8 @@
             "name": "VukkyBot",
             "description": "It turned into a robot?? I guess it liked Discord moderation that much.",
             "rarity": "unique",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 74,
@@ -592,7 +665,8 @@
             "name": "Wiiky",
             "description": "Now with Vukky Sports!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 75,
@@ -600,7 +674,8 @@
             "name": "Wiiky U",
             "description": "Not really sure what this is supposed to be. An accessory for the Wiiky?",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 76,
@@ -608,7 +683,8 @@
             "name": "Developer Vukky",
             "description": "This Vukky is very excited to start working on this website!",
             "rarity": "unique",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 77,
@@ -616,7 +692,8 @@
             "name": "Vukky Burger",
             "description": "What are you doing? If you're going to eat that, at least add some toppings...",
             "rarity": "bukky",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 78,
@@ -624,7 +701,8 @@
             "name": "yourfriend's Pukky",
             "description": "This Pukky belongs to yourfriend! Aww, that's so nice.",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 79,
@@ -632,7 +710,8 @@
             "name": "Xotic's Pukky",
             "description": "This Pukky belongs to Xotic. It looks very exotic! Is it a furry?",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 80,
@@ -640,7 +719,8 @@
             "name": "Wazii's Pukky",
             "description": "This Pukky belongs to Wazii",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 81,
@@ -648,7 +728,8 @@
             "name": "Vukky's Pukky",
             "description": "This Pukky belongs to Vukky (wait a minute.. aren't they all Vukkies??)",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 82,
@@ -656,7 +737,8 @@
             "name": "Vansh's Pukky",
             "description": "This Pukky belongs to Vansh. That's quite the detailed Pukky!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 83,
@@ -664,7 +746,8 @@
             "name": "txger's Pukky",
             "description": "This Pukky belongs to txger",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 84,
@@ -672,7 +755,8 @@
             "name": "TheBlueBurger's Pukky",
             "description": "This Pukky belongs to TheBlueBurger, who is one of the BEST SaladBind developers! Oh. Their Pukky isn't that original.",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 85,
@@ -680,7 +764,8 @@
             "name": "Tam's Pukky",
             "description": "This Pukky belongs to Tam",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 86,
@@ -688,7 +773,8 @@
             "name": "Strixx Em's Pukky",
             "description": "This Pukky belongs to Strixx Em (hey, that's a special person!)",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 87,
@@ -696,7 +782,8 @@
             "name": "Scooberto's Pukky",
             "description": "This Pukky belongs to Scooberto. I bet it's listening to some nice music!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 88,
@@ -704,7 +791,8 @@
             "name": "Smokey's Pukky",
             "description": "This Pukky belongs to Smokey! Why is it smoking?",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 89,
@@ -712,7 +800,8 @@
             "name": "Slonkey_Tint's Pukky",
             "description": "This Pukky belongs to Slonkey_Tint. It has some pretty nice colors!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 90,
@@ -720,7 +809,8 @@
             "name": "Skelly's Pukky",
             "description": "This Pukky belongs to Skelly. That's the person who worked on this terrible site!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 91,
@@ -728,7 +818,8 @@
             "name": "rgnx's Pukky",
             "description": "This Pukky belongs to rgnx",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 92,
@@ -736,7 +827,8 @@
             "name": "prth's Pukky",
             "description": "This Pukky belongs to prth",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 93,
@@ -744,7 +836,8 @@
             "name": "Pro_Fire_Development's Pukky",
             "description": "This Pukky belongs to PFD",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 94,
@@ -752,7 +845,8 @@
             "name": "Plerion's Pukky",
             "description": "Headache inducing image. Viewer discretion advised.",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 95,
@@ -760,7 +854,8 @@
             "name": "ooby's Pukky",
             "description": "This Pukky belongs to ooby.. floppa bad!! Vukky supremacy!!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 96,
@@ -768,7 +863,8 @@
             "name": "nahsahh's Pukky",
             "description": "This Pukky belongs to nahsahh",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 97,
@@ -776,7 +872,8 @@
             "name": "nado's Pukky",
             "description": "This Pukky belongs to nado",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 98,
@@ -784,7 +881,8 @@
             "name": "Mot's Pukky",
             "description": "This Pukky belongs to Mot. y pukky wen eg?",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 99,
@@ -792,7 +890,8 @@
             "name": "isavc's Pukky",
             "description": "This Pukky belongs to isavc",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 100,
@@ -801,7 +900,8 @@
             "description": "This Pukky belongs to gepli",
             "rarity": "pukky",
             "creator": "Unknown",
-            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3",
+            "duplicates": 999
         },
         {
             "id": 101,
@@ -809,7 +909,8 @@
             "name": "Fvn's Pukky",
             "description": "This Pukky belongs to Fvn/nyom",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 102,
@@ -817,7 +918,8 @@
             "name": "duckky's Pukky",
             "description": "This Pukky belongs to duckky",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 103,
@@ -825,7 +927,8 @@
             "name": "Box's Pukky",
             "description": "This Pukky belongs to Box",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 104,
@@ -833,7 +936,8 @@
             "name": "blxxdrxsh's Pukky",
             "description": "This Pukky belongs to blxxdrxsh",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 105,
@@ -841,7 +945,8 @@
             "name": "axldevil's Pukky",
             "description": "This Pukky belongs to axldevil",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 106,
@@ -849,7 +954,8 @@
             "name": "1nfinity's Pukky",
             "description": "This Pukky belongs to 1nfinity",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 107,
@@ -857,7 +963,8 @@
             "name": "Tukky",
             "description": " This Vukky is the next level of product placement. It isn't just holding a generic Salad bowl. It is the Salad logo. How nice for it.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 108,
@@ -866,7 +973,8 @@
             "description": "Oh NO! The Tukky is SUS! That's super SUSSY!",
             "rarity": "mythical",
             "creator": "SharkOfGod",
-            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3",
+            "duplicates": 999
         },
         {
             "id": 109,
@@ -875,7 +983,8 @@
             "description": "Oh no! Our Vukky! It's broken!",
             "rarity": "mythical",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxbroken.wav"
+            "audioURL": "https://vukkybox.com/resources/unboxbroken.wav",
+            "duplicates": 999
         },
         {
             "id": 110,
@@ -884,7 +993,8 @@
             "description": "Oh no! Our Vukky! Let's throw it in the trash! It's brokener than the Broken Vukky!",
             "rarity": "mythical",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxbroken.wav"
+            "audioURL": "https://vukkybox.com/resources/unboxbroken.wav",
+            "duplicates": 999
         },
         {
             "id": 111,
@@ -892,7 +1002,8 @@
             "name": "Vukky in a Box",
             "description": "This Vukky has gotten stuck in a box! Hmm... This seems strangely familiar... Probably nothing.",
             "rarity": "bukky",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 112,
@@ -900,7 +1011,8 @@
             "name": "airil's Pukky",
             "description": "This Pukky belongs to airil",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 113,
@@ -908,7 +1020,8 @@
             "name": "Vukky Captcha",
             "description": "Are you a Vukky?",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 114,
@@ -916,7 +1029,8 @@
             "name": "Joking Vukky",
             "description": "This Vukky is just joking... It might troll you later.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 115,
@@ -924,7 +1038,8 @@
             "name": "Pokisan's Pukky",
             "description": "This Pukky belongs to Pokisan",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 116,
@@ -932,7 +1047,8 @@
             "name": "Penelope Vukky",
             "description": "This Vukky has turned into a pigeon! How suspicious. Maybe it has OMG.LOL domains?",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 117,
@@ -940,7 +1056,8 @@
             "name": "CuzImSus' Pukky",
             "description": "This Pukky belongs to CuzImSus",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 118,
@@ -948,7 +1065,8 @@
             "name": "D-Zone Vukky",
             "description": "Oh no! Vukky turned into a cube!",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 119,
@@ -956,7 +1074,8 @@
             "name": "Alespic's Pukky",
             "description": "This Pukky belongs to Alespic. How fancy!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 120,
@@ -964,7 +1083,8 @@
             "name": "ToshinoriXD's Pukky",
             "description": "This Pukky belongs to ToshinoriXD",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 121,
@@ -972,7 +1092,8 @@
             "name": "Mezo's Pukky",
             "description": "Mezo the one and only hackerpukky",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 122,
@@ -980,7 +1101,8 @@
             "name": "TurtleBoi's Pukky",
             "description": "This Pukky belongs to TurtleBoi",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 123,
@@ -988,7 +1110,8 @@
             "name": "Fading Vukky",
             "description": "Mr. Neatnik, i dont feel so good",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 124,
@@ -996,7 +1119,8 @@
             "name": "GarbageGamer's Pukky",
             "description": "This Pukky has a fancy background!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 125,
@@ -1005,7 +1129,8 @@
             "description": "Vukky in space... Pretty sussy.",
             "rarity": "pukky",
             "creator": "Unknown",
-            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3",
+            "duplicates": 999
         },
         {
             "id": 126,
@@ -1013,7 +1138,8 @@
             "name": "Professional business man's Pukky",
             "description": "This Pukky belongs to Professional business man",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 127,
@@ -1021,7 +1147,8 @@
             "name": "Wattle Gattle's Pukky",
             "description": "Wow! That's a thick outline.",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 128,
@@ -1029,7 +1156,8 @@
             "name": "Shy Vukky",
             "description": "This Vukky doesn't want to be seen right now, nor does it want you to pick it up and put it in your display case!! ...Oh, you're doing that anyway, aren't you?",
             "rarity": "uncommon",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 129,
@@ -1037,7 +1165,8 @@
             "name": "Far Away Vukky",
             "description": "Oh Vukky, when will I ever see you again...",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 130,
@@ -1045,7 +1174,8 @@
             "name": "Selmersen",
             "description": "A tribute to a friend.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 131,
@@ -1053,7 +1183,8 @@
             "name": "Reunited Vukkies",
             "description": "Reunited at last.",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 132,
@@ -1061,7 +1192,8 @@
             "name": "Tassen",
             "description": "WOW!",
             "rarity": "godly",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 133,
@@ -1070,7 +1202,8 @@
             "description": "You've been vukgnomed!",
             "rarity": "bukky",
             "creator": "Skelly",
-            "audioURL": "https://vukkybox.com/resources/unboxgnome.wav"
+            "audioURL": "https://vukkybox.com/resources/unboxgnome.wav",
+            "duplicates": 999
         },
         {
             "id": 134,
@@ -1078,7 +1211,8 @@
             "name": "Vukkychu",
             "description": "Vukkychu, use Woo! It was very effective.",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 135,
@@ -1086,7 +1220,8 @@
             "name": "Dream Vukky",
             "description": "Okay, my name is Dream, and today we're doing some epic manhunts with...",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 136,
@@ -1094,7 +1229,8 @@
             "name": "PewDieVukk",
             "description": "How's it going bros, my name is PewDieVukk...",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 137,
@@ -1102,7 +1238,8 @@
             "name": "Minion Vukky",
             "description": "BANANA!",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 138,
@@ -1110,7 +1247,8 @@
             "name": "Minevukk",
             "description": "Why mine diamonds when you can mine Vukkies?",
             "rarity": "common",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 139,
@@ -1118,7 +1256,8 @@
             "name": "Gift Vukky",
             "description": "Wow, it's a gift! How cute.",
             "rarity": "uncommon",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 140,
@@ -1126,7 +1265,8 @@
             "name": "SpongeBob Vukky",
             "description": "Who lives in a pineapple under the sea?",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 141,
@@ -1134,7 +1274,8 @@
             "name": "Angel Vukky",
             "description": "Vukky's in heaven.",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 142,
@@ -1142,7 +1283,8 @@
             "name": "Burning Vukky",
             "description": "AAAAAAAAAAAAA!!!!!",
             "rarity": "uncommon",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 143,
@@ -1150,7 +1292,8 @@
             "name": "Siggy",
             "description": "Dedicated to a brother of a friend.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 144,
@@ -1158,7 +1301,8 @@
             "name": "Yin and Vukky",
             "description": "It's not Yang without Vukky!",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 145,
@@ -1166,7 +1310,8 @@
             "name": "Donald Vukk",
             "description": "QUACK! I'm a duck??",
             "rarity": "godly",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 146,
@@ -1174,7 +1319,8 @@
             "name": "AlexHewo!'s Pukky",
             "description": "This Pukky belongs to AlexHewo!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 147,
@@ -1182,7 +1328,8 @@
             "name": "Sunset",
             "description": "What a glorious sunset.",
             "rarity": "mythical",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 148,
@@ -1190,7 +1337,8 @@
             "name": "Femboy Nova's Pukky",
             "description": "This Pukky belongs to Femboy Nova",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 149,
@@ -1198,7 +1346,8 @@
             "name": "divfar's Pukky",
             "description": "This Pukky belongs to divfar! Awesome as always.",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 150,
@@ -1206,7 +1355,8 @@
             "name": "m9 bayonet freehand",
             "description": "oh god oh fuck its got a m9 bayonet freehand",
             "rarity": "mythical",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 151,
@@ -1214,7 +1364,8 @@
             "name": "Lilmelon's Pukky",
             "description": "This vibing melon pepe belongs to Lilmelon",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 152,
@@ -1222,7 +1373,8 @@
             "name": "Vukkyputer",
             "description": "The Vukky isn't in the computer anymore, he IS the computer.",
             "rarity": "common",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 153,
@@ -1230,7 +1382,8 @@
             "name": "Fake_Beluga's Pukky",
             "description": "This Pukky belongs to Fake_Beluga",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 154,
@@ -1238,7 +1391,8 @@
             "name": "Stinkywinky's Pukky",
             "description": "This Pukky belongs to Stinkywinky",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 155,
@@ -1246,7 +1400,8 @@
             "name": "China Vukky",
             "description": "No social credit for you.",
             "rarity": "uncommon",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 156,
@@ -1254,7 +1409,8 @@
             "name": "Bulgaria Vukky",
             "description": "This Vukky has been to Bulgaria",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 157,
@@ -1262,7 +1418,8 @@
             "name": "Austria Vukky",
             "description": "This Vukky has been to Austria",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 158,
@@ -1270,7 +1427,8 @@
             "name": "French Vukky",
             "description": "This Vukky has been to France",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 159,
@@ -1278,7 +1436,8 @@
             "name": "Hungary Vukky",
             "description": "This Vukky has been to Hungary!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 160,
@@ -1286,7 +1445,8 @@
             "name": "German Vukky",
             "description": "This Vukky has been to Germany!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 161,
@@ -1294,7 +1454,8 @@
             "name": "Poland Vukky",
             "description": "This Vukky has been to Poland!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 162,
@@ -1302,7 +1463,8 @@
             "name": "Thailand Vukky",
             "description": "This Vukky has been to Thailand!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 163,
@@ -1310,7 +1472,8 @@
             "name": "Ukraine Vukky",
             "description": "This Vukky has been to Ukraine!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 164,
@@ -1318,7 +1481,8 @@
             "name": "Russia Vukky",
             "description": "Привет!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 165,
@@ -1326,7 +1490,8 @@
             "name": "Czech Vukky",
             "description": "This Vukky has been to the Czech Republic!",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 166,
@@ -1334,7 +1499,8 @@
             "name": "Vukky God",
             "description": "This Vukky has unlocked his full potential and ascended. All hail the Vukky God!",
             "rarity": "mythical",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 167,
@@ -1342,7 +1508,8 @@
             "name": "Red Vukky",
             "description": "Vukky, but just red.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 168,
@@ -1350,7 +1517,8 @@
             "name": "Yellow Vukky",
             "description": "Vukky, but just yellow.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 169,
@@ -1358,7 +1526,8 @@
             "name": "Green Vukky",
             "description": "Vukky, but just green.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 170,
@@ -1366,7 +1535,8 @@
             "name": "Orange Vukky",
             "description": "Vukky, but just orange.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 171,
@@ -1374,7 +1544,8 @@
             "name": "Magenta Vukky",
             "description": "Vukky, but just magenta.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 172,
@@ -1382,7 +1553,8 @@
             "name": "Vukky Vukky",
             "description": "Vukky, but just Vukky.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 173,
@@ -1390,7 +1562,8 @@
             "name": "Elf Vukky",
             "description": "This Vukky is very interested in contracts... Is it related to Alfur?",
             "rarity": "bukky",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 174,
@@ -1398,7 +1571,8 @@
             "name": "Squid Game Vukky",
             "description": "This Vukky is either going to be a millionaire, or die in the first round.",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 175,
@@ -1406,7 +1580,8 @@
             "name": "Ghost Vukky",
             "description": "Boo, you can't even see this Vukky! Oh wait, you can?",
             "rarity": "mythical",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 176,
@@ -1414,7 +1589,8 @@
             "name": "Norvukk",
             "description": "This Vukky has been to Norway way too much.",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 177,
@@ -1422,7 +1598,8 @@
             "name": "Seysa's Pukky",
             "description": "This Pukky was made by Seysa, for Seysa!",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 178,
@@ -1430,7 +1607,8 @@
             "name": "Spain Vukky",
             "description": "This Vukky has been to Spain. Or was it pain?",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 179,
@@ -1438,7 +1616,8 @@
             "name": "Monkey Vukky",
             "description": "o o o a a a",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 180,
@@ -1446,7 +1625,8 @@
             "name": "Christmas Tree Vukky",
             "description": "This Vukky isn't Santa, this Vukky isn't a gift, but it's a tree!",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 181,
@@ -1454,7 +1634,8 @@
             "name": "Mario Vukky",
             "description": "It's-a me, Vukky!",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 182,
@@ -1462,7 +1643,8 @@
             "name": "Vykku",
             "description": "Owo!",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 183,
@@ -1470,7 +1652,8 @@
             "name": "Bruh Vukky",
             "description": "That's the most idiotic thing this Vukky has ever heard.",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 184,
@@ -1478,7 +1661,8 @@
             "name": "1 Arm Vukky",
             "description": "Oh no, Vukky, where'd your arm go?",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 185,
@@ -1486,7 +1670,8 @@
             "name": "1 Leg Vukky",
             "description": "Oh no, Vukky, where'd your leg go?",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 186,
@@ -1494,7 +1679,8 @@
             "name": "Vukky's Back",
             "description": "It's looking at something. What is it? I don't know.",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 187,
@@ -1502,7 +1688,8 @@
             "name": "Butter Vukky",
             "description": "Ah yes, my favorite topping to put on a Vukky before I eat it.",
             "rarity": "uncommon",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 188,
@@ -1510,7 +1697,8 @@
             "name": "Hacker Vukky",
             "description": "01010011 01101111 00100000 01110011 01100011 01100001 01110010 01111001 00101110",
             "rarity": "rare",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 189,
@@ -1518,7 +1706,8 @@
             "name": "Stonks Vukky",
             "description": "Buy high, sell low.",
             "rarity": "uncommon",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 190,
@@ -1526,7 +1715,8 @@
             "name": "No Vukkies Vukky",
             "description": "I don't want Vukkies in my house. Oh wait, what do you mean I'm a Vukky?",
             "rarity": "rare",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 191,
@@ -1534,7 +1724,8 @@
             "name": "Chibi Vukky",
             "description": "Kawaii!!! (((o(*ﾟ▽ﾟ*)o)))",
             "rarity": "uncommon",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 192,
@@ -1543,7 +1734,8 @@
             "description": "Ṯ̵̡̡̳͉̩͕̣̳̣̭͍͈̲̖̪͘̚h̴̟̫̭̲̳̞̻͉͂̅̃̂̈́̇͂̏̊̒̓̂͂̉̽̅́̿ę̷͎͕̱̣̦̪͇̋̄̐̇̿̿̿̕̕͝͠r̵̨͕͖̟̫͕̒͒̃̽̍̿̇̐͆̽̉̉̕͜ě̷̦͉̱̳͇̗̅́͗̃͗͝ ̶̭̻̦̘̱͕̳̤̲͈̻̘̥̥̤̦̮̿͊̔̀̒͌̋̅i̸̧̢͓̹͉̣͔͉̳̠̱͉̘͓͎̝̩̍͆̂s̸̛͍̦̙͒͋̑͐̂̈́͌͛͗͂ ̵̡̨̨̫͚̼͎̰̳̤̻̝̦̇̎́͑̓͋̇̇͐̈́̇̈́̒̂̾̕̚ͅn̶̢̜͓̜̳̤͚͔̦͔͗̑ộ̶̣̗̹̘̳̝̍́̓̑́̑̒̄̆ ̸̨̡̧̖͈̰̘͔̗͉͇̫̹̫̅̅̌̈́̽̕ȅ̶̛̦͙̘̞̆͑̿̿̀̄̊̌͛̌͂̕̚s̶̛͎̭̙͎͚̓̂̾̀͗̀͆̄̌͌c̴͈̥̹͈͇̲͇̠͚̰͊͐̈́̓̃̽̅̋̚á̴̛̹̮͍͔͓̹̟̲̻̓̈́̈́̈́̿̀̓̈́́̋̏͘͝͠p̶͖̆̒e̵͎̹̿̃͌̈́.̵̻͉̻̯̞̥̮̹̫̦̥͔̫̪̤͚͑̇",
             "rarity": "rare",
             "creator": "Mitchellonii",
-            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3",
+            "duplicates": 999
         },
         {
             "id": 193,
@@ -1552,7 +1744,8 @@
             "description": "If you see a Vukky like this, please immediately contact the Central Vukky Generating Organization.",
             "rarity": "rare",
             "creator": "Mitchellonii",
-            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3",
+            "duplicates": 999
         },
         {
             "id": 194,
@@ -1561,7 +1754,8 @@
             "description": "If you see a Vukky like this, please immediately contact the Central Vukky Printing Organization.",
             "rarity": "rare",
             "creator": "Mitchellonii",
-            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxglitch.mp3",
+            "duplicates": 999
         },
         {
             "id": 195,
@@ -1569,7 +1763,8 @@
             "name": "Piss Vukky",
             "description": "It's.... made of piss",
             "rarity": "uncommon",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 196,
@@ -1577,7 +1772,8 @@
             "name": "Me & Your Mom's Pukky",
             "description": "This Pukky belongs to Me & Your Mom. I swear that's their username, I'm not trying to make a joke here",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 197,
@@ -1585,7 +1781,8 @@
             "name": "200 Vukky",
             "description": "It happens to be the 200th Vukky. Hmm, what does that mean?",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 198,
@@ -1593,7 +1790,8 @@
             "name": "Beebo Vukky",
             "description": "YOU GOT ICE CREAM! Always wash your hands.",
             "rarity": "uncommon",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 199,
@@ -1601,7 +1799,8 @@
             "name": "Gangster Vukky",
             "description": "Do not mess with this Vukky. He will come for your family.",
             "rarity": "uncommon",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 200,
@@ -1609,7 +1808,8 @@
             "name": "Frokky",
             "description": "This Vukky belongs to the pond.",
             "rarity": "uncommon",
-            "creator": "Ash"
+            "creator": "Ash",
+            "duplicates": 999
         },
         {
             "id": 201,
@@ -1617,7 +1817,8 @@
             "name": "Pandarose's Pukky",
             "description": "This Pukky belongs to Pandarose",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 202,
@@ -1625,7 +1826,8 @@
             "name": "5 Legged Vukky",
             "description": "This Vukky seems to have 5 legs... Where did his arms go?",
             "rarity": "common",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 203,
@@ -1633,7 +1835,8 @@
             "name": "Duolingo Vukky",
             "description": "This Vukky has become the Duolingo bird and has taken hostage of your entire family. You better do your Spanish lessons.",
             "rarity": "uncommon",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 204,
@@ -1641,7 +1844,8 @@
             "name": "Vukbox",
             "description": "Not to be confused with Vukkybux, the currency of this game, Vukkybox, the name of this game, or Vukky in a box, another Vukky.",
             "rarity": "mythical",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 205,
@@ -1649,7 +1853,8 @@
             "name": "Ender_'s Pukky",
             "description": "This Pukky belongs to Ender_",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 206,
@@ -1657,7 +1862,8 @@
             "name": "Vukky Potter",
             "description": "Vukgardium leviosa.",
             "rarity": "godly",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 207,
@@ -1665,7 +1871,8 @@
             "name": "Egg Vukky",
             "description": "When the Vukker is eg!",
             "rarity": "uncommon",
-            "creator": "laker"
+            "creator": "laker",
+            "duplicates": 999
         },
         {
             "id": 208,
@@ -1673,7 +1880,8 @@
             "name": "Indian Vukky",
             "description": "This Vukky despises so-called \"Tech Support\".",
             "rarity": "uncommon",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 209,
@@ -1681,7 +1889,8 @@
             "name": "Italian Vukky",
             "description": "Mmm... pizza.",
             "rarity": "common",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 210,
@@ -1689,7 +1898,8 @@
             "name": "VukVuk",
             "description": "Two half Vukkies stitched together, one of many failed experiments. The pain must be unbearable... if they can even feel it...",
             "rarity": "rare",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 211,
@@ -1697,7 +1907,8 @@
             "name": "Sans Vukky",
             "description": "You feel like you're gonna have a wooing time.",
             "rarity": "mythical",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 212,
@@ -1705,7 +1916,8 @@
             "name": "KyKy",
             "description": "Two Vukky heads stitched together, one of many failed experiments. The pain must be unbearable... if they can even feel it... How do they control their limbs?",
             "rarity": "rare",
-            "creator": "SharkOfGod"
+            "creator": "SharkOfGod",
+            "duplicates": 999
         },
         {
             "id": 213,
@@ -1713,7 +1925,8 @@
             "name": "Kaiser Vukky",
             "description": "Long live emperor Vukky!",
             "rarity": "rare",
-            "creator": "Smokey"
+            "creator": "Smokey",
+            "duplicates": 999
         },
         {
             "id": 214,
@@ -1721,7 +1934,8 @@
             "name": "Vthulhu",
             "description": "Looks like Cthulhu has taken over this one...",
             "rarity": "mythical",
-            "creator": "Xotic"
+            "creator": "Xotic",
+            "duplicates": 999
         },
         {
             "id": 215,
@@ -1729,7 +1943,8 @@
             "name": "Tide Pod Vukky",
             "description": "Delicious!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 216,
@@ -1738,7 +1953,8 @@
             "description": "Oh no! It has a bone.",
             "rarity": "rare",
             "creator": "Synne",
-            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxsussy.mp3",
+            "duplicates": 999
         },
         {
             "id": 217,
@@ -1746,7 +1962,8 @@
             "name": "Booky",
             "description": "I'm as open as a closed book!",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 218,
@@ -1754,7 +1971,8 @@
             "name": "Strong Vukky",
             "description": "chad vukky vs virgin among us crewmate",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 219,
@@ -1762,7 +1980,8 @@
             "name": "Vukky Mouse",
             "description": "Vukky sued.",
             "rarity": "rare",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 220,
@@ -1770,7 +1989,8 @@
             "name": "Cursed Shruggy",
             "description": "Absolutely horrifying.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 221,
@@ -1778,7 +1998,8 @@
             "name": "White Outline Vukky",
             "description": "For use on black backgrounds.",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 222,
@@ -1786,7 +2007,8 @@
             "name": "No Outline Vukky",
             "description": "It's RAW!",
             "rarity": "common",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 223,
@@ -1794,7 +2016,8 @@
             "name": "Absolutely No Outlines Vukky",
             "description": "It's RAWER! I don't like it.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 224,
@@ -1802,7 +2025,8 @@
             "name": "Vukky Skin",
             "description": "You can wear this! Actually, don't.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 225,
@@ -1810,7 +2034,8 @@
             "name": "Vukky Faceplate",
             "description": "The face of a Vukky.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 226,
@@ -1818,7 +2043,8 @@
             "name": "Vukky Eyes",
             "description": "The eyes of a Vukky.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 227,
@@ -1826,7 +2052,8 @@
             "name": "Empty Vukky Faceplate",
             "description": "A Vukky faceplate that needs eyes.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 228,
@@ -1834,7 +2061,8 @@
             "name": "Drained Vukky",
             "description": "All the Vukky Energy has been drained out, only the hull remains.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 229,
@@ -1842,7 +2070,8 @@
             "name": "Vukky Toolkit",
             "description": "All the things the Central Vukky Printing Organization uses to print Vukkies. This image is confidential, and must not be shared.",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 230,
@@ -1850,7 +2079,8 @@
             "name": "Battery Vukky",
             "description": "Used by the Central Vukky Printing Organization to power their printing machines.",
             "rarity": "rare",
-            "creator": "Mitchellonii"
+            "creator": "Mitchellonii",
+            "duplicates": 999
         },
         {
             "id": 231,
@@ -1858,7 +2088,8 @@
             "name": "Vukky Printer",
             "description": "This is what the CVPO uses to print Vukkies, sometimes it malfunctions and creates weirdness like #133, whatever that means.",
             "rarity": "unique",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 232,
@@ -1866,7 +2097,8 @@
             "name": "Vukky Merging Machine",
             "description": "Two things go in, one Vukky comes out.",
             "rarity": "unique",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 233,
@@ -1874,7 +2106,8 @@
             "name": "Dank Vukker",
             "description": "pls sell dankvukker all",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 234,
@@ -1882,7 +2115,8 @@
             "name": "Pixel Vukky",
             "description": "Why so many pixels? Might as well be 16x16.",
             "rarity": "common",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 235,
@@ -1890,7 +2124,8 @@
             "name": "Owokky",
             "description": "trade me senpai!! ＞﹏＜",
             "rarity": "uncommon",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 236,
@@ -1899,7 +2134,8 @@
             "description": "enjoiing his caik and balon. krovn to. feturyng voike aktin also by nanci",
             "rarity": "uncommon",
             "creator": "Nancy",
-            "audioURL": "https://vukkybox.com/resources/unboxnancy.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxnancy.mp3",
+            "duplicates": 999
         },
         {
             "id": 237,
@@ -1907,7 +2143,8 @@
             "name": "Vukky...?",
             "description": "There's something wrong with this one. I'm not quite sure what...",
             "rarity": "common",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 238,
@@ -1916,7 +2153,8 @@
             "description": "STOP. NUDGING. ME.",
             "rarity": "rare",
             "creator": "Synne",
-            "audioURL": "https://vukkybox.com/resources/unboxnudge.mp3"
+            "audioURL": "https://vukkybox.com/resources/unboxnudge.mp3",
+            "duplicates": 999
         },
         {
             "id": 239,
@@ -1924,7 +2162,8 @@
             "name": "Ducky",
             "description": "Got any grapes?",
             "rarity": "bukky",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 240,
@@ -1932,7 +2171,8 @@
             "name": "Vesax Vukky",
             "description": "This Vukky seems to have weird lines on it.",
             "rarity": "uncommon",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 241,
@@ -1940,7 +2180,8 @@
             "name": "Cupcake Vukky",
             "description": "CUPCAKES!!",
             "rarity": "mythical",
-            "creator": "Sunset"
+            "creator": "Sunset",
+            "duplicates": 999
         },
         {
             "id": 242,
@@ -1948,7 +2189,8 @@
             "name": "\"V\"ukky",
             "description": "VVVVVV.",
             "rarity": "uncommon",
-            "creator": "SharkOfGod"
+            "creator": "SharkOfGod",
+            "duplicates": 999
         },
         {
             "id": 243,
@@ -1956,7 +2198,8 @@
             "name": "SUPER IDOL IN YOUR MOUTH's Pukky",
             "description": "This Pukky belongs to SUPER IDOL IN YOUR MOUTH",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 244,
@@ -1964,7 +2207,8 @@
             "name": "bear with me's Pukky",
             "description": "This Pukky belongs to bear with me",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 245,
@@ -1972,7 +2216,8 @@
             "name": "Jello's Pukky",
             "description": "This Pukky belongs to Jello",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 246,
@@ -1980,7 +2225,8 @@
             "name": "itzflakes' Pukky",
             "description": "This Pukky belongs to itzflakes",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 247,
@@ -1988,7 +2234,8 @@
             "name": "Flowzee's Pukky",
             "description": "This Pukky belongs to Flowzee",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 248,
@@ -1996,7 +2243,8 @@
             "name": "Patrickn's Pukky",
             "description": "This Pukky belongs to Patrickn",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 249,
@@ -2004,7 +2252,8 @@
             "name": "Duke's Pukky",
             "description": "This Pukky belongs to Duke",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 250,
@@ -2012,7 +2261,8 @@
             "name": "beanOS' Pukky",
             "description": "This Pukky belongs to beanOS",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 251,
@@ -2020,7 +2270,8 @@
             "name": "Shady's Pukky",
             "description": "This Pukky belongs to Shady",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 252,
@@ -2028,7 +2279,8 @@
             "name": "Kanna's Pukky",
             "description": "This Pukky belongs to Kanna",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 253,
@@ -2036,7 +2288,8 @@
             "name": "VocalFan's Pukky",
             "description": "This Pukky belongs to VocalFan",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 254,
@@ -2044,7 +2297,8 @@
             "name": "idek tbh's Pukky",
             "description": "This Pukky belongs to idek tbh",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 255,
@@ -2052,7 +2306,8 @@
             "name": "k a t's Pukky",
             "description": "This Pukky belongs to k a t",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 256,
@@ -2060,7 +2315,8 @@
             "name": "M.R Mustach8's Pukky",
             "description": "This Pukky belongs to M.R Mustach8",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 257,
@@ -2068,7 +2324,8 @@
             "name": "AstroWRLD Surviver's Pukky",
             "description": "This Pukky belongs to AstroWRLD Surviver",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 258,
@@ -2076,7 +2333,8 @@
             "name": "Bugs' Pukky",
             "description": "This Pukky belongs to Bugs",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 259,
@@ -2084,7 +2342,8 @@
             "name": "suriyum's Pukky",
             "description": "This Pukky belongs to suriyum",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 260,
@@ -2092,7 +2351,8 @@
             "name": "LIGHTY's Pukky",
             "description": "This Pukky belongs to LIGHTY",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 261,
@@ -2100,7 +2360,8 @@
             "name": "Lemon WRLD's Pukky",
             "description": "This Pukky belongs to Lemon WRLD",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 262,
@@ -2108,7 +2369,8 @@
             "name": "Jaeger129's Pukky",
             "description": "This Pukky belongs to Jaeger129",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 263,
@@ -2116,7 +2378,8 @@
             "name": "Noodles' Pukky",
             "description": "This Pukky belongs to Noodles",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 264,
@@ -2124,7 +2387,8 @@
             "name": "Kel's Pukky",
             "description": "This Pukky belongs to Kel",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 265,
@@ -2132,7 +2396,8 @@
             "name": "Reyy's Pukky",
             "description": "This Pukky belongs to Reyy",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 266,
@@ -2140,7 +2405,8 @@
             "name": "Jamal's Pukky",
             "description": "This Pukky belongs to Jamal",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 267,
@@ -2148,7 +2414,8 @@
             "name": "jojo anime watcher's Pukky",
             "description": "This Pukky belongs to jojo anime watcher",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 268,
@@ -2156,7 +2423,8 @@
             "name": "f4tb01_101's Pukky",
             "description": "This Pukky belongs to f4tb01_101",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 269,
@@ -2164,7 +2432,8 @@
             "name": "ad$m's Pukky",
             "description": "This Pukky belongs to ad$m",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 270,
@@ -2172,7 +2441,8 @@
             "name": "Grimmie's Pukky",
             "description": "This Pukky belongs to Grimmie",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 271,
@@ -2180,7 +2450,8 @@
             "name": "KenTukky Fried Chicken",
             "description": "Delicious!",
             "rarity": "rare",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 272,
@@ -2188,7 +2459,8 @@
             "name": "Bad Santa Vukky",
             "description": "Put the present down or I put your name on by bad list!",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 273,
@@ -2196,7 +2468,8 @@
             "name": "Midofey's Pukky",
             "description": "This Pukky belongs to Midofey",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 274,
@@ -2204,7 +2477,8 @@
             "name": "Tuxxy",
             "description": "The mascot of Vukkux!",
             "rarity": "mythical",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 275,
@@ -2213,7 +2487,8 @@
             "description": "*kill.wav*",
             "rarity": "mythical",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxsupertuxxy.wav"
+            "audioURL": "https://vukkybox.com/resources/unboxsupertuxxy.wav",
+            "duplicates": 999
         },
         {
             "id": 276,
@@ -2221,7 +2496,8 @@
             "name": "\\\\\\'s Pukky",
             "description": "This Pukky belongs to \\\\\\",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 277,
@@ -2229,7 +2505,8 @@
             "name": "Sydney's Pukky",
             "description": "This Pukky belongs to sydney",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 278,
@@ -2237,7 +2514,8 @@
             "name": "Sydney's Other Pukky",
             "description": "This Pukky also belongs to Sydney",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 279,
@@ -2245,7 +2523,8 @@
             "name": "Paddling Vukky",
             "description": "This Vukky is going to be paddling very far.",
             "rarity": "rare",
-            "creator": "Silje"
+            "creator": "Silje",
+            "duplicates": 999
         },
         {
             "id": 280,
@@ -2253,7 +2532,8 @@
             "name": "Swimming Vukky",
             "description": "*splish* *splosh*",
             "rarity": "rare",
-            "creator": "Silje"
+            "creator": "Silje",
+            "duplicates": 999
         },
         {
             "id": 281,
@@ -2261,7 +2541,8 @@
             "name": "Raindeer Vukky",
             "description": "Kinda suspicious.",
             "rarity": "rare",
-            "creator": "IngvildO"
+            "creator": "IngvildO",
+            "duplicates": 999
         },
         {
             "id": 282,
@@ -2269,7 +2550,8 @@
             "name": "Applukky",
             "description": "A Vukky stuck in an apple costume! Seems someone took a bite out of it...",
             "rarity": "rare",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 283,
@@ -2277,7 +2559,8 @@
             "name": "Smuggy",
             "description": "A smug Feline Vukky! ...I wonder what he's so smug about...",
             "rarity": "rare",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 284,
@@ -2285,7 +2568,8 @@
             "name": "Unplukky",
             "description": "Oh no! Seems like a sneaky Vukky decided to unplug the internet!",
             "rarity": "rare",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 285,
@@ -2293,7 +2577,8 @@
             "name": "Onekky",
             "description": "The first ever produced of the Numky family, it often likes to play board games!",
             "rarity": "common",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 286,
@@ -2301,7 +2586,8 @@
             "name": "Twokky",
             "description": "The sister of the Numkies. She was made due to the shocking lack of pink in the Vukky collection!",
             "rarity": "uncommon",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 287,
@@ -2309,7 +2595,8 @@
             "name": "Threkky",
             "description": "Often known as the protective Numky, many of the smaller Vukkies like to sleep in his ridges!",
             "rarity": "rare",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 288,
@@ -2317,7 +2604,8 @@
             "name": "Fourkky",
             "description": "Despite his sharp edges, he is the softest Numky and loves arts and crafts! Even throwing glitter around when something exciting happens!",
             "rarity": "mythical",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 289,
@@ -2325,7 +2613,8 @@
             "name": "Fivekky",
             "description": "The most friendly of the Numkies! Giving shiny silver stars to any good Vukkies he meets!",
             "rarity": "godly",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 290,
@@ -2333,7 +2622,8 @@
             "name": "Sixkky",
             "description": "The brightest and shiniest of the Numkies, he gives rewards to the best Vukkies! ...He sure does leave a sparkly mess, though!",
             "rarity": "bukky",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 291,
@@ -2341,7 +2631,8 @@
             "name": "Vukky's Mod",
             "description": "A Vukky made by a random person named \"Garry\". This Vukky's concept design was mailed to the Central Vukky Printing Organization's Office without any other details on who he is.",
             "rarity": "rare",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 292,
@@ -2349,7 +2640,8 @@
             "name": "Sleep Deprived Vukky",
             "description": "This Vukky feels like it has lived a thousand lifetimes.",
             "rarity": "common",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 293,
@@ -2357,7 +2649,8 @@
             "name": "Troll Vukky",
             "description": "This Vukky likes to mess with people! You should probably ignore him.",
             "rarity": "common",
-            "creator": "Ash"
+            "creator": "Ash",
+            "duplicates": 999
         },
         {
             "id": 294,
@@ -2365,7 +2658,8 @@
             "name": "Vukky Cube",
             "description": "Diamonds!",
             "rarity": "uncommon",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 295,
@@ -2373,7 +2667,8 @@
             "name": "Email Vukky Cube",
             "description": "There is a minor difference with this one, and that's its contents - it contains a lot of emails!",
             "rarity": "uncommon",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 296,
@@ -2381,7 +2676,8 @@
             "name": "Vukktton",
             "description": "A Vukky stuck as a button! He's worried he won't be pressed...",
             "rarity": "uncommon",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 297,
@@ -2389,7 +2685,8 @@
             "name": "Dedtton",
             "description": "A Vukky stuck as a button! He wasn't pressed for a bit too long...",
             "rarity": "uncommon",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 298,
@@ -2397,7 +2694,8 @@
             "name": "Spookyy's Pukky",
             "description": "This Pukky belongs to Spookyy",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 299,
@@ -2405,7 +2703,8 @@
             "name": "Blame Mitch Vukky",
             "description": "This Vukky blames Mitch for it. It was Mitch, not me, I swear!",
             "rarity": "uncommon",
-            "creator": "HaveFUNRICH"
+            "creator": "HaveFUNRICH",
+            "duplicates": 999
         },
         {
             "id": 300,
@@ -2413,7 +2712,8 @@
             "name": "r6e1c's Pukky",
             "description": "This Pukky belongs to r6e1c",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 301,
@@ -2421,7 +2721,8 @@
             "name": "Midofey's Pukky",
             "description": "This Pukky belongs to Midofey",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 302,
@@ -2429,7 +2730,8 @@
             "name": "Olaf II's Pukky",
             "description": "This Pukky belongs to Olaf II",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 303,
@@ -2437,7 +2739,8 @@
             "name": "Hecker's Pukky",
             "description": "This Pukky belongs to Hecker",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 304,
@@ -2445,7 +2748,8 @@
             "name": "Vukky Drawing",
             "description": "NO DON'T BREAK THE 4TH WALL",
             "rarity": "mythical",
-            "creator": "Alespic"
+            "creator": "Alespic",
+            "duplicates": 999
         },
         {
             "id": 305,
@@ -2453,7 +2757,8 @@
             "name": "Crokobos' Pukky",
             "description": "This Pukky belongs to Crokobos",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 306,
@@ -2461,7 +2766,8 @@
             "name": "Piste's Pukky",
             "description": "This Pukky belongs to Piste",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 307,
@@ -2469,7 +2775,8 @@
             "name": "Hamoude's Pukky",
             "description": "This Pukky belongs to Hamoude",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 308,
@@ -2478,7 +2785,8 @@
             "description": "<i>banger music plays</i>",
             "rarity": "bukky",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxwebtv.ogg"
+            "audioURL": "https://vukkybox.com/resources/unboxwebtv.ogg",
+            "duplicates": 999
         },
         {
             "id": 309,
@@ -2486,7 +2794,8 @@
             "name": "3D Printed Vukky",
             "description": "A close friend to the Vukky Plush. It's made out of cheap plastic.",
             "rarity": "rare",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 310,
@@ -2494,7 +2803,8 @@
             "name": "Transparent Outline Vukky",
             "description": "Something horrible happened to this one.",
             "rarity": "common",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 311,
@@ -2502,7 +2812,8 @@
             "name": "[REDACTED] TV Vukky",
             "description": "This Vukky covers up things that would make microsoft sue the shit out of us, whatever that means.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 312,
@@ -2511,7 +2822,8 @@
             "description": "Delicious.",
             "rarity": "mythical",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/unboxcrusty.ogg"
+            "audioURL": "https://vukkybox.com/resources/unboxcrusty.ogg",
+            "duplicates": 999
         },
         {
             "id": 313,
@@ -2519,7 +2831,8 @@
             "name": "Screaming Vukky",
             "description": "AAAAAAAAA WHY",
             "rarity": "uncommon",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 314,
@@ -2528,7 +2841,8 @@
             "description": "There is no escape from what is about to come.",
             "rarity": "bukky",
             "creator": "Vukky",
-            "audioURL": "https://vukkybox.com/resources/silence.ogg"
+            "audioURL": "https://vukkybox.com/resources/silence.ogg",
+            "duplicates": 999
         },
         {
             "id": 315,
@@ -2536,7 +2850,8 @@
             "name": "Moderator Vukky",
             "description": "This silly Vukky doesn't know how to use a shield properly, it seems.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 316,
@@ -2544,7 +2859,8 @@
             "name": "Test Tube Vukky",
             "description": "I wonder what's inside!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 317,
@@ -2552,7 +2868,8 @@
             "name": "Runevukk",
             "description": "You could also call it the Medieval Vukky, but this wouldn't be a Vukky game without a RuneScape reference.",
             "rarity": "bukky",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 318,
@@ -2560,7 +2877,8 @@
             "name": "Vukky Shaman",
             "description": "No cheese for you.",
             "rarity": "bukky",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 319,
@@ -2568,7 +2886,8 @@
             "name": "Vukky of Fate",
             "description": "Change your plate, change your fate. Not so easy when meteors are trying to kill you.",
             "rarity": "godly",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 320,
@@ -2576,7 +2895,8 @@
             "name": "Obby Vukky",
             "description": "Even easy obbies are hard obbies if you haven't obbied before.",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 321,
@@ -2584,7 +2904,8 @@
             "name": "Dicey",
             "description": "You can roll it, and it will show you some Vukky eyes.",
             "rarity": "uncommon",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 322,
@@ -2592,7 +2913,8 @@
             "name": "AI Upscaled Vukky",
             "description": "WHAT DID IT DO TO ITS FACE!?!",
             "rarity": "common",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 323,
@@ -2600,7 +2922,8 @@
             "name": "Stranded Vukky",
             "description": "Vukky is lost, but Vukky is asleep, so Vukky doesn't know!",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 324,
@@ -2608,7 +2931,8 @@
             "name": "Post-it Vukky",
             "description": "It's like a makeshift sticker!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 325,
@@ -2616,7 +2940,8 @@
             "name": "Doodle Vukky",
             "description": "Vukky <i>loves</i> doodling Vukkies everywhere. This is a pretty good example!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 326,
@@ -2624,7 +2949,8 @@
             "name": "Linky",
             "description": "Linky is here to save the day, the princess and everyone else yet again.",
             "rarity": "bukky",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 327,
@@ -2632,7 +2958,8 @@
             "name": "Vukky Washington",
             "description": "Seems like an important person in some parts of the world.. not here in Vukkyland though!",
             "rarity": "godly",
-            "creator": "Seysa"
+            "creator": "Seysa",
+            "duplicates": 999
         },
         {
             "id": 328,
@@ -2640,7 +2967,8 @@
             "name": "Catboy Vukky",
             "description": "Nya!",
             "rarity": "uncommon",
-            "creator": "Femboy Nova"
+            "creator": "Femboy Nova",
+            "duplicates": 999
         },
         {
             "id": 329,
@@ -2648,7 +2976,8 @@
             "name": "Strixxy",
             "description": "This Vukky looks a bit Wacky. <img src=\"https://raw.githubusercontent.com/Vukkyy/vukmoji/webp/emojis/static/vukkyamongus.webp\" width=32/>",
             "rarity": "mythical",
-            "creator": "Strixx Em"
+            "creator": "Strixx Em",
+            "duplicates": 999
         },
         {
             "id": 330,
@@ -2656,7 +2985,8 @@
             "name": "Australian Socket Vukky",
             "description": "It's a Vukky, but its not Vukky. It's a wall socket from Australia.",
             "rarity": "uncommon",
-            "creator": "skybird2333"
+            "creator": "skybird2333",
+            "duplicates": 999
         },
         {
             "id": 331,
@@ -2664,7 +2994,8 @@
             "name": "Contract Stamp Vukky",
             "description": "This little Vukky is used to stamp contracts!",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 332,
@@ -2672,7 +3003,8 @@
             "name": "Shiny Contract Stamp Vukky",
             "description": "This little Vukky is used to stamp <span style=\"background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);-webkit-background-clip: text;color: transparent;\">extra shiny</span> contracts!",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 333,
@@ -2680,7 +3012,8 @@
             "name": "Sharky",
             "description": "Sharky is a big Vukky. Big Vukkies eat small Vukkies. Sharky is happy. Vukky is... dead. ",
             "rarity": "godly",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 334,
@@ -2688,7 +3021,8 @@
             "name": "Minevukker",
             "description": "Do you even know how to play this game?",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 335,
@@ -2696,7 +3030,8 @@
             "name": "TNT Vukky",
             "description": "You better watch out, because this Vukky explodes if you come near it!",
             "rarity": "rare",
-            "creator": "IngvildO"
+            "creator": "IngvildO",
+            "duplicates": 999
         },
         {
             "id": 336,
@@ -2704,7 +3039,8 @@
             "name": "Jesus Vukky",
             "description": "This Vukky has lots of bread and fish!",
             "rarity": "mythical",
-            "creator": "Pandarose_"
+            "creator": "Pandarose_",
+            "duplicates": 999
         },
         {
             "id": 337,
@@ -2712,7 +3048,8 @@
             "name": "Vukky Now!",
             "description": "Seems like it's a button of some kind.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 338,
@@ -2720,7 +3057,8 @@
             "name": "Custom Vukky",
             "description": "A Vukky originally created as a joke by the Central Vukky Printing Organization. You had to <a href='https://litdevs.org/pukky'>pay $9.99</a> to get one. This would eventually evolve into Pukkies.",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 339,
@@ -2728,7 +3066,8 @@
             "name": "Vukky Balloon",
             "description": "Often used during special Vukky birthdays and parties.",
             "rarity": "uncommon",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 340,
@@ -2736,7 +3075,8 @@
             "name": "Party Vukky",
             "description": "Woo, there's a party!",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 341,
@@ -2744,7 +3084,8 @@
             "name": "Vukky Void (Animated)",
             "description": "Leaving is not an option.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 342,
@@ -2752,7 +3093,8 @@
             "name": "Vukky Marble (Animated)",
             "description": "For use in marble races! It's also nice to look at, I suppose. I wonder how many Vukkies are trapped in there...",
             "rarity": "godly",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 343,
@@ -2760,7 +3102,8 @@
             "name": "SkyCube's Pukky",
             "description": "This Pukky belongs to SkyCube",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 344,
@@ -2768,7 +3111,8 @@
             "name": "Cubed Vukky",
             "description": "There seem to be 6 Vukkies stuck inside this cube",
             "rarity": "uncommon",
-            "creator": "Skelly"
+            "creator": "Skelly",
+            "duplicates": 999
         },
         {
             "id": 345,
@@ -2776,7 +3120,8 @@
             "name": "Cupvukkies",
             "description": "Oh no, someone put a bunch of Vukkies inside baked goods! ...I wonder if they are tasty?",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 346,
@@ -2784,7 +3129,8 @@
             "name": "Vukky Hat",
             "description": "Woo -Vykky",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 347,
@@ -2792,7 +3138,8 @@
             "name": "Vukkybox Watch",
             "description": "Buy now! Only ∞ Vukkybux per Vukkybox Watch. Limitations may apply.",
             "rarity": "rare",
-            "creator": "AnnoyingRains"
+            "creator": "AnnoyingRains",
+            "duplicates": 999
         },
         {
             "id": 348,
@@ -2800,7 +3147,8 @@
             "name": "Vukkybox Watch... in a watch?",
             "description": "The Vukkybox Watch is inside the Vukkybox Watch!",
             "rarity": "mythical",
-            "creator": "AnnoyingRains"
+            "creator": "AnnoyingRains",
+            "duplicates": 999
         },
         {
             "id": 349,
@@ -2808,7 +3156,8 @@
             "name": "ASCII Art Vukky",
             "description": "\"looks kinda weird, but i'll take it\" -Vukky",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 350,
@@ -2816,7 +3165,8 @@
             "name": "Oversimplified Vukky",
             "description": "A square, and some lines. It's a masterpiece.",
             "rarity": "mythical",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 351,
@@ -2824,7 +3174,8 @@
             "name": "Emoji Vukky",
             "description": "😂🛑 💀✅ ⚫🔵⚪⚫⚪⚫⚪🔵⚫",
             "rarity": "mythical",
-            "creator": "Vukky and Sydney"
+            "creator": "Vukky and Sydney",
+            "duplicates": 999
         },
         {
             "id": 352,
@@ -2832,7 +3183,8 @@
             "name": "Moonvukky",
             "description": "A Vukky based off of the Starkidz series, seems he lost his memory!",
             "rarity": "mythical",
-            "creator": "VocalFan"
+            "creator": "VocalFan",
+            "duplicates": 999
         },
         {
             "id": 353,
@@ -2840,7 +3192,8 @@
             "name": "Clumsy Vukky",
             "description": "This Vukky is having a really bad day. Not the best start of the day to slip on a banana peel... ouch!",
             "rarity": "rare",
-            "creator": "IngvildO"
+            "creator": "IngvildO",
+            "duplicates": 999
         },
         {
             "id": 354,
@@ -2848,7 +3201,8 @@
             "name": "RimVukky",
             "description": "RimVukky is trying to survive the night and not get eaten by nightlings.",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 355,
@@ -2856,7 +3210,8 @@
             "name": "Zeldy",
             "description": "Keeps getting into trouble with really bad guys. Zeldy has a sword, though, so why not use it more?",
             "rarity": "bukky",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 356,
@@ -2864,7 +3219,8 @@
             "name": "Pizza Vukkyroni",
             "description": "Mmmmmelted cheese!",
             "rarity": "rare",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 357,
@@ -2872,7 +3228,8 @@
             "name": "School Vukky",
             "description": "This Vukky doesn't know what to do. Please help him with his tasks!",
             "rarity": "rare",
-            "creator": "IngvildO"
+            "creator": "IngvildO",
+            "duplicates": 999
         },
         {
             "id": 358,
@@ -2880,7 +3237,8 @@
             "name": "Earbleed Vukky",
             "description": "When you hear unboxsussy.mp3 at 100% volume...",
             "rarity": "uncommon",
-            "creator": "Qther"
+            "creator": "Qther",
+            "duplicates": 999
         },
         {
             "id": 359,
@@ -2888,7 +3246,8 @@
             "name": "Excited Vukky",
             "description": "Excited Vukky, but in Qther's style!",
             "rarity": "rare",
-            "creator": "Qther"
+            "creator": "Qther",
+            "duplicates": 999
         },
         {
             "id": 360,
@@ -2896,7 +3255,8 @@
             "name": "Contrast Vukky",
             "description": "Here's your NFT! It's a bit crispy, but surely you'll like it.",
             "rarity": "uncommon",
-            "creator": "Toby"
+            "creator": "Toby",
+            "duplicates": 999
         },
         {
             "id": 361,
@@ -2904,7 +3264,8 @@
             "name": "Business Vukky",
             "description": "Do this, do that, do all the things!",
             "rarity": "uncommon",
-            "creator": "Toby"
+            "creator": "Toby",
+            "duplicates": 999
         },
         {
             "id": 362,
@@ -2912,7 +3273,8 @@
             "name": "Happy Meal Vukky",
             "description": "This Vukky is about to get very fat! But it doesn't care.",
             "rarity": "rare",
-            "creator": "IngvildO"
+            "creator": "IngvildO",
+            "duplicates": 999
         },
         {
             "id": 363,
@@ -2920,7 +3282,8 @@
             "name": "Vukkit",
             "description": "It looks... familiar...",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 364,
@@ -2928,7 +3291,8 @@
             "name": "CentaurusLaCrux's Pukky",
             "description": "This Pukky belongs to CentaurusLaCrux",
             "rarity": "pukky",
-            "creator": "Unknown"
+            "creator": "Unknown",
+            "duplicates": 999
         },
         {
             "id": 365,
@@ -2936,7 +3300,8 @@
             "name": "Vukky \"leaving\"",
             "description": "Uh, okay then... See you later, Vukky!",
             "rarity": "rare",
-            "creator": "mitch"
+            "creator": "mitch",
+            "duplicates": 999
         },
         {
             "id": 366,
@@ -2944,7 +3309,8 @@
             "name": "Viko",
             "description": "Cat-Vukky that tries their best to bring a lightbulb to a very high tower...",
             "rarity": "mythical",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 367,
@@ -2952,7 +3318,8 @@
             "name": "Tiny Vukky",
             "description": "Look how cute it is! So much effort has been put into this one.",
             "rarity": "uncommon",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 368,
@@ -2960,7 +3327,8 @@
             "name": "Vukk Astley",
             "description": "Rolls whenever you least expect it...",
             "rarity": "godly",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         },
         {
             "id": 369,
@@ -2968,7 +3336,8 @@
             "name": "Box Vukky",
             "description": "This vukky wanted some style, and put a box on their head!",
             "rarity": "uncommon",
-            "creator": "Username42"
+            "creator": "Username42",
+            "duplicates": 999
         },
         {
             "id": 370,
@@ -2976,7 +3345,8 @@
             "name": "RayVukky",
             "description": "Why aren't his limbs attached? How can he move them still??",
             "rarity": "mythical",
-            "creator": "SocialDalek"
+            "creator": "SocialDalek",
+            "duplicates": 999
         },
         {
             "id": 371,
@@ -2984,7 +3354,8 @@
             "name": "Quote Vukky",
             "description": "Haha, it's the funny cave game!",
             "rarity": "rare",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 372,
@@ -2992,7 +3363,8 @@
             "name": "Leakky",
             "description": "Oh no, our Vukky, it's leaking!",
             "rarity": "rare",
-            "creator": "Ash"
+            "creator": "Ash",
+            "duplicates": 999
         },
         {
             "id": 373,
@@ -3000,7 +3372,8 @@
             "name": "Leankky",
             "description": "Wow, what a funny looking Vukky! Hope it doesn't mess with our age rating so we remove it!",
             "rarity": "mythical",
-            "creator": "Ash"
+            "creator": "Ash",
+            "duplicates": 999
         },
         {
             "id": 374,
@@ -3008,7 +3381,8 @@
             "name": "VukkyCam (Animated)",
             "description": "Wait, this game can access your camera?",
             "rarity": "godly",
-            "creator": "Mot"
+            "creator": "Mot",
+            "duplicates": 999
         },
         {
             "id": 375,
@@ -3016,7 +3390,8 @@
             "name": "Vukkuma",
             "description": "They didn't provide a description, so I'm just gonna pretend I get the reference...",
             "rarity": "rare",
-            "creator": "Phrotonz"
+            "creator": "Phrotonz",
+            "duplicates": 999
         },
         {
             "id": 376,
@@ -3024,7 +3399,8 @@
             "name": "Pride Vukky",
             "description": "Skelly said he doesn't know what the description for this one should be.",
             "rarity": "godly",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 377,
@@ -3032,7 +3408,8 @@
             "name": "Couch Vuktato",
             "description": "This Vukky is having a lazy day at home. I wonder what they're watching?",
             "rarity": "rare",
-            "creator": "SocialDalek"
+            "creator": "SocialDalek",
+            "duplicates": 999
         },
         {
             "id": 378,
@@ -3040,7 +3417,8 @@
             "name": "Missing Vukky",
             "description": "Huh... Where'd Vukky go? Oh well.",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 379,
@@ -3048,7 +3426,8 @@
             "name": "Super Vukky",
             "description": "Faster than an SSD drive, more powerful than the Fugaku Supercomputer. It's Super Vukky!",
             "rarity": "bukky",
-            "creator": "SocialDalek"
+            "creator": "SocialDalek",
+            "duplicates": 999
         },
         {
             "id": 380,
@@ -3056,7 +3435,8 @@
             "name": "Dunce Vukky",
             "description": "Who needs kidneys anyway?",
             "rarity": "rare",
-            "creator": "Phrotonz"
+            "creator": "Phrotonz",
+            "duplicates": 999
         },
         {
             "id": 381,
@@ -3064,7 +3444,8 @@
             "name": "Verified Vukky",
             "description": "Hmm... Verified Vukky you say? Aren't all Vukkies Vukkies?",
             "rarity": "rare",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 382,
@@ -3072,7 +3453,8 @@
             "name": "Really Tall Vukky",
             "description": "This lucky Vukky got all of the family's height genes. Unfortunately there were quite a lot of them.",
             "rarity": "mythical",
-            "creator": "SocialDalek"
+            "creator": "SocialDalek",
+            "duplicates": 999
         },
         {
             "id": 383,
@@ -3080,7 +3462,8 @@
             "name": "Vukky Listening To Epic Gamer Music",
             "description": "This Vukky is listening to music on a private music streaming service. Very cool!",
             "rarity": "uncommon",
-            "creator": "Vukky"
+            "creator": "Vukky",
+            "duplicates": 999
         },
         {
             "id": 384,
@@ -3088,7 +3471,8 @@
             "name": "Saint Vukky",
             "description": "Every 13th of December Saint Vukky comes around, uninvited, to sing a very old christmas song and give out saffron buns to everyone who dares listen.",
             "rarity": "uncommon",
-            "creator": "Synne"
+            "creator": "Synne",
+            "duplicates": 999
         }
     ]
 }

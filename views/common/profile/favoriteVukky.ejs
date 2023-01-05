@@ -12,21 +12,129 @@
             <td class="w-72 text-white">
                 <span class="font-semibold">Favorite Vukky</span>
                 <br>
-                <p><%=fVukky.name%></p>
-                <p style="color: <%=rarity[fVukky.rarity].color%>"><%=lang.vukkies[fVukky.rarity]%></p>
+                <p id="favoriteVukkyName"><%=fVukky.name%></p>
+                <p id="favoriteVukkyRarity" style="color: <%=rarity[fVukky.rarity].color%>"><%=lang.vukkies[fVukky.rarity]%></p>
                 <br>
-                <p><%=fVukky.description%></p>
+                <p id="favoriteVukkyDescription"><%=fVukky.description.replace(/<[^>]*>/gm, "")%></p>
             </td>
             <td class="p-2 text-center favorite-vukky">
                 <% if (editMode) { %>
-                    <select id="favoriteVukkySelector">
-                        <%
-                            vukkies.vukkies.forEach(vukky => {
-                                if (!Object.keys(puser.playerData.collection).includes(vukky.id.toString())) return;
-                                %><option value="<%=vukky.id%>"><%=vukky.name%></option><%
+                    <label for="favoriteSearchInput" class="text-white">Search for your favorite Vukky: <br>
+                        <input type="text" class="input-box" name="favoriteSearchInput" oninput="searchInput(this.value)" placeholder="Start typing to search..." disabled>
+                    </label><br>
+                    <span id="favoriteSearchResult" class="text-white">Loading list...</span>
+                    <script>
+                        let userVukkyList;
+                        let vukkiesJSON;
+                        let vukkyNames;
+                        const favoriteSearchInput = document.querySelector("input[name='favoriteSearchInput']");
+                        const favoriteSearchResult = document.querySelector("#favoriteSearchResult");
+                        const favoriteSearchResetString = "Start typing to find your favorite Vukky!";
+                        (async () => {
+                            userVukkyList = await fetch("/api/v1/user");
+                            userVukkyList = await userVukkyList.json();
+                            userVukkyList = Object.keys(userVukkyList.user.playerData.collection);
+                            vukkiesJSON = await fetch("/data/vukkies.json");
+                            vukkiesJSON = await vukkiesJSON.json();
+                            // Include only vukkies the user has
+                            vukkiesJSON.vukkies = vukkiesJSON.vukkies.filter(vukky => userVukkyList.includes(vukky.id.toString()));
+                            vukkyNames = vukkiesJSON.vukkies.map(vukky => vukky.name);
+                            favoriteSearchInput.disabled = false;
+                            favoriteSearchResult.innerHTML = favoriteSearchResetString;
+                        })();
+
+                        /**
+                         * Find similarity of two strings
+                         * Stolen from https://github.com/aceakash/string-similarity
+                         * Licensed MIT
+                         * @param first - First string
+                         * @param second - Second string
+                         * @returns {number} - 0 = no match, 1 = full match
+                         */
+                        function compareTwoStrings(first, second) {
+                            first = first.replace(/\s+/g, '')
+                            second = second.replace(/\s+/g, '')
+
+                            if (first === second) return 1; // identical or empty
+                            if (first.length < 2 || second.length < 2) return 0; // if either is a 0-letter or 1-letter string
+
+                            let firstBigrams = new Map();
+                            for (let i = 0; i < first.length - 1; i++) {
+                                const bigram = first.substring(i, i + 2);
+                                const count = firstBigrams.has(bigram)
+                                    ? firstBigrams.get(bigram) + 1
+                                    : 1;
+
+                                firstBigrams.set(bigram, count);
+                            }
+
+                            let intersectionSize = 0;
+                            for (let i = 0; i < second.length - 1; i++) {
+                                const bigram = second.substring(i, i + 2);
+                                const count = firstBigrams.has(bigram)
+                                    ? firstBigrams.get(bigram)
+                                    : 0;
+
+                                if (count > 0) {
+                                    firstBigrams.set(bigram, count - 1);
+                                    intersectionSize++;
+                                }
+                            }
+
+                            return (2.0 * intersectionSize) / (first.length + second.length - 2);
+                        }
+
+                        function findVukky(searchName) {
+                            let resultArray = [];
+                            vukkyNames.forEach(vukkyName => {
+                                let similarityScore = compareTwoStrings(vukkyName.toLowerCase(), searchName.toLowerCase())
+                                resultArray.push({ name: vukkyName, score: similarityScore })
                             })
-                        %>
-                    </select>
+                            resultArray.sort((a, b) => b.score - a.score);
+                            return resultArray.slice(0, 10)
+                        }
+
+                        const rarityLang = {
+                            "common": "<%=lang.vukkies.common%>",
+                            "uncommon": "<%=lang.vukkies.uncommon%>",
+                            "rare": "<%=lang.vukkies.common%>",
+                            "mythical": "<%=lang.vukkies.mythical%>",
+                            "godly": "<%=lang.vukkies.godly%>",
+                            "bukky": "<%=lang.vukkies.bukky%>",
+                            "unique": "<%=lang.vukkies.unique%>",
+                            "pukky": "<%=lang.vukkies.pukky%>",
+                        }
+
+                        const rarityColor = {
+                            "common": "<%=rarity.common.color%>",
+                            "uncommon": "<%=rarity.uncommon.color%>",
+                            "rare": "<%=rarity.rare.color%>",
+                            "mythical": "<%=rarity.mythical.color%>",
+                            "godly": "<%=rarity.godly.color%>",
+                            "bukky": "<%=rarity.bukky.color%>",
+                            "unique": "<%=rarity.unique.color%>",
+                            "pukky": "<%=rarity.pukky.color%>",
+                        }
+
+                        function chooseVukky(vukkyName) {
+                            let vukky = vukkiesJSON.vukkies.find(vukky => vukky.name === vukkyName);
+                            favoriteVukkyId = vukky.id;
+                            document.querySelector("#favoriteVukkyName").innerHTML = vukky.name;
+                            document.querySelector("#favoriteVukkyRarity").innerHTML = rarityLang[vukky.rarity];
+                            document.querySelector("#favoriteVukkyRarity").style.color = rarityColor[vukky.rarity];
+                            document.querySelector("#favoriteVukkyDescription").innerHTML = vukky.description.replace(/<[^>]*>/gm, "");
+                        }
+
+                        function searchInput(inputValue) {
+                            if (!inputValue) return favoriteSearchResult.innerHTML = favoriteSearchResetString;
+                            let results = findVukky(inputValue);
+                            let resultString = ""
+                            results.forEach((result, index) => {
+                                if (result.score > 0.2) resultString += `${index+1}. <img class="inline-block w-8" src="${vukkiesJSON.vukkies.find(vukky => vukky.name === result.name).imageURL}"> ${result.name} <span class="text-blue-400 cursor-pointer" onclick="chooseVukky('${result.name}')">Pick</span><br>`
+                            })
+                            favoriteSearchResult.innerHTML = resultString || `No good results were found :(<br>The closest match is ${results[0].name} at ${(results[0].score * 100).toFixed(2)}% certainty`
+                        }
+                    </script>
                 <% } else { %>
                     <div>
                         <img class="bg-gray-400 p-2 rounded-lg border-4 w-56" style="border-color: <%=rarity[fVukky.rarity].color%>" src="<%=fVukky.imageURL%>" alt="<%=fVukky.name%>">

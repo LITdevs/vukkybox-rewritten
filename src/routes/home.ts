@@ -58,10 +58,8 @@ router.get('/collection', (req : Request, res : Response) => {
 });
 
 router.get("/view/:id", (req : Request, res : Response) => {
-	let rarities = Object.keys(req.app.locals.vukkies.rarity);
-	let rarity = rarities.find((rarity) => Object.keys(req.app.locals.vukkies.rarity[rarity]).includes(req.params.id));
-	if (!rarity) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Vukky not found"});
-	let vukkyObj = req.app.locals.vukkies.find(vukky => vukky.id === req.params.id);
+	let vukkyObj = res.app.locals.vukkies.vukkies.find(vukky => vukky.id === parseInt(req.params.id));
+	if (!vukkyObj) return res.status(404).render('error', {title: "Vukkyboxn't", error: "Vukky not found"});
 	res.locals.vukky = new Vukky(vukkyObj);
 	res.render('view', {title: "Vukkybox"});
 })

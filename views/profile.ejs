@@ -95,6 +95,29 @@
         </script>
         <script src="/js/profile.js"></script>
         <% } %>
+        <% if (user?.flags?.some(flag => flag.flag === 0)) { %>
+            <script>
+                async function addFlag(flagId, reason = undefined) {
+                    try {
+                        let res = await fetch("/admin/flagEditor", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                userId: "<%= puser._id %>",
+                                flagId: flagId,
+                                reason: reason || ""
+                            })
+                        })
+                        console.log(res)
+                        window.location.reload();
+                    } catch (e) {
+                        alert(`Error adding flag:\n${e}\n\nfix me pls`)
+                    }
+                }
+            </script>
+        <% } %>
         <%- include("common/footer.ejs", { user }); %>
     </body>
 
