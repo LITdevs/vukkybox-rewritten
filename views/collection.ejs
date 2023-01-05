@@ -36,8 +36,9 @@
                 if (!puser.playerData.collection) puser.playerData.collection = {};
                 Object.keys(puser.playerData.collection).forEach(function(key) {
                     let duplicates = puser.playerData.collection[key];
-                    let vukky = vukkies.vukkies.find(el => el.id === Number(key))
-                    if (!vukky) return;
+                    let sourceVukky = vukkies.vukkies.find(el => el.id === Number(key))
+                    let vukky = Object.assign({}, sourceVukky)
+                    if (!vukky?.rarity) return;
                     vukky.duplicates = duplicates
                     // Add to array for sorting
                     finalVukkies.push(vukky);

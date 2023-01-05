@@ -2,7 +2,7 @@
  let fVukky = vukkies.vukkies.find(vukky => vukky.id === puser.profile?.favoriteVukky)
  if (!fVukky) fVukky = vukkies.vukkies.find(vukky => vukky.name.toLowerCase().includes("missing"))
  %>
-<div <% if (editMode) { %>draggable="true"<% } %> id="2" class="favorite-vukky-container w-full">
+<div <% if (editMode) { %>draggable="true"<% } %> id="3" class="favorite-vukky-container w-full">
     <table class="mx-auto favorite-vukky-container-table">
         <% if (editMode) { %>
             <i class="fa-solid fa-grip text-gray-400"></i>

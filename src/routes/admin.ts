@@ -51,11 +51,7 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.post('/giveall', (req: Request, res: Response) => {
-    let allRarities = Object.keys(req.app.locals.vukkies.rarity);
-    let allVukkyIds = [];
-    allRarities.forEach(rarity => {
-        allVukkyIds = allVukkyIds.concat(Object.keys(req.app.locals.vukkies.rarity[rarity]));
-    })
+   let allVukkyIds = res.app.locals.vukkies.vukkies.map(vukky => vukky.id);
     let allVukkies = {};
     allVukkyIds.forEach(vukkyId => {
         allVukkies[vukkyId] = 999;
