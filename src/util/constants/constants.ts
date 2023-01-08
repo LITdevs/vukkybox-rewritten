@@ -3,7 +3,7 @@ import SMTPTransport from "nodemailer/lib/smtp-transport";
 import {CookieOptions} from "csurf";
 dotenv.config();
 
-const LOGIN_ROUTE = "/auth/oauth";
+const LOGIN_ROUTE = "/login"; // Visual login prompt
 const MFA_ROUTE = "/mfa/validate";
 const MFA_POST_ROUTE = "/mfa/verify";
 

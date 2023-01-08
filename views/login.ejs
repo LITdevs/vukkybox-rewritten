@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%
+        let dancing = vukkies.vukkies[Math.floor(Math.random() * vukkies.vukkies.length)].imageURL
+        let dancing2 = vukkies.vukkies[Math.floor(Math.random() * vukkies.vukkies.length)].imageURL
+        %>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <!-- preload the dancing images -->
+        <link rel="preload" href="<%=dancing%>" as="image">
+        <link rel="preload" href="<%=dancing2%>" as="image">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card text-center">
+                <h1 class="text-white text-2xl font-bold">Wait!</h1>
+                <p class="text-white">Thank you for your interest... but you need to log in to do that!</p>
+                <p class="text-white">We use LITauth to authenticate, if you do not have an account, just sign up when you're prompted to log in!</p>
+                <a class="classic-button font-bold text-xl" title="Log in using LITauth - Fun fact: this is the only old style button on the site!" href="/auth/oauth">
+                    <img src="https://auth.litdevs.org/resources/litauth.png" class="mr-2 w-8"> Sign in with LITauth
+                </a>
+                <p class="text-white">By signing in, you agree to the Terms of Service</p>
+                <br>
+                <p class="text-white">If you have any questions, please contact us via <a class="text-blue-500" href="mailto:contact@litdevs.org">email</a></p>
+                <br>
+                <p class="text-white">Here are some randomly picked Vukkies to celebrate!</p>
+                <div>
+                    <img class="inline-block vukky-dance w-32" src="<%=dancing%>" alt="A dancing vukky" />
+                    <img class="inline-block vukky-dance-r w-32" src="<%=dancing2%>" alt="A second dancing vukky, in the opposite direction" />
+                </div>
+            </div>
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

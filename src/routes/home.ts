@@ -13,6 +13,10 @@ router.get('/', (req : Request, res : Response) => {
 	res.render('index', {title: "Vukkybox"});
 });
 
+router.get('/login', (req : Request, res : Response) => {
+	res.render('login', {title: "Vukkybox"});
+});
+
 router.get('/store', (req : Request, res : Response) => {
 	res.render('store', {title: "Vukkybox"});
 });

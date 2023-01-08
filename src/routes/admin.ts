@@ -1,7 +1,7 @@
 import express, {Request, Response, Router} from 'express';
 import checkAuth from "../util/auth/checkAuth";
 import errorNotifier from "../util/errorNotifier";
-import {setVukkyList, vukkyList} from "../index";
+import serverEvents, {setVukkyList, vukkyList} from "../index";
 import multer from "multer";
 import path from "path";
 import db from "../databaseManager"
@@ -43,6 +43,7 @@ router.use((req, res, next) => {
         if (!warning) errorNotifier(`User ${req.user._id} (${req.user.username}) tried to access the admin panel.`, JSON.stringify({user: req.user, url: req.originalUrl, method: req.method, query: req?.query, headers: req?.headers}), "Vukkybox Admin Access Alert");
         return res.status(403).render('error', {title: "Vukkyboxn't", error: `403 Forbidden<br> You are not an administrator. This incident will be reported.${warning ? "<br><span class='fuckingstop'>Please stop or you will be terminated</span>" : ""}`});
     }
+    serverEvents.emit("adminAccess", {user: req.user, url: req.originalUrl, method: req.method, query: req?.query, headers: req?.headers, body: req?.body})
     next();
 })
 

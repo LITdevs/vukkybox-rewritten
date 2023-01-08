@@ -169,3 +169,34 @@ body {
 body {
         @apply bg-gradient-to-tr from-[#00A8F3] to-teal-400;
 }
+
+.classic-button {
+    @apply whitespace-normal inline-flex items-center px-4 py-2 rounded-lg shadow-md text-black bg-white;
+    @apply text-blue-500 hover:text-white hover:bg-blue-500;
+}
+
+.vukky-dance {
+    animation: vukky-dance 0.75s linear infinite alternate;
+}
+
+.vukky-dance-r {
+    animation: vukky-dance 0.75s linear infinite alternate-reverse;
+}
+
+@keyframes vukky-dance {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(40deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-40deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
