@@ -5,10 +5,13 @@ import errorNotifier from "../util/errorNotifier";
 import serverEvents from "../index";
 import fs from "fs";
 import transporter from "../util/mailer";
+import createEvent from "../util/events/createEvent";
+import EventType from "../util/events/EventType";
 dotenv.config();
 
 function init() {
 	serverEvents.on("notification", (data) => {
+		createEvent(data.user, EventType.Notification, { notification: data })
 		try {
 			let userEmail = data.user.email;
 			let emailBody = fs.readFileSync(`${__dirname}/../../../views/email/notification.html`).toString();

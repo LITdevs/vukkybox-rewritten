@@ -6,6 +6,8 @@ import Vukky from "../classes/Vukky";
 import errorNotifier from "../util/errorNotifier";
 import LANG_LIST from "../../lang/codes";
 import fs from "fs";
+import {isValidObjectId} from "mongoose";
+import EventType from "../util/events/EventType";
 
 const router : Router = express.Router();
 
@@ -16,6 +18,23 @@ router.get('/', (req : Request, res : Response) => {
 router.get('/login', (req : Request, res : Response) => {
 	res.render('login', {title: "Vukkybox"});
 });
+
+router.get('/delete', checkAuth, (req: Request, res: Response) => {
+	res.render('delete', {title: "NO STOP WHAT ARE YOU DOING"});
+})
+
+router.delete('/delete', checkAuth, (req: Request, res: Response) => {
+	let Users = db.getUsers();
+	Users.deleteOne({_id: req.user._id}, (err) => {
+		if(err) {
+			errorNotifier(err);
+			res.status(500).send("Internal server error");
+		}
+		req.session.destroy(() => {
+			res.sendStatus(200);
+		})
+	})
+})
 
 router.get('/store', (req : Request, res : Response) => {
 	res.render('store', {title: "Vukkybox"});
@@ -131,6 +150,28 @@ router.get("/flag/:flagId", (req : Request, res : Response) => {
 			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
 		}
 		res.render("flag", { title: "Vukkybox", flag: flag, users: users });
+	})
+})
+
+router.get("/event/:eventId", (req: Request, res: Response) => {
+	if (!isValidObjectId(req.params.eventId)) return res.status(400).render("error", { title: "Vukkyboxn't :(", error: "Invalid event ID" });
+	let Events = db.getEvents();
+	Events.findOne({_id: req.params.eventId}, (err, event) => {
+		if (err) {
+			errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+			return res.status(500).render("error", { title: "Vukkyboxn't :(" });
+		}
+		if (!event) return res.status(404).render("error", { title: "Vukkyboxn't :(", error: "Event not found" });
+		if (event.type !== EventType.UnboxVukky && (!req.isAuthenticated() || !res.locals.user || !res.locals.user.flags.some(f => f.id === 0))) return res.status(403).render("error", { title: "Vukkyboxn't :(", error: "You are not permitted to view this event." });
+		let Users = db.getUsers();
+		Users.findOne({_id: event.userId}, (err, user) => {
+			if (err) {
+				errorNotifier(err, JSON.stringify({user: req.user, query: req.query, url: req.url}));
+				return res.status(500).render("error", { title: "Vukkyboxn't :(" });
+			}
+			if (!user) return res.status(404).render("error", { title: "Vukkyboxn't :(", error: "Event not valid" });
+			res.render("event", { title: "Vukkybox", eventObject: event, puser: user });
+		})
 	})
 })
 

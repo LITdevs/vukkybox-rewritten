@@ -4,6 +4,8 @@ import openBox from "../util/vukkybox/openBox";
 import event from "../index";
 import uniqueGetEvent from "../classes/events/uniqueGetEvent";
 import crypto from "crypto";
+import createEvent from "../util/events/createEvent";
+import EventType from "../util/events/EventType";
 
 const router: Router = express.Router();
 
@@ -49,7 +51,13 @@ router.post('/open/:id', checkAuth, (req : Request, res : Response) => {
 		res.locals.user.playerData.balance = res.locals.user.playerData.balance.toFixed(2);
 		res.locals.user.save();
 		if (vukky.rarity === "unique") event.emit("uniqueGetEvent", new uniqueGetEvent(vukky, res.locals.user));
-		res.json({vukky, newBalance: res.locals.user.playerData.balance, duplicate: dupe});
+		createEvent(res.locals.user, EventType.UnboxVukky, {
+			vukky,
+			box,
+			duplicate: dupe,
+		}).then(eventId => {
+			res.json({vukky, newBalance: res.locals.user.playerData.balance, duplicate: dupe, eventId});
+		})
 	})
 })
 

@@ -6,6 +6,8 @@ import {isValidObjectId} from "mongoose";
 import friendshipAPI from "./api/v1/friendshipAPI";
 import compare from "../util/stringComparision";
 import {checkCodeStatus, claimCode, ClaimResult, CodeStatus} from "../util/codeHelper";
+import createEvent from "../util/events/createEvent";
+import EventType from "../util/events/EventType";
 
 const router: Router = express.Router();
 
@@ -65,6 +67,7 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 			if (typeof req.body.favoriteVukky !== "undefined") res.locals.user.profile.favoriteVukky = Number(req.body.favoriteVukky)
 			res.locals.user.save();
 			res.json({error: null, success: true});
+			createEvent(res.locals.user, EventType.ProfileUpdate, { profile: res.locals.user.profile })
 			break;
 		case "css":
 			if (!req.body.css) res.locals.user.profile.css = "";
@@ -75,6 +78,7 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 			}
 			res.locals.user.save();
 			res.json({error: null, success: true});
+			createEvent(res.locals.user, EventType.ProfileUpdate, { profile: res.locals.user.profile })
 			break;
 		case "background":
 			if (!req.body.bgMode) return res.status(400).json({error: "Missing parameters"});
@@ -85,11 +89,13 @@ router.post('/profile', apiAuth, (req: Request, res: Response) => {
 					res.locals.user.profile.background.color = req.body.bgColor;
 					res.locals.user.save();
 					res.json({error: null, success: true});
+					createEvent(res.locals.user, EventType.ProfileUpdate, { profile: res.locals.user.profile })
 					break;
 				case "random":
 					res.locals.user.profile.background.mode = "random";
 					res.locals.user.save();
 					res.json({error: null, success: true});
+					createEvent(res.locals.user, EventType.ProfileUpdate, { profile: res.locals.user.profile })
 					break;
 				default:
 					res.status(400).json({error: "Invalid background mode"});

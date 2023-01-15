@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body style="background-color: black !important;background-image: unset !important;">
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content">
+            <div class="profile-card text-red-600 text-center">
+                <span class="font-bold">Noooooooooooooo</span><br>
+                <small>click the button below to delete your account - this is irreversible and instant</small><br>
+                <button class="btn-red" onclick="deleteAccount(':(')">Delete Account</button>
+            </div>
+        </div>
+        <script>
+            function deleteAccount(emotion) {
+                if (emotion === ":(") {
+                    fetch("/delete", {
+                        method: "DELETE",
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then(res => {
+                        if (res.status == 200) {
+                            window.location.href = "/";
+                        } else {
+                            alert(res.status + " Something went wrong, please try again later.");
+                        }
+                    });
+                } else {
+                    alert("You must be sad to delete your account.");
+                }
+            }
+        </script>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

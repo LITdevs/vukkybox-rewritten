@@ -15,10 +15,12 @@
                 </div>
                 <br>
                 <button onclick="openBox()" class="btn">Open</button>
+                <button onclick="share()" id="shareButton" class="btn hidden">Share drop</button>
 
             </div>
         </div>
         <script>
+            let shareUrl = "";
             const rarityLang = {
 	            "common": "<%=lang.vukkies.common%>",
 	            "uncommon": "<%=lang.vukkies.uncommon%>",
@@ -43,6 +45,7 @@
 
             function openBox() {
 	            document.getElementById("vukkyData").classList.add("hidden");
+	            document.getElementById("shareButton").classList.add("hidden");
 	            fetch("/api/internal/open/<%=boxId%>", {
                     method: "POST",
                     headers: {
@@ -63,7 +66,14 @@
 			            document.getElementById("vukkyDescription").innerHTML = data.vukky.description;
 						document.getElementById("vukkyCard").style.borderColor = rarityColor[data.vukky.rarity];
 			            document.getElementById("vukkyData").classList.remove("hidden");
+			            document.getElementById("shareButton").classList.remove("hidden");
+						shareUrl = `${window.location.origin}/event/${data.eventId}`;
 		            });
+            }
+
+			function share() {
+				navigator.clipboard.writeText(shareUrl);
+				alert("Link copied to clipboard!");
             }
         </script>
         <%- include("common/footer.ejs", { user }); %>

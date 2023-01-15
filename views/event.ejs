@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <%- include("common/nav.ejs", { user }); %>
+        <div class="content text-center">
+            <% if (eventObject.type === 0) { %>
+            <span class="font-bold">On <$date:<%=eventObject.timestamp%>> <a href="/profile/<%=puser.username%>" class="text-blue-700"><%=puser.username%></a> got:</span>
+                <div class="mx-auto w-56">
+                    <%
+                        let modifiedVukky = {};
+						Object.assign(modifiedVukky, eventObject.eventData.vukky);
+						if (eventObject.eventData.duplicate) modifiedVukky.name = modifiedVukky.name + " (Duplicate)";
+                    %>
+                    <%- include("common/vukky.ejs", { vukky: modifiedVukky })%>
+                </div>
+            <% } else { %>
+                <%=JSON.stringify({ e: eventObject, u: puser })%>
+            <% } %>
+        </div>
+        <%- include("common/footer.ejs", { user }); %>
+    </body>
+</html>

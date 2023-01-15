@@ -5,9 +5,12 @@ import friendEvent from "../classes/events/friendEvent";
 import {Status} from "../classes/Friendship";
 import UserNotification from "../classes/UserNotification";
 import sendNotification from "../util/sendNotification";
+import createEvent from "../util/events/createEvent";
+import EventType from "../util/events/EventType";
 
 function init() {
 	serverEvents.on("friendEvent", (event : friendEvent) => {
+		createEvent(event.user, EventType.FriendRequestUpdate, { eventData: event })
 		if (event.friendship.recipient == event.friendship.requester) {
 			if (event.oldState === Status.Pending && event.friendship.state === Status.Accepted) {
 				// Make sure user hasn't been awarded badge before
