@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title><%= title %></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body>
-        <%- include("common/nav.ejs", { user }); %>
-            <div class="content">
-                <% boxes.forEach(box => {
-                    box // This is here so the linter shuts up%><%-include("common/box.ejs", { box }); %><br><br><%
-                }) %>
-            </div>
-        <%- include("common/footer.ejs", { user }); %>
-    </body>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("common/nav.ejs", { user }); %>
+    <div class="content">
+      <div class="flex flex-wrap">
+        <% boxes.forEach(box => { box // This is here so the linter shuts up
+        %><%-include("common/box.ejs", { box }); %><br /><br /><% }) %>
+      </div>
+    </div>
+    <%- include("common/footer.ejs", { user }); %>
+  </body>
 </html>
