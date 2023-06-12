@@ -1,5 +1,15 @@
-<%=box.name %><br>
-<%-box.description%><br>
-<%-box.price%> Vukkybux ( <%=box.noRefund ? "no refund" : "refund"%> )<br>
-<br>
-<a class="text-blue-500" href="/open/<%=box.id%>">Buy</a>
+<div
+  class="border-2 rounded-lg w-56 m-1.5 content-left text-left shadow-lg bg-cyan-300 p-2"
+>
+  <h1 class="text-xl text-center"><%=box.name %></h1>
+  <img src="<%-box.imageURL%>" />
+  <%-box.description%><br />
+  <%-box.price%> Vukkybux ( <%=box.noRefund ? "no refund" : "refund"%> )<br />
+  <a href="/open/<%=box.id%>">
+    <div
+      class="border-2 rounded-lg w-25 m-1.5 content-center text-center shadow-lg bg-cyan-100 items-center"
+    >
+      <p class="text-blue-700">Buy</p>
+    </div>
+  </a>
+</div>
