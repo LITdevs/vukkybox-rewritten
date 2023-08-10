@@ -14,7 +14,7 @@
 	"author": "Skelly, Assets by Vukky",
 	"license": "UNLICENSED",
 	"devDependencies": {
-		"@tailwindcss/line-clamp": "^0.4.2",
+		"@tailwindcss/line-clamp": "^0.4.4",
 		"@types/connect-mongodb-session": "^2.4.4",
 		"@types/cookie-parser": "^1.4.3",
 		"@types/cors": "^2.8.12",
